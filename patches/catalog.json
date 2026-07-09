@@ -1,0 +1,6 @@
+{
+  "catalog_version": 1,
+  "status": "scaffold",
+  "kernel_target": "6.8.0-40-generic",
+  "patches": []
+}
