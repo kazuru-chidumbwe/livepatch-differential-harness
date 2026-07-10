@@ -1,0 +1,30 @@
+0000000000000000 <__pfx_hb_version_proc_show>:
+   0:	90                   	nop
+   1:	90                   	nop
+   2:	90                   	nop
+   3:	90                   	nop
+   4:	90                   	nop
+   5:	90                   	nop
+   6:	90                   	nop
+   7:	90                   	nop
+   8:	90                   	nop
+   9:	90                   	nop
+   a:	90                   	nop
+   b:	90                   	nop
+   c:	90                   	nop
+   d:	90                   	nop
+   e:	90                   	nop
+   f:	90                   	nop
+
+0000000000000010 <hb_version_proc_show>:
+  10:	e8 00 00 00 00       	call   15 <hb_version_proc_show+0x5>
+  15:	53                   	push   rbx
+  16:	48 89 fb             	mov    rbx,rdi
+  19:	e8 00 00 00 00       	call   1e <hb_version_proc_show+0xe>
+  1e:	48 89 df             	mov    rdi,rbx
+  21:	48 c7 c6 00 00 00 00 	mov    rsi,0x0
+  28:	e8 00 00 00 00       	call   2d <hb_version_proc_show+0x1d>
+  2d:	48 89 df             	mov    rdi,rbx
+  30:	be 21 00 00 00       	mov    esi,0x21
+  35:	e8 00 00 00 00       	call   3a <hb_version_proc_show+0x2a>
+  3a:	31 c0                	xor    eax,eax

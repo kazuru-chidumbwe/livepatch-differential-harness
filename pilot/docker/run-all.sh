@@ -24,7 +24,7 @@ run() {
 [ -f pilot/build/bzImage ] || { echo "missing pilot/build/bzImage"; exit 1; }
 
 run "LP-PILOT-02 validation" pilot/scripts/08-run-lp-pilot-02.sh
-run "C1 cross-pipeline" pilot/scripts/14-run-corpus-c1-predicates.sh
+run "B1 pipeline baseline" pilot/scripts/14-run-corpus-c1-predicates.sh
 run "C2 func-sym" pilot/scripts/12-run-corpus-c2-func-sym.sh
 run "C3 survivable-sym" pilot/scripts/13-run-corpus-c3-survivable-sym.sh
 

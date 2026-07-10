@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# LP-CORPUS-01: kpatch-build vs klp (hand-build reference) on PILOT-02 fix.
+# LP-CORPUS-01 / B1: kpatch-build vs hand-build klp reference on PILOT-02 fix.
+# Paper label: B1 (not blocked C1 = klp-build-upstream vs kpatch on 6.19+).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 # shellcheck source=/dev/null
