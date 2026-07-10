@@ -5,11 +5,7 @@ Differential test harness for Linux livepatch **build pipelines**. Identical sou
 **Paper:** *Do Livepatch Builders Agree?* — outline [`pilot/PILOT-GATE-DELIVERABLES.md`](../../pilot/PILOT-GATE-DELIVERABLES.md)  
 **Status:** scaffold Jul 2026 — **pilot gate not passed** (blocks corpus)
 
-## Related publication
-
-**Public essay (external):** *I built one kernel livepatch four ways — here's what differential testing caught* (draft in [`README.md`](README.md)).
-
-Blog reproduction will be pinned to a release tag once Gate 0/1 pass. Until then, this repository is **design + scaffold**; execution artifacts land under `results/` and `logs/`.
+**Public release:** LP01 dev.to + S4 paper — **same window** (not blog-first). No public push until pilot + minimum corpus support paper claims.
 
 ---
 
