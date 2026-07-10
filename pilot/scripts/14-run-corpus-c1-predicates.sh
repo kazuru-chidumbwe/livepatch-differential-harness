@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# C1 predicates: klp hand-build vs kpatch-build output on PILOT-02 fix.
+# B1 predicates: hand-build klp vs kpatch-build on PILOT-02 fix (dir: LP-CORPUS-01-pipeline).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 CASE_ENV="$ROOT/pilot/cases/LP-PILOT-02-version/case.env"
@@ -62,7 +62,7 @@ run_pred "$KLP" klp
 run_pred "$KP" kpatch
 
 {
-  echo "# C1 cross-pipeline predicate transcript"
+  echo "# B1 pipeline baseline predicate transcript (hand-build klp vs kpatch-build)"
   echo
   echo "## klp hand-build"
   grep -E 'C1_|INSMOD|P2_PASS|P3_PASS|livepatch|#PF|PROC|---' "$OUT/predicate-klp-serial.log" || tail -35 "$OUT/predicate-klp-serial.log"

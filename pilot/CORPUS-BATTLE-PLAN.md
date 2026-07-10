@@ -15,10 +15,17 @@
 
 - [x] **DONE 2026-07-10** — `INSMOD_RC=0`, **silent**, `P2_PASS=0` — code-relocation twin of PILOT-02
 
-### C1 — kpatch-build vs klp on PILOT-02 fix
+### B1 — kpatch-build vs hand-build klp (PILOT-02 fix)
 
-- [x] kpatch-build **installed** on lab (`/usr/local/bin/kpatch-build`)
+*Paper label **B1** — not to be confused with blocked **C1** (`klp-build-upstream` vs kpatch, needs 6.19+).*
+
+- [x] kpatch-build **installed** on lab
 - [x] Run kpatch-build + predicate compare vs hand-build klp — **null result, benign divergence**
+
+### C1 — True cross-pipeline (Paper 2)
+
+- [ ] `klp-build-upstream` vs `kpatch-build` on same pin (Linux 6.19+)
+- [ ] Full harness re-validation on new pin
 
 ### C3 — Peer check
 

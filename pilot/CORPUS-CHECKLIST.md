@@ -5,15 +5,16 @@
 
 ## Immediate (weeks 1–2)
 
-- [ ] **C1** kpatch-build vs klp-build on PILOT-02 fix — relocs, disasm, P2/P3; pin versions/commands
-- [ ] **C2** Function-symbol substitution prototype — same-signature wrong callee; `insmod` + predicate outcome
-- [ ] **C3** Peer check sent + replies logged (`pilot/outreach/`) — **sent 2026-07-10**
+- [x] **B1** kpatch-build vs hand-build klp on PILOT-02 fix — relocs, disasm, P2/P3 (`LP-CORPUS-01-pipeline/`)
+- [x] **C2** Function-symbol substitution — DONE
+- [x] **C3** Survivable redirect — DONE; verified `C3-DATA-PACK.md`
+- [x] **C5** Under-inclusion probe — DONE
 
 ## Near-term (weeks 2–6)
 
-- [ ] **C4** Full 6.1.y CVE stratification (expand n=20) — appendix table
-- [ ] **C5** Under-inclusion probe — inline hot/cold, klp_func set diff, ftrace cold path
-- [ ] **C6** First real CVE corpus case (mechanism-1) — includes C1/C2 on production fix
+- [ ] **C1** True cross-pipeline: `klp-build-upstream` vs kpatch (Paper 2 — 6.19+ pin)
+- [ ] **C4** Full 6.1.y CVE stratification — appendix table
+- [ ] **C6** kpatch `-O2`/`-Os` per CVE (Paper 2)
 
 ## Paper prep (parallel)
 
