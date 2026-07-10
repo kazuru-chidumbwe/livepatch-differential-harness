@@ -3,7 +3,7 @@
 **Supersedes** v1 Canonical-reference three-channel protocol.  
 **Source:** [`pilot/PILOT-GATE-DELIVERABLES.md`](../../../pilot/PILOT-GATE-DELIVERABLES.md)
 
-**Status:** outline locked 2026-07-10; **pilot not run** — blocks corpus.
+**Status:** pilot **gate closed** 2026-07-10 — see [`pilot/PILOT-GATE-DELIVERABLES.md`](../pilot/PILOT-GATE-DELIVERABLES.md).
 
 ## Goal
 
@@ -58,4 +58,4 @@ Report: **trace-equivalent**, **divergent (mechanism X)**, or **inconclusive (co
 
 - `kpatch-build` (legacy)  
 - `klp-build` (upstream 6.19+)  
-- SUSE kgraft-patch — **only if verified independent** (open check)
+- SUSE kgraft-patch — **excluded** (packaging wrapper; see `pilot/results/kgraft-patch-pipeline-check.md`)

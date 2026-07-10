@@ -1,0 +1,10 @@
+# Perturbation sanity — LP-PILOT-01
+
+**Method:** hand-built module with deliberately wrong `old_name` (symbol mismatch).
+**Expected:** insmod failure and P2_PASS=0 (no behavioral change).
+
+[   16.644561] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+=== PERTURBATION wrong-symbol ===
+INSMOD_RC=1
+P2_PASS=0
+PERTURBATION_PASS

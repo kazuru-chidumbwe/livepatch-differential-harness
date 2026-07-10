@@ -30,14 +30,16 @@ python notes/lab-lp-pilot-setup.py
 
 ## Gate deliverables (checklist)
 
-- [ ] `pilot/results/kernel.commit` + `kernel.config` + `kernel.sha256`
-- [ ] Hand-built module under `pilot/handbuild/LP-PILOT-01/`
-- [ ] Relocation table + derivation notes
-- [ ] Failure log + iteration count to first `insmod`
-- [ ] Revert-and-retest pass
-- [ ] Perturbation-sanity pass
-- [ ] Predicate table + kcov coverage %
-- [ ] Time accounting hours
+- [x] `pilot/results/kernel.commit` + `kernel.config` + `kernel.sha256`
+- [x] Hand-built module under `pilot/handbuild/LP-PILOT-01/`
+- [x] Relocation table + derivation notes
+- [x] Failure log + iteration count to first `insmod` (**1**)
+- [x] Revert-and-retest pass
+- [x] Perturbation-sanity pass
+- [x] Predicate table + coverage bounds
+- [x] Time accounting hours
+
+**Master record:** [`PILOT-GATE-DELIVERABLES.md`](PILOT-GATE-DELIVERABLES.md)
 
 ## Decision
 
