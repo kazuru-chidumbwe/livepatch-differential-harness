@@ -3,9 +3,10 @@
 | Field | Value |
 | --- | --- |
 | **Started** | 2026-07-10 |
+| **Sent** | **2026-07-10** |
 | **Channel** | `live-patching@vger.kernel.org` |
 | **Draft** | `pilot/outreach/LP-PILOT-02-peer-check-email.txt` |
-| **Status** | **Ready to send** — paste draft into MUA; add public repo URL when available |
+| **Status** | **Sent** — awaiting maintainer reply |
 | **Ask** | Informal sanity check on `klp_patch` structure and ground-truth validity |
 | **Blocks** | Nothing — waiting-on-maintainer parallel track |
 

@@ -7,7 +7,7 @@
 
 - [ ] **C1** kpatch-build vs klp-build on PILOT-02 fix — relocs, disasm, P2/P3; pin versions/commands
 - [ ] **C2** Function-symbol substitution prototype — same-signature wrong callee; `insmod` + predicate outcome
-- [ ] **C3** Peer check sent + replies logged (`pilot/outreach/`)
+- [ ] **C3** Peer check sent + replies logged (`pilot/outreach/`) — **sent 2026-07-10**
 
 ## Near-term (weeks 2–6)
 
