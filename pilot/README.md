@@ -22,7 +22,7 @@ Proves whether hand-built `klp_patch` ground truth is tractable before corpus wo
 
 ## Remote lab
 
-From Windows when `lab-host` is reachable:
+From a Linux lab host when reachable:
 
 ```bash
 python notes/lab-lp-pilot-setup.py

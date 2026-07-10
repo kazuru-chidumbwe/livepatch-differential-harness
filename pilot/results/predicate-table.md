@@ -51,21 +51,21 @@ When `kpatch-build` vs `klp-build-upstream` artifacts exist for the same source 
 
 **Date:** 2026-07-10  
 **Case:** `version_proc_show` — multi-reloc hand-build  
-**Role:** Proves **behavioral predicates** catch **loadable** divergence (paper core claim)
+**Role:** Proves **behavioral predicates** catch a **loadable data-relocation** error (paper core claim). Does **not** demonstrate mechanism #1 (code-relocation / function-symbol substitution).
 
 ## Predicates
 
-| ID | Predicate | Good path | Loadable perturbation |
+| ID | Predicate | Good path | Loadable data-relocation perturbation |
 | --- | --- | --- | --- |
 | P1 | `/proc/version` read succeeds | PASS | PASS |
 | P2 | Marker `LP-PILOT-02 patched-by-harness` present | **PASS** (`P2_PASS=1`) | **FAIL** (`P2_PASS=0`) |
 | P3 | Revert restores pre-patch output | PASS (`P3_PASS=1`) | — |
 | P4 | `insmod` succeeds | `INSMOD_RC=0` | `INSMOD_RC=0` |
 
-**Key result:** P4 passes for perturbation but P2 fails → detection is **behavioral**, not load-time symbol validation.
+**Key result:** P4 passes for perturbation but P2 fails → detection is **behavioral**, not load-time symbol validation. Divergence class: **data relocation** (swapped `.rodata` addends), not weak-symbol/GOT code relocation.
 
 ## Perturbation method
 
-Binary swap of `R_X86_64_32S` addends `0` ↔ `0x18` in `.rela.text` (`perturb-rodata-addend.py`) — module remains loadable.
+Binary swap of `R_X86_64_32S` addends `0` ↔ `0x18` in `.rela.text` (`perturb-rodata-addend.py`) — module remains loadable; wrong string literal referenced.
 
 Evidence: `pilot/results/LP-PILOT-02/perturbation-loadable.txt`
