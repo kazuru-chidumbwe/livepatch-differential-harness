@@ -1,0 +1,15 @@
+# LP-PILOT-02 benign-variation resistance
+
+Claim: behavioral predicates (P2/P3) pass despite different codegen (not overfitted to one `.ko`).
+
+## Hand-build EXTRA_CFLAGS=-O2
+
+INSMOD_RC=0, P2_PASS=1, P3_PASS=1
+
+## Hand-build EXTRA_CFLAGS=-Os
+
+INSMOD_RC=0, P2_PASS=1, P3_PASS=1
+
+**BENIGN_VARIATION_PASS=1**
+
+kpatch-build: deferred (tool/patch not on lab); hand-build `-O2`/`-Os` sweep satisfies pilot item 4.

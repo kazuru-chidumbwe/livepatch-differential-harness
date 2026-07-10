@@ -24,3 +24,14 @@ Evidence: `pilot/results/LP-PILOT-02/`
 ## Worthiness
 
 **PROCEED** — see [`PILOT-GATE-DELIVERABLES.md`](PILOT-GATE-DELIVERABLES.md).
+
+## Sponsor follow-ups (2026-07-10)
+
+| Item | Track | Status |
+| --- | --- | --- |
+| 9 Peer check | `pilot/outreach/` | Draft ready — **send now** (clock started 2026-07-10) |
+| 4 Benign variation | `10-benign-variation-pilot-02.sh` | **DONE** (`-O2`/`-Os`, P2/P3 pass) |
+| 5 kcov | `09-kcov-pilot-02.sh` | **DONE** (1547 syscall-path BB hits) |
+| 1 Forensic writeup | `results/LP-PILOT-02/forensic-writeup.md` | **DONE** (+ lab `disassembly-diff.txt`) |
+
+Corpus items (2, 3, 7, 8) unchanged — see private programme `notes/sponsor-lp-pilot-scope-response.md`.
