@@ -6,16 +6,18 @@ Thin wrappers around each livepatch build tool. Responsibilities:
 2. Emit `build-provenance.json` (flags, objtool version, commit ids)
 3. Copy output `.ko` to `build/<patch-id>/<tool-id>/livepatch.ko`
 
-## Pipelines
+## Pipelines (qualified IDs)
 
-| Directory | Tool |
-| --- | --- |
-| `canonical/` | Reference module ingestion (no build; copy prebuilt) |
-| `kpatch-build/` | dynup/kpatch |
-| `kgraft/` | SUSE kgraft scripts |
-| `klp-build/` | `scripts/livepatch/klp-build` (in-tree) |
+| Directory | Qualified ID | Tool |
+| --- | --- | --- |
+| `kpatch-build/` | `kpatch-build` | dynup/kpatch |
+| `klp-build-upstream/` | `klp-build-upstream` | `scripts/livepatch/klp-build` (kernel 6.19+) |
+| `suse-klp-build/` | `SUSE-klp-build` | SUSE/klp-build + klp-ccp (optional vendor track) |
+| `kernel-livepatch-packaging/` | — | SUSE kernel-livepatch RPM scripts — **not a builder** |
 
-Each wrapper must support `make -j1` (or equivalent serialization) for determinism experiments.
+**Naming rule:** In prose, write `klp-build-upstream` vs `SUSE-klp-build`. Bare `klp-build` is ambiguous and must not appear in paper tables.
+
+Hand-built reference modules live under `pilot/handbuild/` — not under `pipelines/`.
 
 ## Flag extraction
 

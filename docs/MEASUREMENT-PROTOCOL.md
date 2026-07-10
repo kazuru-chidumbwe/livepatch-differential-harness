@@ -3,7 +3,7 @@
 **Supersedes** v1 Canonical-reference three-channel protocol.  
 **Source:** [`pilot/PILOT-GATE-DELIVERABLES.md`](../../../pilot/PILOT-GATE-DELIVERABLES.md)
 
-**Status:** pilot **gate closed** 2026-07-10 — see [`pilot/PILOT-GATE-DELIVERABLES.md`](../pilot/PILOT-GATE-DELIVERABLES.md).
+**Status:** pilot gate **closed** 2026-07-10 (LP-PILOT-01 toolchain + LP-PILOT-02 behavioral claim). See [`pilot/PILOT-GATE-DELIVERABLES.md`](../pilot/PILOT-GATE-DELIVERABLES.md).
 
 ## Goal
 
@@ -57,5 +57,6 @@ Report: **trace-equivalent**, **divergent (mechanism X)**, or **inconclusive (co
 ## Pipelines
 
 - `kpatch-build` (legacy)  
-- `klp-build` (upstream 6.19+)  
-- SUSE kgraft-patch — **excluded** (packaging wrapper; see `pilot/results/kgraft-patch-pipeline-check.md`)
+- `klp-build-upstream` (`scripts/livepatch/klp-build`, kernel 6.19+)  
+- `SUSE-klp-build` — optional vendor track; qualitative unless reproduced  
+- `kernel-livepatch-packaging` (legacy kgraft-patch scripts) — **excluded** — see `pilot/results/kgraft-patch-pipeline-check.md`
