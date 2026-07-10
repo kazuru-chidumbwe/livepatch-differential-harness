@@ -7,7 +7,7 @@
 
 | Step | Status | Notes |
 | --- | --- | --- |
-| 1. Environment pinned + container | **PARTIAL** | `pilot/env/pins.env`, `pilot/Dockerfile`, scripts scaffolded |
+| 1. Environment pinned + container | **PARTIAL** | Kernel `v6.6.47` cloned to WSL `~/livepatch-pilot/linux` (`4c1a2d4…`); apt/qemu still needs sudo |
 | 2. Pilot patch selected | **DONE** | LP-PILOT-01 — kernel `livepatch-sample` target |
 | 3. Hand-built `klp_patch` | **NOT STARTED** | Needs built kernel + headers |
 | 4. Validation layers | **NOT STARTED** | Needs QEMU VM booting pinned kernel |
