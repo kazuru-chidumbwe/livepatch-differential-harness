@@ -1,0 +1,44 @@
+--- $HOME/private-programme/repos/livepatch-differential-harness/pilot/results/LP-CORPUS-01-pipeline/disasm-klp-handbuild.txt	2026-07-10 10:16:22.252491824 +0000
++++ $HOME/private-programme/repos/livepatch-differential-harness/pilot/results/LP-CORPUS-01-pipeline/disasm-kpatch.txt	2026-07-10 10:16:22.258491848 +0000
+@@ -1,4 +1,4 @@
+-0000000000000000 <__pfx_hb_version_proc_show>:
++0000000000000000 <__pfx_version_proc_show>:
+    0:	90                   	nop
+    1:	90                   	nop
+    2:	90                   	nop
+@@ -16,21 +16,17 @@
+    e:	90                   	nop
+    f:	90                   	nop
+ 
+-0000000000000010 <hb_version_proc_show>:
+-  10:	f3 0f 1e fa          	endbr64
+-  14:	e8 00 00 00 00       	call   19 <hb_version_proc_show+0x9>
+-  19:	53                   	push   rbx
+-  1a:	48 89 fb             	mov    rbx,rdi
+-  1d:	e8 00 00 00 00       	call   22 <hb_version_proc_show+0x12>
+-  22:	48 89 df             	mov    rdi,rbx
+-  25:	48 c7 c1 00 00 00 00 	mov    rcx,0x0
+-  2c:	48 c7 c2 00 00 00 00 	mov    rdx,0x0
+-  33:	48 c7 c6 00 00 00 00 	mov    rsi,0x0
+-  3a:	e8 00 00 00 00       	call   3f <hb_version_proc_show+0x2f>
+-  3f:	48 89 df             	mov    rdi,rbx
+-  42:	be 21 00 00 00       	mov    esi,0x21
+-  47:	e8 00 00 00 00       	call   4c <hb_version_proc_show+0x3c>
+-  4c:	31 c0                	xor    eax,eax
+-  4e:	5b                   	pop    rbx
+-  4f:	e9 00 00 00 00       	jmp    54 <__UNIQUE_ID_vermagic173+0x10>
+-
++0000000000000010 <version_proc_show>:
++  10:	e8 00 00 00 00       	call   15 <version_proc_show+0x5>
++  15:	53                   	push   rbx
++  16:	48 89 fb             	mov    rbx,rdi
++  19:	e8 00 00 00 00       	call   1e <version_proc_show+0xe>
++  1e:	48 89 df             	mov    rdi,rbx
++  21:	48 c7 c6 00 00 00 00 	mov    rsi,0x0
++  28:	e8 00 00 00 00       	call   2d <version_proc_show+0x1d>
++  2d:	48 89 df             	mov    rdi,rbx
++  30:	be 21 00 00 00       	mov    esi,0x21
++  35:	e8 00 00 00 00       	call   3a <version_proc_show+0x2a>
++  3a:	31 c0                	xor    eax,eax
++  3c:	5b                   	pop    rbx
++  3d:	e9 00 00 00 00       	jmp    42 <__kpatch_funcs_end+0xa>

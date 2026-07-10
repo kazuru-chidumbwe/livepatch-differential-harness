@@ -1,0 +1,39 @@
+# C1 cross-pipeline predicate transcript
+
+## klp hand-build
+=== C1_klp ===
+[   15.389056] livepatch_version: loading out-of-tree module taints kernel.
+[   15.389677] livepatch_version: tainting kernel with TAINT_LIVEPATCH
+[   15.402116] livepatch: enabling patch 'livepatch_version'
+[   15.494012] livepatch: 'livepatch_version': starting patching transition
+[   16.383302] livepatch: 'livepatch_version': patching complete
+INSMOD_RC=0
+[   15.389056] livepatch_version: loading out-of-tree module taints kernel.
+[   15.389677] livepatch_version: tainting kernel with TAINT_LIVEPATCH
+[   15.402116] livepatch: enabling patch 'livepatch_version'
+[   15.494012] livepatch: 'livepatch_version': starting patching transition
+[   16.383302] livepatch: 'livepatch_version': patching complete
+---PROC---
+!P2_PASS=1
+[   17.523213] livepatch: 'livepatch_version': starting unpatching transition
+[   18.811351] livepatch: 'livepatch_version': unpatching complete
+P3_PASS=1
+
+## kpatch-build
+=== C1_kpatch ===
+[   15.443054] livepatch_LP_PILOT_02_version: loading out-of-tree module taints kernel.
+[   15.443782] livepatch_LP_PILOT_02_version: tainting kernel with TAINT_LIVEPATCH
+[   15.456907] livepatch: enabling patch 'livepatch_LP_PILOT_02_version'
+[   15.547339] livepatch: 'livepatch_LP_PILOT_02_version': starting patching transition
+[   16.410581] livepatch: 'livepatch_LP_PILOT_02_version': patching complete
+INSMOD_RC=0
+[   15.443054] livepatch_LP_PILOT_02_version: loading out-of-tree module taints kernel.
+[   15.443782] livepatch_LP_PILOT_02_version: tainting kernel with TAINT_LIVEPATCH
+[   15.456907] livepatch: enabling patch 'livepatch_LP_PILOT_02_version'
+[   15.547339] livepatch: 'livepatch_LP_PILOT_02_version': starting patching transition
+[   16.410581] livepatch: 'livepatch_LP_PILOT_02_version': patching complete
+---PROC---
+!P2_PASS=1
+[   17.597972] livepatch: 'livepatch_LP_PILOT_02_version': starting unpatching transition
+[   18.916098] livepatch: 'livepatch_LP_PILOT_02_version': unpatching complete
+P3_PASS=1
