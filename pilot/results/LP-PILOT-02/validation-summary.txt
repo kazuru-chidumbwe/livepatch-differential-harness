@@ -1,0 +1,7 @@
+=== PRE_PATCH ===
+INSMOD_RC=0
+=== POST_PATCH ===
+!P2_PASS=1
+=== POST_REVERT ===
+P3_PASS=1
+=== DONE ===

@@ -21,9 +21,9 @@
 | Pipeline | Include in measurement study? |
 | --- | --- |
 | `kpatch-build` | **Yes** |
-| Upstream `scripts/livepatch/klp-build` (6.19+) | **Yes** (when kernel pin permits) |
-| SUSE `klp-build` + `klp-ccp` | Qualitative / optional vendor track |
-| Legacy `kgraft-patch` packaging scripts | **No** — wrapper only |
+| `klp-build-upstream` | `scripts/livepatch/klp-build` (Linux 6.19+) | **Yes** (when kernel pin permits) |
+| `SUSE-klp-build` | SUSE/klp-build + `klp-ccp` | Qualitative / optional vendor track |
+| `kernel-livepatch-packaging` | SUSE kernel-livepatch RPM scripts | **No** — wrapper only |
 
 ## Time spent
 
