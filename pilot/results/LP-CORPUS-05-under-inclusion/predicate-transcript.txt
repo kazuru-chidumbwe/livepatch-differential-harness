@@ -1,0 +1,11 @@
+c[?7l[2J[    0.000000] Linux version 6.6.47-dirty (builder@localhost) (gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #6 SMP PREEMPT_DYNAMIC Fri Jul 10 10:46:08 UTC 2026
+=== PRE ===
+HOT=INLINE-ORIG
+COLD=INLINE-ORIG
+INSMOD_RC=0
+=== POST ===
+HOT=INLINE-PATCHED
+COLD=INLINE-ORIG
+P2_HOT=1
+P2_COLD_STILL_ORIG=1
+UNDER_INCLUSION_DETECTED=1
