@@ -1,0 +1,12 @@
+# LP-CORPUS-02 function-symbol substitution (PLT32 swap)
+
+Mechanism: code-relocation — swap PLT32 bindings seq_printf <-> seq_putc
+Good reference: hand-build LP-PILOT-02
+
+## Relocations (good — excerpt)
+000000000000003b  0000004200000004 R_X86_64_PLT32         0000000000000000 seq_printf - 4
+0000000000000048  0000003e00000004 R_X86_64_PLT32         0000000000000000 seq_putc - 4
+
+## Relocations (perturbed — excerpt)
+000000000000003b  0000003e00000004 R_X86_64_PLT32         0000000000000000 seq_putc - 4
+0000000000000048  0000004200000004 R_X86_64_PLT32         0000000000000000 seq_printf - 4

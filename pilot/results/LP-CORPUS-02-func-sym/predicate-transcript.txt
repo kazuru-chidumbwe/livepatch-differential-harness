@@ -1,0 +1,41 @@
+=== GOOD ===
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) [   16.571308] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+=== CORPUS_C2_good ===
+[   17.659983] livepatch_version: loading out-of-tree module taints kernel.
+[   17.660675] livepatch_version: tainting kernel with TAINT_LIVEPATCH
+[   17.672620] livepatch: enabling patch 'livepatch_version'
+[   17.768220] livepatch: 'livepatch_version': starting patching transition
+[   18.647970] livepatch: 'livepatch_version': patching complete
+INSMOD_RC=0
+[   17.659983] livepatch_version: loading out-of-tree module taints kernel.
+[   17.660675] livepatch_version: tainting kernel with TAINT_LIVEPATCH
+[   17.672620] livepatch: enabling patch 'livepatch_version'
+[   17.768220] livepatch: 'livepatch_version': starting patching transition
+[   18.647970] livepatch: 'livepatch_version': patching complete
+!P2_PASS=1
+
+=== PERTURB_PLT32 ===
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) [   14.865126] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+=== CORPUS_C2_perturb ===
+[   15.925313] livepatch_version: loading out-of-tree module taints kernel.
+[   15.926027] livepatch_version: tainting kernel with TAINT_LIVEPATCH
+[   15.938217] livepatch: enabling patch 'livepatch_version'
+[   16.036017] livepatch: 'livepatch_version': starting patching transition
+[   17.017295] livepatch: 'livepatch_version': patching complete
+INSMOD_RC=0
+[   15.925313] livepatch_version: loading out-of-tree module taints kernel.
+[   15.926027] livepatch_version: tainting kernel with TAINT_LIVEPATCH
+[   15.938217] livepatch: enabling patch 'livepatch_version'
+[   16.036017] livepatch: 'livepatch_version': starting patching transition
+[   17.017295] livepatch: 'livepatch_version': patching complete
+[   18.138993] #PF: error_code(0x0000) - not-present page
+[   18.155149]  ? hb_version_proc_show+0x2f/0x50 [livepatch_version]
+[   18.155736]  hb_version_proc_show+0x3c/0x50 [livepatch_version]
+[   18.166791] Modules linked in: livepatch_version(OK)
+[   18.215177] #PF: error_code(0x0000) - not-present page
+[   18.227884]  ? hb_version_proc_show+0x2f/0x50 [livepatch_version]
+[   18.228398]  hb_version_proc_show+0x3c/0x50 [livepatch_version]
+[   18.235152] Modules linked in: livepatch_version(OK)
+P2_PASS=0
