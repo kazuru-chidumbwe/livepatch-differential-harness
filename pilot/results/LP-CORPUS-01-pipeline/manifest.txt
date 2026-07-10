@@ -1,0 +1,18 @@
+# LP-CORPUS-01 pipeline comparison — PILOT-02 fix
+
+## Pins
+KERNEL_TAG=v6.6.47
+KERNEL_COMMIT=4c1a2d4cd9a5b6c55739a80c5b9efbca322adad7
+HOST_KERNEL=6.8.0-134-generic
+GCC=gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+
+## Kernel config
+CONFIG_LIVEPATCH=y
+
+make: Entering directory '$HOME/private-programme/repos/livepatch-differential-harness/pilot/handbuild/LP-PILOT-02'
+make -C $HOME/livepatch-pilot/linux M=$HOME/private-programme/repos/livepatch-differential-harness/pilot/handbuild/LP-PILOT-02 modules
+make[1]: Entering directory '$HOME/livepatch-pilot/linux'
+make[1]: Leaving directory '$HOME/livepatch-pilot/linux'
+make: Leaving directory '$HOME/private-programme/repos/livepatch-differential-harness/pilot/handbuild/LP-PILOT-02'
+KPATCH_BUILD_RC=not_installed
+Install dynup/kpatch on lab; kernel also needs CONFIG_KPATCH=y for load.
