@@ -25,6 +25,7 @@ append_cfg CONFIG_KPROBES y
 append_cfg CONFIG_KCOV y
 append_cfg CONFIG_KCOV_INSTRUMENT_ALL y
 append_cfg CONFIG_KPATCH y
+append_cfg CONFIG_X86_KERNEL_IBT n
 append_cfg CONFIG_MODULES y
 append_cfg CONFIG_MODULE_SIG n
 make olddefconfig
