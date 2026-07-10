@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: GPL-2.0
+#include <linux/fs.h>
+#include <linux/init.h>
+#include <linux/kernel.h>
+#include <linux/proc_fs.h>
+#include <linux/seq_file.h>
+#include <linux/utsname.h>
+#include "internal.h"
+
+/* LP-CORPUS-05: inline probe — hot (/proc/version) + cold (/proc/version_aux) */
+static __always_inline const char *lp_inline_probe_marker(void)
+{
+	return "INLINE-ORIG";
+}
+
+static int version_proc_show(struct seq_file *m, void *v)
+{
+	seq_puts(m, lp_inline_probe_marker());
+	seq_putc(m, '\n');
+	return 0;
+}
+
+static int version_aux_proc_show(struct seq_file *m, void *v)
+{
+	seq_puts(m, lp_inline_probe_marker());
+	seq_putc(m, '\n');
+	return 0;
+}
+
+static int __init proc_version_init(void)
+{
+	struct proc_dir_entry *pde;
+
+	pde = proc_create_single("version", 0, NULL, version_proc_show);
+	pde_make_permanent(pde);
+	proc_create_single("version_aux", 0, NULL, version_aux_proc_show);
+	return 0;
+}
+fs_initcall(proc_version_init);

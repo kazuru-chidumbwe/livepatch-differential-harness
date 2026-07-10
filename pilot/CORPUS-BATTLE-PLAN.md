@@ -18,8 +18,7 @@
 ### C1 — kpatch-build vs klp on PILOT-02 fix
 
 - [x] kpatch-build **installed** on lab (`/usr/local/bin/kpatch-build`)
-- [ ] `CONFIG_KPATCH=y` kernel rebuild **in flight**
-- [ ] Run kpatch-build + predicate compare vs hand-build klp
+- [x] Run kpatch-build + predicate compare vs hand-build klp — **null result, benign divergence**
 
 ### C3 — Peer check
 
@@ -31,7 +30,8 @@
 
 ### C5 — Under-inclusion hot/cold probe
 
-- [ ] `__always_inline` case; klp_func set diff; ftrace cold path
+- [x] **DONE** — `UNDER_INCLUSION_DETECTED=1` (hot patched, cold `INLINE-ORIG`)
+- [ ] kpatch-build changed-function set on fix patch
 
 ### C6 — Cross-pipeline benign variation
 

@@ -1,0 +1,6 @@
+# klp_func scope (replacement symbols in livepatch module)
+    42: 0000000000000010    50 FUNC    LOCAL  DEFAULT    3 hb_version_proc_show
+    49: 0000000000000000    16 FUNC    LOCAL  DEFAULT    3 __pfx_hb_version[...]
+    54: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT  UND klp_enable_patch
+
+klp_funcs registered: version_proc_show ONLY (version_aux_proc_show not listed — intentional under-inclusion)
