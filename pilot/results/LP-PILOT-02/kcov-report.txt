@@ -1,0 +1,9 @@
+# LP-PILOT-02 kcov report
+
+**Workload:** one `/proc/version` read after livepatch enabled  
+**KCOV_BB_HITS:** 1547 (kernel basic blocks during syscall — includes callees and livepatch glue)  
+**Replacement function:** `hb_version_proc_show` insn=16  
+
+**Function-local BB %:** not meaningful as a ratio — **1547** syscall-path hits vs **16** instructions in `hb_version_proc_show` (callees dominate). Report syscall-path hits only; do not round up to a coverage percentage.
+
+**Method:** `pilot/scripts/09-kcov-pilot-02.sh`, `CONFIG_KCOV=y`, `KCOV_TRACE_PC`.

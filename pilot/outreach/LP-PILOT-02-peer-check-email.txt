@@ -1,0 +1,89 @@
+To: live-patching@vger.kernel.org
+Subject: [RFC] sanity check on hand-built klp_patch for version_proc_show (measurement harness ground truth)
+
+Hi livepatch maintainers,
+
+I'm building a differential-testing harness for livepatch *build pipelines* (kpatch-build vs upstream klp-build, etc.) and need a hand-built klp_patch module as behavioral ground truth per pinned kernel commit.
+
+Before I lean on this in a paper, I'd appreciate an informal "does this look sane?" pass on the LP-PILOT-02 module below. This is **not** a merge candidate — it's a minimal multi-relocation replacement of `version_proc_show` on Linux v6.6.47 (`4c1a2d4cd9a5`).
+
+**Target:** `version_proc_show` in `fs/proc/version.c`
+**API:** standard `klp_func` / `klp_object` / `klp_patch` (same shape as `samples/livepatch/livepatch-sample.c`)
+**Relocations in the built .ko:** `R_X86_64_PLT32` to `seq_printf`, `seq_putc`; two `R_X86_64_32S` addends into `.rodata` (marker + suffix strings)
+**Validation:** `insmod` succeeds; `/proc/version` shows marker `LP-PILOT-02 patched-by-harness`; revert via sysfs `enabled=0` restores banner; controlled rodata-addend swap leaves module loadable but breaks the marker predicate (behavioral detection, not load-time rejection)
+
+Questions I'd value eyes on:
+1. Is the `klp_patch` structure correct for v6.6.x (object/func sentinels, `MODULE_INFO(livepatch, "Y")`)?
+2. Any obvious foot-guns replacing a seq_file handler that only uses `seq_printf`/`seq_putc`?
+3. Anything you'd consider invalid ground truth for equivalence testing even if it loads?
+
+Source (LP-PILOT-02 hand-build):
+
+--- livepatch-version.c ---
+// LP-PILOT-02 hand-built klp_patch — version_proc_show
+// Multi-external-reloc replacement (strlen + seq_printf + seq_putc; dual rodata addends).
+#define pr_fmt(fmt) "lp-pilot-version: " fmt
+
+#include <linux/init.h>
+#include <linux/kernel.h>
+#include <linux/livepatch.h>
+#include <linux/module.h>
+#include <linux/seq_file.h>
+#include <linux/string.h>
+
+static int hb_version_proc_show(struct seq_file *m, void *v)
+{
+	static const char marker[] = "LP-PILOT-02";
+	static const char suffix[] = " patched-by-harness";
+	size_t n;
+
+	n = strlen(marker);
+	if (n == 0)
+		return 0;
+	n += strlen(suffix);
+	seq_printf(m, "%s%s\n", marker, suffix);
+	if (n > 0)
+		seq_putc(m, '!');
+	return 0;
+}
+
+static struct klp_func hb_funcs[] = {
+	{
+		.old_name = "version_proc_show",
+		.new_func = hb_version_proc_show,
+	},
+	{ }
+};
+
+static struct klp_object hb_objs[] = {
+	{
+		.funcs = hb_funcs,
+	},
+	{ }
+};
+
+static struct klp_patch hb_patch = {
+	.mod = THIS_MODULE,
+	.objs = hb_objs,
+};
+
+static int __init hb_version_init(void)
+{
+	return klp_enable_patch(&hb_patch);
+}
+
+static void __exit hb_version_exit(void)
+{
+}
+
+module_init(hb_version_init);
+module_exit(hb_version_exit);
+MODULE_LICENSE("GPL");
+MODULE_INFO(livepatch, "Y");
+--- end ---
+
+Context: https://github.com/kazuru-chidumbwe/livepatch-differential-harness (public release pending)
+
+Thanks for any quick reactions — even "looks fine" or "fix X" is helpful.
+
+Seke Kazuru

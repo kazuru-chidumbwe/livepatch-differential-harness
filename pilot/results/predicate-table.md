@@ -69,3 +69,11 @@ When `kpatch-build` vs `klp-build-upstream` artifacts exist for the same source 
 Binary swap of `R_X86_64_32S` addends `0` ↔ `0x18` in `.rela.text` (`perturb-rodata-addend.py`) — module remains loadable; wrong string literal referenced.
 
 Evidence: `pilot/results/LP-PILOT-02/perturbation-loadable.txt`
+
+## Sponsor follow-ups (2026-07-10)
+
+| Check | Result |
+| --- | --- |
+| Benign variation (`-O2` / `-Os` hand-build) | **PASS** — `P2_PASS=1`, `P3_PASS=1` both configs (`benign-variation.txt`) |
+| kcov (syscall path) | **1547 BB hits** — not reported as inflated % (`kcov-report.txt`) |
+| Forensic writeup | `forensic-writeup.md` + `disassembly-diff.txt` (lab-generated) |
