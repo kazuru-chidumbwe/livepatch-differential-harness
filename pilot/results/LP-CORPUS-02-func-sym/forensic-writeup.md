@@ -41,4 +41,4 @@ This is not an out-of-bounds access within a mapped object. The CPU faults on a 
 | Runtime | **Silent** wrong string | **Loud** #PF |
 | P2 | FAIL (wrong marker) | FAIL (no complete output) |
 
-**Companion finding:** mechanism #1 code-relocation can pass load and **crash on invoke** when arity/ABI mismatch. Survivable silent code-relocation is **not yet shown** — see LP-CORPUS-03 (`seq_puts` → `seq_putc` one-way redirect).
+**Companion finding:** mechanism #1 code-relocation can pass load and **crash on invoke** when arity/ABI mismatch causes pointer dereference. **LP-CORPUS-03** shows the same load-time pass can instead produce **silent** wrong output when the wrong callee only consumes the low byte of `rsi` — see `LP-CORPUS-03-survivable-sym/forensic-writeup.md`.
