@@ -1,8 +1,9 @@
 # Livepatch Differential Harness
 
-Differential test harness for Linux livepatch **build pipelines**. Identical source patches are built with multiple tools under a pinned toolchain; each run captures normalized ELF structure, deterministic runtime probes, and operational kernel signatures to classify **observational equivalence**.
+Differential test harness for Linux livepatch **build pipelines**. Identical source patches are built with multiple tools under a pinned kernel commit; outputs are compared for **trace-equivalence** using hand-built `klp_patch` reference modules, ELF normalization, and per-case predicate suites.
 
-**Pilot scope:** exploratory corpus (8–15 patches), not exhaustive coverage. Primary contribution is the harness and measurement protocol.
+**Paper:** *Do Livepatch Builders Agree?* — outline [`pilot/PILOT-GATE-DELIVERABLES.md`](../../pilot/PILOT-GATE-DELIVERABLES.md)  
+**Status:** scaffold Jul 2026 — **pilot gate not passed** (blocks corpus)
 
 ## Related publication
 
