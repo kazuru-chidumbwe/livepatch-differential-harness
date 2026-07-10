@@ -3,7 +3,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 # shellcheck source=/dev/null
 source "$ROOT/pilot/env/pins.env"
-DEST="${WORK_ROOT:-/var/lib/livepatch-pilot}/linux"
+DEST="${WORK_ROOT:-$HOME/livepatch-pilot}/linux"
 cd "$DEST"
 make defconfig
 append_cfg() {

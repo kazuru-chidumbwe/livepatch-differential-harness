@@ -9,4 +9,4 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
   gcc-13 g++-13
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 100 || true
 gcc --version | head -1
-pip3 install --user pyelftools
+pip3 install --user --break-system-packages pyelftools

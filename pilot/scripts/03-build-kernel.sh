@@ -3,7 +3,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 # shellcheck source=/dev/null
 source "$ROOT/pilot/env/pins.env"
-DEST="${WORK_ROOT:-/var/lib/livepatch-pilot}/linux"
+DEST="${WORK_ROOT:-$HOME/livepatch-pilot}/linux"
 cd "$DEST"
 make -j"${BUILD_JOBS:-$(nproc)}" 2>&1 | tee "$ROOT/pilot/results/kernel.build.log"
 make modules_install INSTALL_MOD_PATH="$ROOT/pilot/build/modules" 2>&1 | tee -a "$ROOT/pilot/results/kernel.build.log"
