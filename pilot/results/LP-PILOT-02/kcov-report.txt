@@ -1,9 +1,26 @@
 # LP-PILOT-02 kcov report
 
 **Workload:** one `/proc/version` read after livepatch enabled  
-**KCOV_BB_HITS:** 1547 (kernel basic blocks during syscall — includes callees and livepatch glue)  
-**Replacement function:** `hb_version_proc_show` insn=16  
+**Kernel:** `CONFIG_KCOV=y`, `KCOV_TRACE_PC`
 
-**Function-local BB %:** not meaningful as a ratio — **1547** syscall-path hits vs **16** instructions in `hb_version_proc_show` (callees dominate). Report syscall-path hits only; do not round up to a coverage percentage.
+## Function-local coverage (replacement handler)
 
-**Method:** `pilot/scripts/09-kcov-pilot-02.sh`, `CONFIG_KCOV=y`, `KCOV_TRACE_PC`.
+| Metric | Value |
+| --- | --- |
+| Replacement function | `hb_version_proc_show` |
+| Instructions (objdump) | 16 |
+| Estimated basic blocks | **1** (straight-line: `strlen` → `seq_printf` → `seq_putc` → return) |
+| Branches exercised by P2 workload | **1 / 1** — single output path; no comparison/branch matrix in this fix |
+
+**Statement:** For this pilot, predicates fully exercise the only semantically distinct path in the replacement function. A richer fix (e.g. `<` vs `<=`) would require additional predicates — that is a **methods/corpus** requirement, not claimed for PILOT-02.
+
+## Syscall-path kcov (context only — not the headline number)
+
+| Metric | Value |
+| --- | --- |
+| `KCOV_BB_HITS` | 1547 |
+| Dominant contributors | VFS, seq_file, syscall entry, callees (`seq_printf`, `seq_putc`, livepatch trampolines) |
+
+**Do not** report 1547 as "coverage of the patched function." It is syscall-path noise for a 16-instruction handler.
+
+**Method:** `pilot/scripts/09-kcov-pilot-02.sh`
