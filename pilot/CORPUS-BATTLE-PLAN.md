@@ -6,15 +6,20 @@
 
 ## Immediate — deliverables
 
-### C2 — Function-symbol substitution twin
+### C2 — Function-symbol substitution (reciprocal PLT32 swap)
 
-- [x] PLT32 swap `seq_printf` ↔ `seq_putc` — **DONE 2026-07-10** (`LP-CORPUS-02-func-sym/`)
-- [x] Outcome: `INSMOD_RC=0`, **#PF at invoke**, `P2_PASS=0` (not load-time reject)
+- [x] **DONE** — `INSMOD_RC=0`, **#PF** at invoke, `P2_PASS=0`
+- [x] Forensic: `LP-CORPUS-02-func-sym/forensic-writeup.md`
+
+### C3 — Survivable function redirect (one-way seq_puts → seq_putc)
+
+- [x] **DONE 2026-07-10** — `INSMOD_RC=0`, **silent**, `P2_PASS=0` — code-relocation twin of PILOT-02
 
 ### C1 — kpatch-build vs klp on PILOT-02 fix
 
-- [x] klp hand-build reference relocs captured
-- [ ] kpatch-build — **blocked** (`not_installed`, `CONFIG_KPATCH` unset)
+- [x] kpatch-build **installed** on lab (`/usr/local/bin/kpatch-build`)
+- [ ] `CONFIG_KPATCH=y` kernel rebuild **in flight**
+- [ ] Run kpatch-build + predicate compare vs hand-build klp
 
 ### C3 — Peer check
 

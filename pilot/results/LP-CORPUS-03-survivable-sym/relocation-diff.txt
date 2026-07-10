@@ -1,0 +1,9 @@
+# LP-CORPUS-03 survivable function redirect
+Redirect: seq_puts PLT32 -> seq_putc (one-way; same register arity at call site)
+
+## Good PLT32
+000000000000002d  0000004100000004 R_X86_64_PLT32         0000000000000000 seq_puts - 4
+000000000000003a  0000003d00000004 R_X86_64_PLT32         0000000000000000 seq_putc - 4
+## Perturbed PLT32
+000000000000002d  0000003d00000004 R_X86_64_PLT32         0000000000000000 seq_putc - 4
+000000000000003a  0000003d00000004 R_X86_64_PLT32         0000000000000000 seq_putc - 4
