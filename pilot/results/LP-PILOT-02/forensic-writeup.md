@@ -21,6 +21,21 @@ The loadable perturbation is a **wrong pointer** into intact `.rodata`, not corr
 
 ---
 
+## Stealth proof: perturbed addresses stay inside mapped `.rodata`
+
+Both `R_X86_64_32S` addends target symbols in the module's **`.rodata`** section — not OOB, not writable memory:
+
+| Reloc | Good addend | Perturbed addend | Target |
+| --- | --- | --- | --- |
+| `r_offset 0x28` | `.rodata + 0` | `.rodata + 0x18` | `marker[]` ↔ `suffix[]` swapped |
+| `r_offset 0x2f` | `.rodata + 0x18` | `.rodata + 0` | reciprocal swap |
+
+**Consequence:** at runtime the module dereferences **valid, mapped, read-only** string literals. The kernel prints the **wrong** string pair; it does not corrupt adjacent memory. QEMU serial on the perturbation path shows **no Oops**, **no livepatch error**, **no KASAN fault** — only `INSMOD_RC=0` and wrong `/proc/version` content (`P2_PASS=0`).
+
+This is a **stealth semantic bug**: wrong pointer into intact `.rodata`, not a smash.
+
+---
+
 ## Relocation diff (structural)
 
 From `relocation-table.txt` — `.rela.text` entries for `hb_version_proc_show`:
