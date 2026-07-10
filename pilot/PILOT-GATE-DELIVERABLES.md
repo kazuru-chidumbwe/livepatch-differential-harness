@@ -19,7 +19,7 @@
 
 ## Hand-build iteration count (floor, not scale claim)
 
-Across two toolchain-validation cases (LP-PILOT-01 and LP-PILOT-02) we encountered **zero iterations requiring correction** after the first `insmod`-successful build (iteration count **1** in each case). Whether this holds for cases involving cross-object relocations, jump labels, per-CPU/atomic sites, or control-flow-affecting patches **remains untested** and is the **first open question of the corpus phase**. This is operational good news, not evidence that hand-building scales to compound cases (e.g. Dirty Pipe capstone).
+Across two toolchain-validation cases (LP-PILOT-01 and LP-PILOT-02) we encountered **zero iterations requiring correction** after the first `insmod`-successful build (iteration count **1** in each case). **Human time to gate close:** **4.0 lab hours** (toolchain bring-up, hand-build, QEMU predicates, loadable data-reloc perturbation). Whether this holds for cases involving cross-object relocations, jump labels, per-CPU/atomic sites, or control-flow-affecting patches **remains untested** and is the **first open question of the corpus phase**. This is operational good news, not evidence that hand-building scales to compound cases (e.g. Dirty Pipe capstone).
 
 ---
 
