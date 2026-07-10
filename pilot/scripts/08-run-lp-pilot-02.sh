@@ -103,9 +103,10 @@ timeout 60 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-lp02-perturb.cpio
   -serial file:"$SERIAL_P" 2>/dev/null || true
 
 {
-  echo "# LP-PILOT-02 perturbation (loadable rodata addend swap)"
+  echo "# LP-PILOT-02 perturbation (loadable data-relocation — rodata addend swap)"
   echo
-  echo "Claim under test: **behavioral predicates** detect divergence when insmod succeeds."
+  echo "Claim under test: behavioral predicates detect a data-relocation error when insmod succeeds."
+  echo "Not tested: mechanism #1 code-relocation / function-symbol substitution."
   echo
   grep -E 'PERTURB|INSMOD|P2_PASS|POST|PRE|DONE' "$SERIAL_P" || cat "$SERIAL_P"
 } | tee "$RES/perturbation-loadable.txt"

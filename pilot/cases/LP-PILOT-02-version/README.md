@@ -1,6 +1,6 @@
 # LP-PILOT-02 — version_proc_show (multi-reloc hand-build)
 
-**Role:** Tests the harness **core claim** — behavioral predicates catch **loadable** semantic divergence (not only `insmod` symbol rejection).
+**Role:** Tests the harness **core claim** — behavioral predicates catch a **loadable data-relocation** error (`insmod` OK, P2 fails). Not mechanism #1 (code-relocation / function-symbol substitution).
 
 **Target:** `version_proc_show` (`fs/proc/version.c` @ v6.6.47)
 
@@ -15,4 +15,4 @@
 | `R_X86_64_PLT32` | `strlen`, `seq_printf`, `seq_putc` |
 | `R_X86_64_32S` | `.rodata.str1.1` with **distinct addends** (marker vs suffix strings) |
 
-**Perturbation B (loadable):** swap rodata addends in built `.ko` so `insmod` succeeds but output lacks the expected marker string → **P2 fails, INSMOD_RC=0**.
+**Perturbation B (loadable data-relocation):** swap `.rodata` `R_X86_64_32S` addends in built `.ko` so `insmod` succeeds but the wrong string is referenced → **P2 fails, INSMOD_RC=0**.

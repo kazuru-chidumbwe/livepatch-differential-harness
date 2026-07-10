@@ -40,15 +40,17 @@ Normalized `.klp.rela.*` tuples per [kernel livepatch ELF format](https://docs.k
 
 Real ELF divergences between pipelines feed the predicate harness (primary mutation source).
 
-## Pilot gate (blocks corpus)
+## Pilot gate (closed 2026-07-10)
 
-| Deliverable | Required |
-| --- | --- |
-| Trivial single-function fix | ✓ |
-| Hand-built `klp_patch` + relocation table | ✓ |
-| Revert-and-retest | ✓ |
-| Perturbation sanity | ✓ |
-| First predicate table | ✓ |
+Two-phase pilot: **LP-PILOT-01** (toolchain validation) + **LP-PILOT-02** (loadable **data-relocation** perturbation). **Do not cite PILOT-01 alone** for behavioral sensitivity.
+
+Across two toolchain-validation cases we encountered **zero iterations requiring correction**; whether this holds for cases involving cross-object relocations or control-flow-affecting patches **remains untested** and is the **first open question of the corpus phase**. Iteration count **1** in each pilot case is a **floor**, not a scale claim (see gate doc).
+
+**Corpus open item:** mechanism-1 **function-symbol substitution** (loadable code-relocation) → first weak-symbol corpus case, not PILOT-03.
+
+See [`pilot/PILOT-GATE-DELIVERABLES.md`](../pilot/PILOT-GATE-DELIVERABLES.md).
+
+## Pilot gate deliverables (historical checklist)
 
 ## Outcomes per case
 

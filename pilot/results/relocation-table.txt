@@ -3536,7 +3536,7 @@ Relocation section '.rela.debug_frame' at offset 0x2e278 contains 6 entries:
 
 ## Relocations (objdump -r)
 
-$HOME/private-programme/repos/livepatch-differential-harness/pilot/handbuild/LP-PILOT-01/livepatch-cmdline.ko:     file format elf64-x86-64
+<artifact-root>/pilot/handbuild/LP-PILOT-01/livepatch-cmdline.ko:     file format elf64-x86-64
 
 RELOCATION RECORDS FOR [.text]:
 OFFSET           TYPE              VALUE

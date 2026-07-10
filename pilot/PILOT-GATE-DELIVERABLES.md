@@ -11,9 +11,15 @@
 | Case | Label | What it validates |
 | --- | --- | --- |
 | **LP-PILOT-01** | Toolchain + gate-process validation | Hand-build API, QEMU loop, revert, **load-time** wrong-symbol rejection (`insmod` fail) |
-| **LP-PILOT-02** | Harness **core-claim** test | **Loadable** rodata perturbation; **behavioral predicates** catch divergence (`insmod` OK, `P2_PASS=0`) |
+| **LP-PILOT-02** | Harness **core-claim** test | **Loadable data-relocation perturbation**; behavioral predicates (not `insmod`) catch divergence |
 
-**Do not** cite LP-PILOT-01 alone as proof of behavioral sensitivity. **Do** cite LP-PILOT-01 + LP-PILOT-02 together for “methodology is buildable.”
+**Paper methodology (verbatim intent):** Do **not** cite LP-PILOT-01 alone as proof of behavioral sensitivity. **Do** cite LP-PILOT-01 **and** LP-PILOT-02 together for “methodology is buildable and sensitive to at least one loadable divergence class.”
+
+---
+
+## Hand-build iteration count (floor, not scale claim)
+
+Across two toolchain-validation cases (LP-PILOT-01 and LP-PILOT-02) we encountered **zero iterations requiring correction** after the first `insmod`-successful build (iteration count **1** in each case). Whether this holds for cases involving cross-object relocations, jump labels, per-CPU/atomic sites, or control-flow-affecting patches **remains untested** and is the **first open question of the corpus phase**. This is operational good news, not evidence that hand-building scales to compound cases (e.g. Dirty Pipe capstone).
 
 ---
 
@@ -36,10 +42,16 @@
 | Deliverable | Result | Evidence |
 | --- | --- | --- |
 | Hand-built module | **PASS** | `pilot/handbuild/LP-PILOT-02/livepatch-version.c` |
-| Multi-type relocations | **PASS** | `R_X86_64_PLT32` (`seq_printf`, `seq_putc`); `R_X86_64_32S` (`.rodata +0`, `.rodata +18`) |
+| Multi-type relocations | **PASS** | `R_X86_64_PLT32` (`seq_printf`, `seq_putc`); `R_X86_64_32S` (`.rodata +0`, `.rodata +0x18`) |
 | Iterations to `insmod` | **1** | `pilot/results/LP-PILOT-02/handbuild-iterations.txt` |
 | Good-path behavioral + revert | **PASS** | `P2_PASS=1`, `P3_PASS=1` — `validation-summary.txt` |
-| Loadable perturbation | **PASS** | `INSMOD_RC=0`, **`P2_PASS=0`** — `perturbation-loadable.txt` |
+| Loadable **data-relocation** perturbation | **PASS** | `INSMOD_RC=0`, **`P2_PASS=0`** — `perturbation-loadable.txt` |
+
+### What LP-PILOT-02 earns (precision)
+
+The **loadable data-relocation perturbation** (`INSMOD_RC=0`, `P2_PASS=0`) is the evidentiary result: a module that passes the kernel's load-time checks can still be **behaviorally wrong**, and the **predicate harness** — not `insmod`, not the consistency model — catches it.
+
+This is a **data-relocation error** (swapped `.rodata` addends — which string literal is referenced). It is a legitimate divergence class but **not** the same failure mode as **mechanism #1** in the threat model (weak-symbol / GOT resolution — a **function** relocation pointing at the wrong code symbol). We tested data relocation only; we did **not** yet test a loadable code-relocation perturbation.
 
 ### Key relocation tuples (`.rela.text`)
 
@@ -50,9 +62,17 @@
 | `0x3b` | `R_X86_64_PLT32` | `seq_printf` | `-4` |
 | `0x48` | `R_X86_64_PLT32` | `seq_putc` | `-4` |
 
-### Perturbation B (loadable)
+### Perturbation B — loadable data-relocation (not mechanism #1)
 
-**Method:** swap `.rela.text` addends `0` ↔ `24` (`0x18`) in built `.ko` via `perturb-rodata-addend.py` — module **loads**, marker string wrong → **predicates fail**.
+**Method:** swap `.rela.text` `R_X86_64_32S` addends `0` ↔ `0x18` in built `.ko` via `perturb-rodata-addend.py` — module **loads**, wrong string referenced → **P2 fails**.
+
+---
+
+## Corpus-phase open item (tracked — not a PILOT-03 gate)
+
+**Function-symbol substitution** (mechanism #1): same-signature, different-semantics **code** relocation / weak-symbol resolution — the harder case from review round 3 — **has not been attempted** in the pilot.
+
+**Disposition:** fold into the **first mechanism-1 corpus case** (weak-symbol driver fix per bottom-up ordering), not a separate blocking pilot gate. First corpus task for mechanism #1 must include a loadable **code-relocation** perturbation test analogous to LP-PILOT-02's data-relocation test.
 
 ---
 
@@ -65,12 +85,14 @@
 | `SUSE-klp-build` | SUSE/klp-build + klp-ccp |
 | `kernel-livepatch-packaging` | **Excluded** (wrapper) |
 
+Run `scripts/pre-push-hygiene.sh` before any public push (hostnames, usernames, internal paths in logs/artifacts).
+
 See `README.md`, `pipelines/README.md`, `pilot/results/kgraft-patch-pipeline-check.md`.
 
 ---
 
 ## Worthiness call
 
-**PROCEED to depth-first corpus.** Toolchain is buildable (LP-PILOT-01) and behavioral predicates detect loadable semantic divergence (LP-PILOT-02).
+**PROCEED to depth-first corpus.** Gate closed for: **methodology is buildable** (LP-PILOT-01) **and behaviorally sensitive to at least one loadable divergence class** — specifically **loadable data-relocation error** (LP-PILOT-02). Mechanism-1 code-relocation sensitivity is explicitly deferred to corpus case #1.
 
-**Residual bounds:** hand-build not reusable across commits; kcov % not measured in pilot QEMU; CVE triage is bounded sample (n=20).
+**Residual bounds:** hand-build not reusable across commits; kcov % not measured in pilot QEMU (single-branch string handlers — correctly deferred); CVE triage bounded sample (n=20, single-annotator).
