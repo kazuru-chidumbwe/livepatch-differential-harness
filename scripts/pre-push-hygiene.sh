@@ -24,11 +24,26 @@ PATHS=(
   LICENSE
 )
 
+# Build debris and QEMU captures are local/regenerable; not part of the publish pin.
+EXCLUDES=(
+  --exclude='*.log'
+  --exclude='*.cmd'
+  --exclude='*.mod'
+  --exclude='*.mod.c'
+  --exclude='*.o'
+  --exclude='*.d'
+  --exclude='*.ko'
+  --exclude='modules.order'
+  --exclude='Module.symvers'
+)
+
 echo "=== pre-push hygiene scan ==="
 FOUND=0
 for pat in "${PATTERNS[@]}"; do
-  # *.log is gitignored local QEMU capture; not part of the publishable artifact tree.
-  if grep -riE --exclude='*.log' "$pat" "${PATHS[@]}" 2>/dev/null | grep -v 'pre-push-hygiene.sh' | grep -v 'LAB_HOST.*example'; then
+  if grep -riE "${EXCLUDES[@]}" "$pat" "${PATHS[@]}" 2>/dev/null \
+    | grep -v 'pre-push-hygiene.sh' \
+    | grep -v 'LAB_HOST.*example' \
+    | grep -v 'employer.*/boma\.gov\.mw'; then
     echo "MATCH pattern: $pat"
     FOUND=1
   fi

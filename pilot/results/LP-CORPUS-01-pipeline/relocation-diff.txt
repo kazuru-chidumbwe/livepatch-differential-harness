@@ -1,5 +1,5 @@
---- $HOME/private-programme/repos/livepatch-differential-harness/pilot/results/LP-CORPUS-01-pipeline/klp-relocations.txt	2026-07-10 10:15:17.924232450 +0000
-+++ $HOME/private-programme/repos/livepatch-differential-harness/pilot/results/LP-CORPUS-01-pipeline/kpatch-relocations.txt	2026-07-10 10:15:17.936232498 +0000
+--- pilot/results/LP-CORPUS-01-pipeline/klp-relocations.txt	2026-07-10 10:15:17.924232450 +0000
++++ pilot/results/LP-CORPUS-01-pipeline/kpatch-relocations.txt	2026-07-10 10:15:17.936232498 +0000
 @@ -1,11 +1,67 @@
 -Relocation section '.rela.text' at offset 0x1a130 contains 8 entries:
 +Relocation section '.rela.text' at offset 0x378 contains 55 entries:

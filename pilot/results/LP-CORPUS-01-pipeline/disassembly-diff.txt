@@ -1,5 +1,5 @@
---- $HOME/private-programme/repos/livepatch-differential-harness/pilot/results/LP-CORPUS-01-pipeline/disasm-klp-handbuild.txt	2026-07-10 10:16:22.252491824 +0000
-+++ $HOME/private-programme/repos/livepatch-differential-harness/pilot/results/LP-CORPUS-01-pipeline/disasm-kpatch.txt	2026-07-10 10:16:22.258491848 +0000
+--- pilot/results/LP-CORPUS-01-pipeline/disasm-klp-handbuild.txt	2026-07-10 10:16:22.252491824 +0000
++++ pilot/results/LP-CORPUS-01-pipeline/disasm-kpatch.txt	2026-07-10 10:16:22.258491848 +0000
 @@ -1,4 +1,4 @@
 -0000000000000000 <__pfx_hb_version_proc_show>:
 +0000000000000000 <__pfx_version_proc_show>:
