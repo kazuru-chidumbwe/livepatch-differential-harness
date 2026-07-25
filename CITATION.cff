@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "LivepatchDiff: livepatch-differential-harness"
+type: software
+authors:
+  - family-names: Kazuru
+    given-names: Seke
+    orcid: "https://orcid.org/0009-0002-4099-1059"
+    email: kazuruuni@gmail.com
+repository-code: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness"
+url: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/softwarex-lp1-20260725b"
+abstract: >-
+  Differential test harness for Linux livepatch build pipelines. Identical
+  source patches are built with multiple tools under a pinned kernel commit;
+  outputs are compared for trace-equivalence using hand-built klp_patch
+  reference modules, ELF normalization, and per-case predicate suites.
+keywords:
+  - livepatch
+  - Linux
+  - differential testing
+  - kpatch
+  - package
+license: MIT
+version: "softwarex-lp1-20260725b"
+date-released: "2026-07-25"

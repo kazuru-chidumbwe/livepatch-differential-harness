@@ -20,14 +20,9 @@ Proves whether hand-built `klp_patch` ground truth is tractable before corpus wo
 | `scripts/02-config-kernel.sh` | defconfig + livepatch fragment |
 | `scripts/03-build-kernel.sh` | build bzImage + vmlinux |
 
-## Remote lab
+## Lab host
 
-From a Linux lab host when reachable:
-
-```bash
-python notes/lab-lp-pilot-setup.py
-```
-
+Use a Linux lab host with Docker/QEMU when available. Set `WORK_ROOT` to a writable kernel build tree (default `$HOME/livepatch-pilot`).
 ## Gate deliverables (checklist)
 
 - [x] `pilot/results/kernel.commit` + `kernel.config` + `kernel.sha256`
@@ -43,6 +38,6 @@ python notes/lab-lp-pilot-setup.py
 
 ## Decision
 
-If steps 3–5 complete without fatal surprise → proceed with corpus per [`LP-paper-outline.md`](../../pilot/PILOT-GATE-DELIVERABLES.md).
+If steps 3–5 complete without fatal surprise → proceed with corpus cases under `pilot/cases/` and `pilot/results/`.
 
 If hand-build time is prohibitive → narrow case or reconsider methodology **before** corpus optimism.

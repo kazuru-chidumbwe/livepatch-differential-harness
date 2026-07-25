@@ -2,13 +2,13 @@
 
 Differential test harness for Linux livepatch **build pipelines** (LivepatchDiff instrument name: **LivepatchDiff**). Identical source patches are built with multiple tools under a pinned kernel commit; outputs are compared for **trace-equivalence** using hand-built `klp_patch` reference modules, ELF normalization, and per-case predicate suites.
 
-**Venue:** package (tool paper) — Atlas pack [`softwarex-manuscript/`](../../softwarex-manuscript/)  
-**Public pin:** https://github.com/kazuru-chidumbwe/livepatch-differential-harness · LivepatchDiff tag `softwarex-lp1-20260725`  
+**Venue:** package (tool paper) — instrument name **LivepatchDiff**  
+**Public pin:** https://github.com/kazuru-chidumbwe/livepatch-differential-harness · LivepatchDiff tag `softwarex-lp1-20260725b`  
 **Status:** pilot **gate closed** (LP-PILOT-01 toolchain + LP-PILOT-02 data-relocation claim). Corpus unblocked.
 
 **Before push:** `bash scripts/pre-push-hygiene.sh`
 
-**Release note:** LivepatchDiff EM pins this public GitHub tag. LP01 blog ships only after LivepatchDiff accept.
+**Release note:** LivepatchDiff EM pins this public GitHub tag.
 
 ---
 
