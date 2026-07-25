@@ -8,7 +8,7 @@ cd "$ROOT"
 
 PATTERNS=(
   'boma'
-  'lab-host'
+  'boma-test'
   '172\.19\.'
   '/home/boma'
   'LAB_HOST'
@@ -17,7 +17,7 @@ PATTERNS=(
   'Project Atlas'
   'CURRENT-WORK'
   '<your-org>'
-  'Seke'
+  'Temsen'
 )
 
 PATHS=(
