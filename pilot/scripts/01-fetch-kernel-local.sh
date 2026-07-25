@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-REPO="."
+REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 mkdir -p "$REPO/pilot/build"
 if [[ ! -d "$REPO/pilot/build/linux/.git" ]]; then
   git clone --depth 1 --branch v6.6.47 \

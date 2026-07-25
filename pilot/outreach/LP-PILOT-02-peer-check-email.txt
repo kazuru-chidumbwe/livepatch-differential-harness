@@ -1,3 +1,8 @@
+# Historical peer-check request (LP-PILOT-02)
+# Sent 2026-07-10 to live-patching@vger.kernel.org as Seke Kazuru.
+# No further list mail from this project. Archive history is immutable.
+# Org URL in the body below is corrected to the public GitHub pin.
+
 To: live-patching@vger.kernel.org
 Subject: [RFC] sanity check on hand-built klp_patch for version_proc_show (measurement harness ground truth)
 
@@ -82,7 +87,7 @@ MODULE_LICENSE("GPL");
 MODULE_INFO(livepatch, "Y");
 --- end ---
 
-Context: https://github.com/kazuru-chidumbwe/livepatch-differential-harness (public release pending)
+Context: https://github.com/kazuru-chidumbwe/livepatch-differential-harness
 
 Thanks for any quick reactions — even "looks fine" or "fix X" is helpful.
 

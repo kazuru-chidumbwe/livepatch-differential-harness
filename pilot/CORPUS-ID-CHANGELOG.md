@@ -31,7 +31,7 @@ Without an explicit trail, repo history could read as quietly substituting an ac
 - `pilot/docker/run-all.sh` — "B1 pipeline baseline"
 - `pilot/CORPUS-BATTLE-PLAN.md`, `pilot/CORPUS-CHECKLIST.md`
 - `pilot/results/SPONSOR-DATA-PACK-2026-07-10.md` — B1 verdict section
-- `paper-draft (private)` §4.2 case-ID map
+- SoftwarX / paper case-ID map (private programme pack; not in this repo)
 
 ### Git commits
 
