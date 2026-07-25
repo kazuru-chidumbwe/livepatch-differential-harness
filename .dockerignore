@@ -1,0 +1,6 @@
+# LivepatchDiff clean-room image — keep replay artifacts, drop huge rebuild inputs
+pilot/build/vmlinux
+pilot/build/System.map
+**/.git
+**/__pycache__
+*.pyc
