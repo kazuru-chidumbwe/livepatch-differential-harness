@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # LP-CORPUS-03: survivable same-arity function redirect (seq_puts -> seq_putc).
+#
+# Ground truth for C3 is STRUCTURAL_BIND_PASS (wrong PLT32 callee while loadable).
+# P2 checks patch-semantic expected marker string — not a coincidental glyph.
+# The ASCII '!' side-effect on nokaslr pins is illustrative only (layout coincidence).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 CASE_ENV="$ROOT/pilot/cases/LP-PILOT-02-version/case.env"
@@ -29,7 +33,16 @@ python3 "$ROOT/pilot/scripts/perturb-plt32-redirect.py" "$KO" "$PERT" seq_puts s
   readelf -rW "$KO" | grep -E 'PLT32.*(seq_puts|seq_putc)' || true
   echo "## Perturbed PLT32"
   readelf -rW "$PERT" | grep -E 'PLT32.*(seq_puts|seq_putc)' || true
+  echo
+  echo "## Structural binding oracle (C3 ground truth)"
+  python3 "$ROOT/pilot/scripts/verify-plt32-binding.py" --check-redirect \
+    "$KO" "$PERT" seq_puts seq_putc
 } | tee "$RES/relocation-diff.txt"
+
+# Fail closed if structural oracle fails (before QEMU)
+python3 "$ROOT/pilot/scripts/verify-plt32-binding.py" --check-redirect \
+  "$KO" "$PERT" seq_puts seq_putc | tee "$RES/structural-bind.txt"
+grep -q 'STRUCTURAL_BIND_PASS=1' "$RES/structural-bind.txt"
 
 run_qemu() {
   local ko="$1" tag="$2"
@@ -52,6 +65,7 @@ echo "---DMESG---"
 dmesg | tail -25
 echo "---PROC---"
 cat $PROC_FILE || echo PROC_READ_FAIL=\$?
+# Semantic P2: expected patch marker must appear (patch contract), not a specific corrupt glyph.
 if grep -q '$MARKER' $PROC_FILE 2>/dev/null; then echo P2_PASS=1; else echo P2_PASS=0; fi
 poweroff -f
 INIT
@@ -66,14 +80,44 @@ INIT
 }
 
 {
-  echo "=== GOOD ==="
+  echo "=== STRUCTURAL (required for C3 claim) ==="
+  cat "$RES/structural-bind.txt"
+  echo
+  echo "=== GOOD (semantic P2 must PASS) ==="
   run_qemu "$KO" good
   echo
-  echo "=== PERTURB_SEQPUTS_TO_PUTc ==="
+  echo "=== PERTURB_SEQPUTS_TO_PUTc (INSMOD=0 + semantic P2 must FAIL) ==="
   run_qemu "$PERT" perturb
 } | tee "$RES/predicate-transcript.txt"
 
 objdump -d -M intel "$KO" | grep -A25 'hb_version_proc_show>' | head -30 >"$RES/disasm-good.txt"
 objdump -d -M intel "$PERT" | grep -A25 'hb_version_proc_show>' | head -30 >"$RES/disasm-perturb.txt"
+
+# Refresh SoftwarX data pack from structural + predicate evidence
+RES="$RES" python3 - <<'PY'
+from pathlib import Path
+import os
+res = Path(os.environ["RES"])
+bind = (res / "structural-bind.txt").read_text(errors="replace")
+pred = (res / "predicate-transcript.txt").read_text(errors="replace")
+reloc = (res / "relocation-diff.txt").read_text(errors="replace")
+pack = res / "C3-DATA-PACK.md"
+pack.write_text(
+    "# C3 data pack — structural ground truth\n\n"
+    "**Verification oracle:** `STRUCTURAL_BIND_PASS` from "
+    "`pilot/scripts/verify-plt32-binding.py` "
+    "(PLT32 sites that bound `seq_puts` in the good module bind `seq_putc` after redirect).\n\n"
+    "**Not an oracle:** coincidental `/proc/version` glyphs (e.g. ASCII `!` under `nokaslr`). "
+    "Those are layout-dependent side-effects; P2 checks the patch marker contract only.\n\n"
+    "## Structural bind\n\n```\n"
+    + bind.strip()
+    + "\n```\n\n## Relocation triage\n\n```\n"
+    + reloc.strip()
+    + "\n```\n\n## Predicate transcript (semantic P2)\n\n```\n"
+    + pred.strip()
+    + "\n```\n"
+)
+print(f"wrote {pack}")
+PY
 
 echo "LP-CORPUS-03-DONE"

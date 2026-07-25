@@ -8,12 +8,13 @@ authors:
     orcid: "https://orcid.org/0009-0002-4099-1059"
     email: kazuruuni@gmail.com
 repository-code: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness"
-url: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/softwarex-lp1-20260725b"
+url: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/softwarex-lp1-20260725c"
 abstract: >-
-  Differential test harness for Linux livepatch build pipelines. Identical
-  source patches are built with multiple tools under a pinned kernel commit;
-  outputs are compared for trace-equivalence using hand-built klp_patch
-  reference modules, ELF normalization, and per-case predicate suites.
+  Differential test harness for Linux livepatch build pipelines (SoftwarX
+  case study on Linux v6.6.47). Combines ELF relocation triage, structural
+  PLT32 bind checks, loadable mutants, and per-case runtime predicates.
+  Modules build from source against a pinned kernel; Docker stages separate
+  module build from predicate replay.
 keywords:
   - livepatch
   - Linux
@@ -21,5 +22,5 @@ keywords:
   - kpatch
   - SoftwareX
 license: MIT
-version: "softwarex-lp1-20260725b"
+version: "softwarex-lp1-20260725c"
 date-released: "2026-07-25"

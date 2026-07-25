@@ -16,7 +16,8 @@ RUN pip3 install --break-system-packages pyelftools
 # Build from harness repo root: docker build -f pilot/docker/Dockerfile .
 COPY . /work/
 
-# Prebuilt QEMU kernel + modules expected under pilot/build/ and pilot/results/
-RUN chmod +x pilot/docker/run-all.sh pilot/scripts/*.sh 2>/dev/null || true
+# Stage A/B entrypoints. Modules compile from source against WORK_ROOT/linux at run time.
+# bzImage may be a pin artifact under pilot/build/ or produced by run-full-rebuild.sh.
+RUN chmod +x pilot/docker/*.sh pilot/scripts/*.sh pilot/scripts/*.py 2>/dev/null || true
 
 ENTRYPOINT ["/bin/bash"]
