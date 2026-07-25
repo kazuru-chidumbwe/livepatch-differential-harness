@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Pre-push hygiene: grep publishable tree for hostnames, usernames, internal paths.
 # Run from repo root before any public push. Exit 1 if matches found.
+# Needle strings below are intentional detectors; they must not appear elsewhere.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
@@ -12,10 +13,10 @@ PATTERNS=(
   '/home/boma'
   'LAB_HOST'
   'LAB_PASSWORD'
-  'private-programme'
-  'private programme'
-  'private'
-  'kazuru-chidumbwe'
+  'Project-Atlas'
+  'Project Atlas'
+  'CURRENT-WORK'
+  '<your-org>'
   'Seke'
 )
 
@@ -23,7 +24,6 @@ PATHS=(
   .
 )
 
-# Build debris and QEMU captures are local/regenerable; not part of the publish pin.
 EXCLUDES=(
   --exclude-dir=.git
   --exclude-dir=.venv
