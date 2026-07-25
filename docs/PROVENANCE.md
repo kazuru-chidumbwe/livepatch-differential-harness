@@ -47,13 +47,13 @@ Each run record embeds:
 - `objtool_version`
 - `run_index` (for latency replicates)
 
-## Blog reproduction anchor (planned)
+## Public reproduction pin
 
 | Field | Value |
 | --- | --- |
-| Tag | `blog-lp-2026-07` (TBD after Gate 1) |
-| Gate | `make smoke` + `make gate1` on one pilot patch |
-| Corpus | First public slice of `patches/catalog.json` |
+| LivepatchDiff tag | `softwarex-lp1-20260725b` |
+| Gate | `pilot/docker/run-all.sh` (illustrative corpus) |
+| Blog | Linked from LivepatchDiff / programme posts after accept — **not** drafted in this repo |
 
 ## MADHAT_SANITY
 
