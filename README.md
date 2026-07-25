@@ -3,12 +3,12 @@
 Differential test harness for Linux livepatch **build pipelines** (SoftwarX instrument name: **LivepatchDiff**). Identical source patches are built with multiple tools under a pinned kernel commit; outputs are compared for **trace-equivalence** using hand-built `klp_patch` reference modules, ELF normalization, and per-case predicate suites.
 
 **Venue:** SoftwareX (tool paper) — Atlas pack [`softwarex-manuscript/`](../../softwarex-manuscript/)  
-**Local-only until push gate:** public SoftwarX pin gate (see README)  
+**Public pin:** https://github.com/kazuru-chidumbwe/livepatch-differential-harness · SoftwarX tag `softwarex-lp1-20260725`  
 **Status:** pilot **gate closed** (LP-PILOT-01 toolchain + LP-PILOT-02 data-relocation claim). Corpus unblocked.
 
-**Before public push:** `bash scripts/pre-push-hygiene.sh`
+**Before push:** `bash scripts/pre-push-hygiene.sh`
 
-**Public release:** SoftwarX EM needs a **public** GitHub pin. Until then this tree stays local (and on test-server). LP01 blog ships only after SoftwarX accept.
+**Release note:** SoftwarX EM pins this public GitHub tag. LP01 blog ships only after SoftwarX accept.
 
 ---
 
