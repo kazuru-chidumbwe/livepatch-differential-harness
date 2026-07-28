@@ -1,8 +1,8 @@
-# Corpus battle plan (sponsor agreement 2026-07-10)
+# Corpus battle plan (2026-07-10)
 
 **Pilot claim (locked):** loadable data-relocation addend error passes `insmod`, caught by predicates. No mission creep in abstract/intro.
 
-**Next sponsor message = raw data**, not scope negotiation.
+**Next delivery = raw data**, not scope negotiation.
 
 ## Immediate — deliverables
 
