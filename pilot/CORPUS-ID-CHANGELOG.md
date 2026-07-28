@@ -37,7 +37,7 @@ Without an explicit trail, repo history could read as quietly substituting an ac
 
 - `2f3cd07` — Complete C1 cross-pipeline (historical message; run was B1 content in `LP-CORPUS-01-pipeline/`)
 - `7ce6e2a` — Paper v0.4 honesty rescope; B1 vs C1 naming in docs/scripts
-- *(this changelog)* — explicit rename documentation for history auditors
+- *(this changelog)* — explicit rename documentation for corpus ID history
 
 ### Rule going forward
 
