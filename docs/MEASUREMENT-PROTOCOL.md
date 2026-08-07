@@ -1,7 +1,7 @@
 # Measurement protocol (v2 — pilot-gated)
 
 **Supersedes** v1 Canonical-reference three-channel protocol.  
-**Source:** pilot gate design in this repo (`pilot/PILOT-GATE-DELIVERABLES.md`, LivepatchDiff methodology).
+**Source:** pilot gate design in this repo (`pilot/PILOT-GATE-DELIVERABLES.md`, package methodology).
 
 **Status:** pilot gate **closed** 2026-07-10 (LP-PILOT-01 toolchain + LP-PILOT-02 behavioral claim). See [`pilot/PILOT-GATE-DELIVERABLES.md`](../pilot/PILOT-GATE-DELIVERABLES.md).
 

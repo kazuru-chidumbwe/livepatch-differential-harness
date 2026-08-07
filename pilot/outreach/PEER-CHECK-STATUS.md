@@ -7,9 +7,9 @@
 | **From** | Seke Kazuru |
 | **Channel** | `live-patching@vger.kernel.org` |
 | **Draft** | `pilot/outreach/LP-PILOT-02-peer-check-email.txt` (org URL corrected in-repo; list archive immutable) |
-| **Status** | **Sent** — no maintainer reply at LivepatchDiff pin time; **no further list mail** |
+| **Status** | **Sent** — no maintainer reply at package pin time; **no further list mail** |
 | **Ask** | Informal sanity check on `klp_patch` structure and ground-truth validity |
-| **Blocks** | Nothing — parallel track only; LivepatchDiff does **not** claim list endorsement |
+| **Blocks** | Nothing — parallel track only; package does **not** claim list endorsement |
 
 **Send checklist (historical):**
 1. Subscribe if needed: https://subspace.kernel.org/lists.linux.dev/list/live-patching@lists.linux.dev/

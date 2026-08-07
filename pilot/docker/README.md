@@ -1,8 +1,8 @@
-# LivepatchDiff — Docker reproduction (LivepatchDiff)
+# LivepatchDiff — Docker reproduction (package)
 
 Two-stage model: **build modules from source**, then **run predicates**. The kernel `bzImage` may be supplied as a pin artifact or rebuilt (long).
 
-## Stage B — predicate replay (default LivepatchDiff clean-room)
+## Stage B — predicate replay (default package clean-room)
 
 Requires:
 
