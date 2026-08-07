@@ -1,6 +1,6 @@
 # LivepatchDiff architecture and reuse workflow
 
-SoftwarX case-study pin: Linux **v6.6.47**. This document is the operator-facing API for adapting the harness beyond the illustrative corpus.
+SoftwareX case-study pin: Linux **v6.6.47**. This document is the operator-facing API for adapting the harness beyond the illustrative corpus.
 
 ```
 User inputs (per case)
@@ -37,7 +37,7 @@ Classify     — pass / diverge / inconclusive + evidence packs
 | QEMU serial + `P2`/`P3`/`INSMOD_RC` lines | per-case `*-run-*.sh` |
 | Evidence packs | `pilot/results/<case>/` |
 
-## What stays manual (honest SoftwarX scope)
+## What stays manual (honest SoftwareX scope)
 
 1. **Semantic predicate design** — P2/P3 are not synthesized from the patch diff. The user states the patch contract (e.g. “`/proc/version` must contain `MARKER` after patch; restore baseline after revert”).
 2. **Under-inclusion path selection** — dual-path predicates require the user to name hot and cold observables; the harness does not discover them.
@@ -73,6 +73,6 @@ For C3, structural bind is **required** ground truth. Runtime glyphs under `noka
 
 See [`pilot/docker/README.md`](../pilot/docker/README.md).
 
-## SoftwarX claim boundary
+## SoftwareX claim boundary
 
 This release is a **documented case study on v6.6.47**, not a stratified production prevalence study. Sparse positive mutant detections show the instrument works; they are not industry rates.

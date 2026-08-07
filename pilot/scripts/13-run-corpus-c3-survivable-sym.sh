@@ -93,7 +93,7 @@ INIT
 objdump -d -M intel "$KO" | grep -A25 'hb_version_proc_show>' | head -30 >"$RES/disasm-good.txt"
 objdump -d -M intel "$PERT" | grep -A25 'hb_version_proc_show>' | head -30 >"$RES/disasm-perturb.txt"
 
-# Refresh SoftwarX data pack from structural + predicate evidence
+# Refresh SoftwareX data pack from structural + predicate evidence
 RES="$RES" python3 - <<'PY'
 from pathlib import Path
 import os

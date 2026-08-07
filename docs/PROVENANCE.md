@@ -51,9 +51,9 @@ Each run record embeds:
 
 | Field | Value |
 | --- | --- |
-| SoftwarX tag | `softwarex-lp1-20260725b` |
+| SoftwareX tag | `softwarex-lp1-20260725b` |
 | Gate | `pilot/docker/run-all.sh` (illustrative corpus) |
-| Blog | Linked from SoftwarX / programme posts after accept — **not** drafted in this repo |
+| Blog | Linked from SoftwareX / programme posts after accept — **not** drafted in this repo |
 
 ## MADHAT_SANITY
 

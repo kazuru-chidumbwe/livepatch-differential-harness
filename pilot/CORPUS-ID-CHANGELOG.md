@@ -30,7 +30,7 @@ Without an explicit trail, repo history could read as quietly substituting an ac
 - `pilot/scripts/14-run-corpus-c1-predicates.sh` — B1 predicate transcript
 - `pilot/docker/run-all.sh` — "B1 pipeline baseline"
 - `pilot/CORPUS-BATTLE-PLAN.md`, `pilot/CORPUS-CHECKLIST.md`
-- SoftwarX / paper case-ID map (private programme pack; not in this repo)
+- SoftwareX / paper case-ID map (private programme pack; not in this repo)
 - *(removed 2026-07-26)* former `pilot/results/SPONSOR-DATA-PACK-2026-07-10.md` — B1 verdict prose; science remains under `LP-CORPUS-*`
 
 ### Git commits
