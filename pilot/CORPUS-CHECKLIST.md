@@ -13,9 +13,9 @@
 
 ## Near-term (weeks 2–6) — SoftX tonight bar
 
-- [x] **C6** kpatch `-O2`/`-Os` — *running → close when predicates land* · `15-run-corpus-c6-kpatch-opt.sh`
+- [ ] **C6** kpatch `-O2`/`-Os` — *IN FLIGHT on lab* · `15-run-corpus-c6-kpatch-opt.sh` (must finish tonight)
 - [x] **C4** SoftX appendix stratification — **CLOSED 15 Aug evening** · `cve-triage-table.md` (35 rows)
-- [ ] **Dirty Pipe** Option A pin `v5.16.10` — fetch/build in flight · `DIRTY-PIPE-CAPSTONE.md`
+- [x] **Dirty Pipe** SoftX appendix — **CLOSED** pin+skeleton · QEMU = Paper 2 · `DIRTYPIPE-SOFTX-DISPOSITION-2026-08-15.md`
 - [x] **C1** SoftX disposition — **CLOSED via B1** · true `klp-build-upstream` = Paper 2 · `C1-SOFTX-DISPOSITION-2026-08-15.md`
 
 ## Paper prep (parallel)

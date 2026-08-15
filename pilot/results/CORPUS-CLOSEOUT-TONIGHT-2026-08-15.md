@@ -8,8 +8,8 @@
 | Pre-corpus B1/C2/C3/C5 | **CLOSED** | Existing `LP-CORPUS-*` packs |
 | **C4** stratification | **CLOSED** | `cve-triage-table.md` — 35 rows · INCLUDE shortlist locked |
 | **C1** true `klp-build-upstream` | **CLOSED for SoftX via B1** | `C1-SOFTX-DISPOSITION-2026-08-15.md` · 6.19 tree fetch for Paper 2 |
-| **C6** kpatch `-O2`/`-Os` | **IN FLIGHT → must finish tonight** | Lab `/tmp/lp-c6-run.log` · `LP-CORPUS-06-kpatch-opt/` |
-| **Dirty Pipe** | **Pin LOCKED · build IN FLIGHT** | `v5.16.10` @ `528cecfa…` · `/opt/atlas/livepatch-corpus/linux-dirtypipe` · skeleton handbuild |
+| **C6** kpatch `-O2`/`-Os` | **IN FLIGHT → must finish tonight** | Lab `/tmp/lp-c6-run.log` · `LP-CORPUS-06-kpatch-opt/` · Dirty Pipe paused for CPU |
+| **Dirty Pipe** | **SoftX CLOSED** (pin+skeleton) · bzImage paused | `DIRTYPIPE-SOFTX-DISPOSITION-2026-08-15.md` · resume `/tmp/lab-resume-dirtypipe.sh` after C6 |
 
 ## Dirty Pipe pin (Option A)
 
