@@ -1,57 +1,43 @@
-# Corpus battle plan (2026-07-10)
+# Corpus battle plan (2026-07-10 · refreshed 15 Aug 2026 package)
 
-**Pilot claim (locked):** loadable data-relocation addend error passes `insmod`, caught by predicates. No mission creep in abstract/intro.
+**Venue:** package P1 (instrument case study) · corpus also feeds Paper 2 Access  
+**Pilot claim (locked):** loadable data-relocation addend error passes `insmod`, caught by predicates.
 
 **Next delivery = raw data**, not scope negotiation.
 
-## Immediate — deliverables
+## Pre-corpus / closed
 
-### C2 — Function-symbol substitution (reciprocal PLT32 swap)
+| ID | Status | Evidence |
+| --- | --- | --- |
+| LP-PILOT-01 / 02 | **DONE** | Gate closed |
+| **B1** pipeline baseline | **DONE** | `LP-CORPUS-01-pipeline/` |
+| **C2** PLT32 reciprocal | **DONE** | `LP-CORPUS-02-func-sym/` |
+| **C3** survivable redirect | **DONE** | `LP-CORPUS-03-survivable-sym/` + structural bind |
+| **C5** under-inclusion | **DONE** | `LP-CORPUS-05-under-inclusion/` |
 
-- [x] **DONE** — `INSMOD_RC=0`, **#PF** at invoke, `P2_PASS=0`
-- [x] Forensic: `LP-CORPUS-02-func-sym/forensic-writeup.md`
+## Open — execute now
 
-### C3 — Survivable function redirect (one-way seq_puts → seq_putc)
+| ID | What | Blocker |
+| --- | --- | --- |
+| **C6** | kpatch `-O2`/`-Os` on PILOT-02 fix + P2/P3 | Runnable on v6.6.47 pin · `15-run-corpus-c6-kpatch-opt.sh` |
+| **C4** | Full CVE stratification appendix (expand beyond n=20 sample) | Desk + lab · `cve-triage-table.md` |
+| **Dirty Pipe** | Capstone CVE-2022-0847 compound case | Needs dedicated pin/plan — pre-6.6 · see `DIRTY-PIPE-CAPSTONE.md` |
+| **C1** | `klp-build-upstream` vs kpatch | **Needs Linux 6.19+ re-pin** · Paper 2 primary |
 
-- [x] **DONE 2026-07-10** — `INSMOD_RC=0`, **silent**, `P2_PASS=0` — code-relocation twin of PILOT-02
+## Paper prep (parallel)
 
-### B1 — kpatch-build vs hand-build klp (PILOT-02 fix)
-
-*Paper label **B1** — not to be confused with blocked **C1** (`klp-build-upstream` vs kpatch, needs 6.19+).*
-
-- [x] kpatch-build **installed** on lab
-- [x] Run kpatch-build + predicate compare vs hand-build klp — **null result, benign divergence**
-
-### C1 — True cross-pipeline (Paper 2)
-
-- [ ] `klp-build-upstream` vs `kpatch-build` on same pin (Linux 6.19+)
-- [ ] Full harness re-validation on new pin
-
-### C3 — Peer check
-
-- [x] Sent 2026-07-10
-
-### C4 — CVE stratification
-
-- [ ] Full 6.1.y table Jan 2024–present; five-mechanism tags; appendix
-
-### C5 — Under-inclusion hot/cold probe
-
-- [x] **DONE** — `UNDER_INCLUSION_DETECTED=1` (hot patched, cold `INLINE-ORIG`)
-- [ ] kpatch-build changed-function set on fix patch
-
-### C6 — Cross-pipeline benign variation
-
-- [ ] After C1 tools run: each pipeline × opt flag; P2/P3
-
-## Paper (ongoing)
-
-- [ ] Predicate library template
-- [ ] Ground-truth cost log (time, iterations, lessons per case)
+| ID | What |
+| --- | --- |
+| P1 | Predicate scaling pattern |
+| P2 | PILOT-02 vignette (forensic bundle exists) |
+| P3 | Ground-truth cost table |
 
 ## Scripts
 
 | ID | Script |
 | --- | --- |
-| C1 | `pilot/scripts/11-run-corpus-c1-pipeline.sh` |
-| C2 | `pilot/scripts/12-run-corpus-c2-func-sym.sh` |
+| B1 / C1 predicates | `11-run-corpus-c1-pipeline.sh` · `14-run-corpus-c1-predicates.sh` |
+| C2 | `12-run-corpus-c2-func-sym.sh` |
+| C3 | `13-run-corpus-c3-survivable-sym.sh` |
+| C5 | `16-run-corpus-c5-under-inclusion.sh` |
+| C6 | `15-run-corpus-c6-kpatch-opt.sh` |
