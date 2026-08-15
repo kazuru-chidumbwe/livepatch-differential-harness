@@ -8,9 +8,9 @@ authors:
     orcid: "https://orcid.org/0009-0002-4099-1059"
     email: kazuruuni@gmail.com
 repository-code: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness"
-url: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.0"
+url: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.1"
 abstract: >-
-  Differential test harness for Linux livepatch build pipelines (SoftwareX
+  Differential test harness for Linux livepatch build pipelines (SCP OSP
   case study on Linux v6.6.47). Combines ELF relocation triage, structural
   PLT32 bind checks, loadable mutants, and per-case runtime predicates.
   Modules build from source against a pinned kernel; Docker stages separate
@@ -20,7 +20,8 @@ keywords:
   - Linux
   - differential testing
   - kpatch
-  - SoftwareX
+  - ELF relocation
+  - Science of Computer Programming
 license: MIT
-version: "0.1.0"
-date-released: "2026-07-25"
+version: "0.1.1"
+date-released: "2026-08-15"

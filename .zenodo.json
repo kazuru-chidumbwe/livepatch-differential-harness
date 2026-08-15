@@ -1,0 +1,36 @@
+{
+  "title": "LivepatchDiff (livepatch-differential-harness)",
+  "upload_type": "software",
+  "description": "Differential test harness for Linux livepatch build pipelines. Case study on Linux v6.6.47: ELF relocation triage, structural PLT32 bind checks (C3), loadable mutants, and per-case runtime predicates. Modules build from source against a pinned kernel; Docker stages separate module build from predicate replay. Cite SemVer tag v0.1.1.",
+  "creators": [
+    {
+      "name": "Kazuru, Seke",
+      "affiliation": "Independent Researcher",
+      "orcid": "0009-0002-4099-1059"
+    }
+  ],
+  "keywords": [
+    "livepatch",
+    "Linux",
+    "differential testing",
+    "ELF relocation",
+    "mutation testing",
+    "kpatch",
+    "QEMU"
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.1",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.1",
+      "relation": "isIdenticalTo",
+      "resource_type": "software"
+    }
+  ],
+  "notes": "SCP Software Track OSP case-study capsule. C2 in the manuscript remains the GitHub tree URL. When the SCP article receives a DOI, add it as related_identifiers isDocumentedBy."
+}

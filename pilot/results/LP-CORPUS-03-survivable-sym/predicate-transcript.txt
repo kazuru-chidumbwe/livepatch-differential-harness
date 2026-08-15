@@ -1,34 +1,47 @@
-=== GOOD ===
-QEMU 8.2.2 monitor - type 'help' for more information
+=== STRUCTURAL (required for C3 claim) ===
+# structural PLT32 redirect check
+good=/opt/atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-03-seqputs/livepatch-corpus03.ko
+pert=/opt/atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-03-seqputs/livepatch-corpus03.seqputs-to-putc.ko
+redirect=seq_puts->seq_putc
+sites=0x29
+offset=0x29 good=seq_puts pert=seq_putc
+STRUCTURAL_BIND_PASS=1
+note: runtime observables (including coincidental glyphs) are illustrative only; this check is the C3 ground-truth oracle.
+
+=== GOOD (semantic P2 must PASS) ===
+QEMU 10.0.11 monitor - type 'help' for more information
 (qemu) === CORPUS_C3_good ===
-[   16.636142] livepatch_corpus03: loading out-of-tree module taints kernel.
-[   16.637179] livepatch_corpus03: tainting kernel with TAINT_LIVEPATCH
-[   16.654001] livepatch: enabling patch 'livepatch_corpus03'
-[   16.764940] livepatch: 'livepatch_corpus03': starting patching transition
-[   18.005241] livepatch: 'livepatch_corpus03': patching complete
+[   47.284937] livepatch_corpus03: loading out-of-tree module taints kernel.
+[   47.287100] livepatch_corpus03: tainting kernel with TAINT_LIVEPATCH
+[   47.409610] livepatch: enabling patch 'livepatch_corpus03'
+[   47.792371] livepatch: 'livepatch_corpus03': starting patching transition
+[   52.627332] livepatch: 'livepatch_corpus03': patching complete
+KLP_FORCE=1
 INSMOD_RC=0
 ---DMESG---
-[   16.636142] livepatch_corpus03: loading out-of-tree module taints kernel.
-[   16.637179] livepatch_corpus03: tainting kernel with TAINT_LIVEPATCH
-[   16.654001] livepatch: enabling patch 'livepatch_corpus03'
-[   16.764940] livepatch: 'livepatch_corpus03': starting patching transition
-[   18.005241] livepatch: 'livepatch_corpus03': patching complete
+[   47.284937] livepatch_corpus03: loading out-of-tree module taints kernel.
+[   47.287100] livepatch_corpus03: tainting kernel with TAINT_LIVEPATCH
+[   47.409610] livepatch: enabling patch 'livepatch_corpus03'
+[   47.792371] livepatch: 'livepatch_corpus03': starting patching transition
+[   52.627332] livepatch: 'livepatch_corpus03': patching complete
 ---PROC---
 !P2_PASS=1
 
-=== PERTURB_SEQPUTS_TO_PUTc ===
-QEMU 8.2.2 monitor - type 'help' for more information
+=== PERTURB_SEQPUTS_TO_PUTc (INSMOD=0 + semantic P2 must FAIL) ===
+QEMU 10.0.11 monitor - type 'help' for more information
 (qemu) === CORPUS_C3_perturb ===
-[   16.644751] livepatch_corpus03: loading out-of-tree module taints kernel.
-[   16.645398] livepatch_corpus03: tainting kernel with TAINT_LIVEPATCH
-[   16.657039] livepatch: enabling patch 'livepatch_corpus03'
-[   16.739402] livepatch: 'livepatch_corpus03': starting patching transition
-[   17.661119] livepatch: 'livepatch_corpus03': patching complete
+[   49.144726] livepatch_corpus03: loading out-of-tree module taints kernel.
+[   49.146898] livepatch_corpus03: tainting kernel with TAINT_LIVEPATCH
+[   49.318681] livepatch: enabling patch 'livepatch_corpus03'
+[   49.666654] livepatch: 'livepatch_corpus03': starting patching transition
+[   54.706797] livepatch: 'livepatch_corpus03': patching complete
+KLP_FORCE=1
 INSMOD_RC=0
 ---DMESG---
-[   16.644751] livepatch_corpus03: loading out-of-tree module taints kernel.
-[   16.645398] livepatch_corpus03: tainting kernel with TAINT_LIVEPATCH
-[   16.657039] livepatch: enabling patch 'livepatch_corpus03'
-[   16.739402] livepatch: 'livepatch_corpus03': starting patching transition
-[   17.661119] livepatch: 'livepatch_corpus03': patching complete
+[   49.144726] livepatch_corpus03: loading out-of-tree module taints kernel.
+[   49.146898] livepatch_corpus03: tainting kernel with TAINT_LIVEPATCH
+[   49.318681] livepatch: enabling patch 'livepatch_corpus03'
+[   49.666654] livepatch: 'livepatch_corpus03': starting patching transition
+[   54.706797] livepatch: 'livepatch_corpus03': patching complete
 ---PROC---
+ !P2_PASS=0

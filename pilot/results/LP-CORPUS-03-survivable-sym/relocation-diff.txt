@@ -7,3 +7,13 @@ Redirect: seq_puts PLT32 -> seq_putc (one-way; same register arity at call site)
 ## Perturbed PLT32
 0000000000000029  0000003c00000004 R_X86_64_PLT32         0000000000000000 seq_putc - 4
 0000000000000036  0000003c00000004 R_X86_64_PLT32         0000000000000000 seq_putc - 4
+
+## Structural binding oracle (C3 ground truth)
+# structural PLT32 redirect check
+good=/opt/atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-03-seqputs/livepatch-corpus03.ko
+pert=/opt/atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-03-seqputs/livepatch-corpus03.seqputs-to-putc.ko
+redirect=seq_puts->seq_putc
+sites=0x29
+offset=0x29 good=seq_puts pert=seq_putc
+STRUCTURAL_BIND_PASS=1
+note: runtime observables (including coincidental glyphs) are illustrative only; this check is the C3 ground-truth oracle.
