@@ -8,20 +8,22 @@
 | Claim package may make | Evidence |
 | --- | --- |
 | Pipeline baseline on **v6.6.47** | **B1 DONE** — hand-build klp vs `kpatch-build` 0.9.11 · `LP-CORPUS-01-pipeline/` |
-| Predicates agree across those two builders | **DONE** — P2/P3 both pass (`14-run-corpus-c1-predicates.sh` artifacts) |
+| Predicates agree across those two builders | **DONE** — P2/P3 both pass |
 
 | Claim package must **not** make | Why |
 | --- | --- |
-| `klp-build-upstream` (in-tree 6.19+) equivalence rates | Tool **absent** on 6.6.47 pin |
+| `klp-build-upstream` equivalence rates | Requires 6.19+ re-pin (started tonight) |
 
-## Paper 2 reopen (started tonight)
+## Paper 2 — started tonight
 
-1. Clone Linux ≥6.19 to `/opt/atlas/livepatch-corpus/linux-c1-619` (fetch in flight).  
-2. Full harness re-pin + re-validation.  
-3. Run `klp-build` vs `kpatch-build` on same logical fix.  
-4. Only then check **C1** on CORPUS-CHECKLIST.
+| Field | Value |
+| --- | --- |
+| Tree | `/opt/atlas/livepatch-corpus/linux-c1-619` |
+| Tag | `v6.19` |
+| `scripts/livepatch/klp-build` | **PRESENT** |
+| Full bzImage + comparison | After C6 + Dirty Pipe bzImage free CPU |
 
 ## Gate statement — **C1 CLOSED for package**
 
 package treats **B1** as the pipeline baseline on the case-study pin.  
-Checklist row **C1** remains open for **Paper 2** until 6.19+ evidence lands — not a package EM blocker after this disposition.
+Checklist **C1** stays open for **Paper 2** until `klp-build` vs kpatch evidence lands on v6.19 — not a package EM blocker after this disposition.
