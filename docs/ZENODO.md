@@ -36,4 +36,4 @@ Invoke-RestMethod -Method Post -Uri "https://zenodo.org/api/deposit/depositions/
 
 Or: enable the repo under Zenodo → GitHub, then publish Release `v0.1.1` (or click Sync).
 
-After DOI exists, paste into this file, `CITATION.cff`, and the SCP manuscript Code metadata C3.
+After DOI exists, paste into this file, `CITATION.cff`, and the SoftwareX manuscript Code metadata C3.
