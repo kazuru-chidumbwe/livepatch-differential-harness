@@ -49,18 +49,33 @@ INIT
   grep -E 'INSMOD|P2_PASS|P3_PASS' "$serial" || true
 }
 
+# kpatch-build writes livepatch-*.ko into CWD (or -o DIR), not /tmp/kpatch-out.
+KPATCH_OUT="$OUT/kpatch-build-workdir"
+mkdir -p "$KPATCH_OUT"
+
 for opt in O2 Os; do
   flags="-O2"; [ "$opt" = "Os" ] && flags="-Os"
   log="$OUT/kpatch-build-$opt.log"
   echo "=== kpatch-build EXTRA_CFLAGS=$flags ===" | tee "$log"
-  if KPATCH_CFLAGS="$flags" kpatch-build -s "$LINUX" -v "$VMLINUX" "$PATCH" >>"$log" 2>&1; then
+  rm -f "$KPATCH_OUT"/livepatch-LP-PILOT-02-version.ko
+  if (
+    cd "$KPATCH_OUT"
+    # EXTRA_CFLAGS is what kpatch-build / make honors for opt-level experiments.
+    EXTRA_CFLAGS="$flags" KPATCH_CFLAGS="$flags" \
+      kpatch-build -s "$LINUX" -v "$VMLINUX" -o "$KPATCH_OUT" "$PATCH" >>"$log" 2>&1
+  ); then
     echo "KPATCH_BUILD_RC=0" | tee -a "$log"
-    ko=$(find /tmp/kpatch-out -name 'livepatch-LP-PILOT-02-version.ko' 2>/dev/null | head -1)
-    [ -n "$ko" ] && cp "$ko" "$OUT/kpatch-output-$opt.ko"
+    ko=$(find "$KPATCH_OUT" "$ROOT" -maxdepth 2 -name 'livepatch-LP-PILOT-02-version.ko' 2>/dev/null | head -1)
+    if [ -z "${ko:-}" ] || [ ! -f "$ko" ]; then
+      echo "C6_FAIL: livepatch-LP-PILOT-02-version.ko not found after kpatch-build ($opt)" | tee -a "$log"
+      exit 1
+    fi
+    cp -f "$ko" "$OUT/kpatch-output-$opt.ko"
     run_pred "$OUT/kpatch-output-$opt.ko" "$opt" | tee -a "$OUT/predicate-transcript.txt"
   else
     echo "KPATCH_BUILD_RC=$?" | tee -a "$log"
+    exit 1
   fi
 done
 
-echo C6_KPATCH_OPT_DONE
+echo C6_KPATCH_OPT_DONE | tee -a /tmp/lp-c6-run.log
