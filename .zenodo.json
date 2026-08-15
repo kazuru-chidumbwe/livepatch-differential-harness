@@ -32,5 +32,5 @@
       "resource_type": "software"
     }
   ],
-  "notes": "SCP Software Track OSP case-study capsule. C2 in the manuscript remains the GitHub tree URL. When the SCP article receives a DOI, add it as related_identifiers isDocumentedBy."
+  "notes": "SoftwareX case-study capsule (LivepatchDiff · Linux v6.6.47). Manuscript Code metadata C2 remains the GitHub tree URL (not Zenodo). When the SoftwareX article receives a DOI, add it as related_identifiers isDocumentedBy."
 }

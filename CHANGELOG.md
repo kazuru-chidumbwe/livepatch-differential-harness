@@ -16,7 +16,7 @@ v6.6.47 freeze. Prefer **SemVer** (`vX.Y.Z`) for SoftwareX C1 / CITATION.cff; se
 - Structural bind evidence for C3 (`STRUCTURAL_BIND_PASS`) refresh under
   `pilot/results/LP-CORPUS-03-survivable-sym/`.
 - Harsh #4 Stage A from-source prove note (`pilot/results/HARSH4-STAGE-A-PROVE.md`).
-- `.zenodo.json` + `docs/ZENODO.md` for SCP Code metadata C3 capsule.
+- `.zenodo.json` + `docs/ZENODO.md` for SoftwareX reproducible capsule (GitHub C2 · Zenodo after mint).
 
 ### Changed
 
