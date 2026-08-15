@@ -1,8 +1,9 @@
 # Dirty Pipe capstone — plan (CVE-2022-0847)
 
-**Status:** Option A **IN FLIGHT** (15 Aug evening) — pin locked · bzImage building  
+**Status:** package appendix **CLOSED** (15/16 Aug) via pin+skeleton · Option A QEMU = Paper 2 / morning  
 **Class:** CAPSTONE  
-**Triage:** `pilot/results/cve-triage-table.md`
+**Triage:** `pilot/results/cve-triage-table.md`  
+**Disposition:** `pilot/results/DIRTYPIPE-PACKAGE-DISPOSITION-2026-08-15.md`
 
 ## Pin (locked tonight)
 
@@ -21,8 +22,9 @@
 | Capstone classified in C4 table | **DONE** |
 | Vulnerable pin selected + cloned | **DONE** |
 | Handbuild skeleton present | **DONE** |
-| bzImage build | **IN FLIGHT** (`/tmp/lp-dirtypipe-build.log`) |
-| QEMU predicates | After bzImage — continue until done tonight or mark Paper 2 if overrun |
+| package disposition (no false QEMU claim) | **DONE** |
+| bzImage build | **PAUSED** on lab (C6 priority) — resume `/tmp/lab-resume-dirtypipe.sh` |
+| QEMU predicates | **Paper 2 / morning** until serial logs exist |
 
 ## Capstone acceptance (full Option A)
 
