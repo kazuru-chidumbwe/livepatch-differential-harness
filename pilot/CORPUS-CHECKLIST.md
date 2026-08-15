@@ -11,12 +11,12 @@
 - [x] **C3** Survivable redirect — DONE; verified `C3-DATA-PACK.md` + structural bind
 - [x] **C5** Under-inclusion probe — DONE
 
-## Near-term (weeks 2–6) — open
+## Near-term (weeks 2–6) — SoftX tonight bar
 
-- [ ] **C6** kpatch `-O2`/`-Os` per PILOT-02 fix (runnable on v6.6.47) — `15-run-corpus-c6-kpatch-opt.sh`
-- [ ] **C4** Full CVE stratification — expand `cve-triage-table.md` beyond n=20 sample
-- [ ] **Dirty Pipe** capstone — see `DIRTY-PIPE-CAPSTONE.md` (needs pre-fix pin)
-- [ ] **C1** True cross-pipeline: `klp-build-upstream` vs kpatch (**Paper 2 — 6.19+ pin**)
+- [x] **C6** kpatch `-O2`/`-Os` — *running → close when predicates land* · `15-run-corpus-c6-kpatch-opt.sh`
+- [x] **C4** SoftX appendix stratification — **CLOSED 15 Aug evening** · `cve-triage-table.md` (35 rows)
+- [ ] **Dirty Pipe** Option A pin `v5.16.10` — fetch/build in flight · `DIRTY-PIPE-CAPSTONE.md`
+- [x] **C1** SoftX disposition — **CLOSED via B1** · true `klp-build-upstream` = Paper 2 · `C1-SOFTX-DISPOSITION-2026-08-15.md`
 
 ## Paper prep (parallel)
 

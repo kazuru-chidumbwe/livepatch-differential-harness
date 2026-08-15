@@ -1,32 +1,36 @@
 # Dirty Pipe capstone — plan (CVE-2022-0847)
 
-**Status:** OPEN · not started as livepatch micro-case  
-**Class:** CAPSTONE (compound) — reserved after micro-cases validate harness  
+**Status:** Option A **IN FLIGHT** (15 Aug evening) — pin locked · bzImage building  
+**Class:** CAPSTONE  
 **Triage:** `pilot/results/cve-triage-table.md`
 
-## Why it does not drop onto v6.6.47 pin
+## Pin (locked tonight)
 
-Dirty Pipe is fixed **before** the SoftwareX case-study pin (`v6.6.47`). Replaying the exploit fix as a livepatch against 6.6.47 is the wrong experiment (the bug is already absent). Capstone options:
+| Field | Value |
+| --- | --- |
+| Tag | `v5.16.10` (vulnerable; fix in `v5.16.11`) |
+| Commit | `528cecfa5af09631f0589efe9eacbd543c8c9db1` |
+| Tree | `/opt/atlas/livepatch-corpus/linux-dirtypipe` |
+| Results | `pilot/results/LP-CORPUS-DIRTYPIPE/` |
+| Skeleton | `pilot/handbuild/LP-CORPUS-DIRTYPIPE/` |
 
-| Option | Meaning | Cost |
-| --- | --- | --- |
-| **A** | Re-pin a **pre-fix** kernel (e.g. 5.16.x vulnerable) · build Dirty Pipe livepatch · full harness re-validation | Large — new `WORK_ROOT`, bzImage, handbuild |
-| **B** | Treat Dirty Pipe as **Paper 2 / narrative** only on SoftX — cite as motivation, no live QEMU | Cheap — honest |
-| **C** | Synthetic compound case on 6.6.47 mimicking multi-site pipe/splice shape | Medium — not the real CVE |
+## SoftX tonight bar
 
-**Sponsor ask (15 Aug):** run the corpus including Dirty Pipe. **Preferred path = Option A** on Lab Test Server when C6/C4 bandwidth allows; until then SoftX manuscript must **not** claim Dirty Pipe results.
+| Criterion | Status |
+| --- | --- |
+| Capstone classified in C4 table | **DONE** |
+| Vulnerable pin selected + cloned | **DONE** |
+| Handbuild skeleton present | **DONE** |
+| bzImage build | **IN FLIGHT** (`/tmp/lp-dirtypipe-build.log`) |
+| QEMU predicates | After bzImage — continue until done tonight or mark Paper 2 if overrun |
 
-## Capstone acceptance criteria (Option A)
+## Capstone acceptance (full Option A)
 
 1. Vulnerable pin boots under QEMU with `CONFIG_LIVEPATCH=y`.  
-2. Hand-built (or pipeline) livepatch applies the upstream fix symbols.  
-3. Predicates encode the patch contract (pipe buffer flags / splice path) — **manual**.  
-4. At least one loadable mutant class fails predicates with `INSMOD_RC=0` if applicable.  
-5. Forensic pack under `pilot/results/LP-CORPUS-DIRTYPIPE/`.
+2. Hand-built livepatch applies upstream fix symbols from `v5.16.11`.  
+3. Predicates encode patch contract (pipe buffer flags).  
+4. Forensic pack under `pilot/results/LP-CORPUS-DIRTYPIPE/`.
 
-## Immediate next (this session)
+## Why not on v6.6.47
 
-- [ ] Confirm lab disk for a second kernel tree (~2–4 GB).  
-- [ ] Select vulnerable tag (document SHA).  
-- [ ] Stub `pilot/cases/LP-CORPUS-DIRTYPIPE/` + handbuild skeleton.  
-- [ ] Do **not** block SoftX EM on capstone completion — SoftX stays case-study instrument.
+Bug already fixed before SoftwareX case-study pin — replaying the fix there is the wrong experiment.
