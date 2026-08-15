@@ -49,7 +49,13 @@ run_qemu() {
   local init="$Q/initrd-c3-$tag"
   rm -rf "$init"
   mkdir -p "$init"/{bin,proc,sys,dev}
-  cp /bin/busybox "$init/bin/"
+  # Prefer static busybox (Debian busybox package is often dynamically linked → init ENOENT).
+  BB=
+  for c in /bin/busybox /usr/bin/busybox; do
+    if [[ -x "$c" ]] && file "$c" | grep -qi 'statically linked'; then BB=$c; break; fi
+  done
+  BB="${BB:-/bin/busybox}"
+  cp "$BB" "$init/bin/busybox"
   for a in sh mount cat poweroff insmod sleep dmesg; do ln -sf busybox "$init/bin/$a"; done
   cp "$ko" "$init/${MOD}.ko"
   cat > "$init/init" <<INIT
@@ -58,6 +64,24 @@ mount -t proc proc /proc
 mount -t sysfs sysfs /sys
 dmesg -c >/dev/null
 echo "=== CORPUS_C3_${tag} ==="
+# Defconfig boots are slow; klp transition can stall with only PID 1.
+# Background: nudge /force while insmod waits on the consistency model (pilot-only).
+(
+  i=0
+  while [ \$i -lt 30 ]; do
+    for d in /sys/kernel/livepatch/*; do
+      if [ -f "\$d/force" ] && [ -f "\$d/transition" ]; then
+        tr=\$(cat "\$d/transition" 2>/dev/null || echo 0)
+        if [ "\$tr" != "0" ]; then
+          echo 1 >"\$d/force" 2>/dev/null || true
+          echo "KLP_FORCE=1"
+        fi
+      fi
+    done
+    i=\$((i + 1))
+    sleep 1
+  done
+) &
 insmod /${MOD}.ko
 echo "INSMOD_RC=\$?"
 sleep 1
@@ -73,10 +97,11 @@ INIT
   ( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) > "$Q/initrd-c3-$tag.cpio.gz"
   local serial="$RES/${tag}-serial.log"
   : >"$serial"
-  timeout 60 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-c3-$tag.cpio.gz" \
+  # Boot alone can exceed 45s on lab defconfig; allow transition + predicates.
+  timeout "${QEMU_TIMEOUT_SEC:-180}" qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-c3-$tag.cpio.gz" \
     -append "console=ttyS0 panic=1 nokaslr init=/init" -m 512 -nographic -no-reboot \
     -serial file:"$serial" 2>/dev/null || true
-  grep -E 'CORPUS_C3|INSMOD|P2_PASS|#PF|Oops|PROC|DMESG|livepatch' "$serial" || tail -35 "$serial"
+  grep -E 'CORPUS_C3|INSMOD|P2_PASS|KLP_FORCE|#PF|Oops|PROC|DMESG|livepatch' "$serial" || tail -35 "$serial"
 }
 
 {

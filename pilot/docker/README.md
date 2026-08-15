@@ -53,6 +53,8 @@ Uses `pilot/scripts/03-build-kernel.sh` then Stage A + Stage B.
 
 C3 ground truth: `STRUCTURAL_BIND_PASS=1` from `verify-plt32-binding.py`. Coincidental `/proc` glyphs are not the oracle.
 
+On slow defconfig boots (lab), set `QEMU_TIMEOUT_SEC=180` (default in `13-run-…sh`). The C3 initramfs may nudge `/sys/kernel/livepatch/*/force` so the consistency transition completes under QEMU with only PID 1 (pilot-only; not a production recommendation).
+
 ## Pins
 
 | Component | Value |

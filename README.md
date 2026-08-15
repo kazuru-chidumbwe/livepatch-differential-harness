@@ -2,8 +2,8 @@
 
 Differential test harness for Linux livepatch **build pipelines** (instrument name: **LivepatchDiff**). Identical source patches are built with multiple tools under a pinned kernel commit; outputs are compared for **trace-equivalence** using hand-built `klp_patch` reference modules, ELF normalization, and per-case predicate suites.
 
-**Public pin:** https://github.com/kazuru-chidumbwe/livepatch-differential-harness · SemVer **`v0.1.0`** (same tree as `softwarex-lp1-20260725c`; see `CITATION.cff`, [`docs/TAGS.md`](docs/TAGS.md), [`CHANGELOG.md`](CHANGELOG.md))  
-**Status:** package **case study on v6.6.47** — instrument + illustrative corpus; not a stratified prevalence study.  
+**Public pin:** https://github.com/kazuru-chidumbwe/livepatch-differential-harness · SemVer **`v0.1.1`** (see `CITATION.cff`, [`docs/TAGS.md`](docs/TAGS.md), [`CHANGELOG.md`](CHANGELOG.md), [`docs/ZENODO.md`](docs/ZENODO.md))  
+**Status:** SCP Software Track **OSP case study on v6.6.47** — instrument + illustrative corpus; not a stratified prevalence study. Historical package pin `softwarex-lp1-20260725c` remains a freeze anchor.  
 **Operator API:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · Docker stages: [`pilot/docker/README.md`](pilot/docker/README.md)
 
 **Before push:** `bash scripts/pre-push-hygiene.sh`
