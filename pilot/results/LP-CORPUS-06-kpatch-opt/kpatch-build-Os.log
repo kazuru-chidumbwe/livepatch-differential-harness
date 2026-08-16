@@ -1,0 +1,12 @@
+=== kpatch-build EXTRA_CFLAGS=-Os ===
+Using source directory at /opt/atlas/livepatch-pilot/linux
+Testing patch file(s)
+Reading special section data
+Building original source
+Building patched source
+Extracting new and modified ELF sections
+fs/proc/version.o: changed function: version_proc_show
+Patched objects: vmlinux
+Building patch module: livepatch-LP-PILOT-02-version.ko
+SUCCESS
+KPATCH_BUILD_RC=0

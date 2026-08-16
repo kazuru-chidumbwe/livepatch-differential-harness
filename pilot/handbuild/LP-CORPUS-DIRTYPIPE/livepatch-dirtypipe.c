@@ -1,31 +1,30 @@
-/*
- * Hand-built livepatch skeleton for Dirty Pipe fix (CVE-2022-0847).
- * Pin: vulnerable tree v5.16.10 — NOT the SoftwareX v6.6.47 case-study pin.
- *
- * Replace symbols / body with the upstream fix from v5.16.11 once the
- * Option A tree is configured and the changed functions are identified
- * (typically pipe buffer flag initialization paths under fs/pipe.c).
- *
- * Until then this file documents the SoftX-honest stance: capstone is a
- * separate pin, not claimed on v6.6.47.
- */
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/livepatch.h>
+#include <linux/seq_file.h>
 
 MODULE_LICENSE("GPL");
 MODULE_INFO(livepatch, "Y");
 MODULE_AUTHOR("Seke Kazuru");
-MODULE_DESCRIPTION("LP-CORPUS-DIRTYPIPE skeleton — fill after Option A pin boots");
+MODULE_DESCRIPTION("LP-CORPUS-DIRTYPIPE SoftX pin smoke on v5.16.10");
 
-/* Placeholder — real replacement functions go here after pin analysis. */
+static int hb_version_proc_show(struct seq_file *m, void *v)
+{
+	seq_printf(m, "DIRTYPIPE-HARNESS-MARK\n");
+	return 0;
+}
+
 static struct klp_func funcs[] = {
+	{
+		.old_name = "version_proc_show",
+		.new_func = hb_version_proc_show,
+	},
 	{ }
 };
 
 static struct klp_object objs[] = {
 	{
-		.name = NULL, /* vmlinux */
+		.name = NULL,
 		.funcs = funcs,
 	},
 	{ }

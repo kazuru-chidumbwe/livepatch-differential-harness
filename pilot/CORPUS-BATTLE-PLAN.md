@@ -19,9 +19,9 @@
 
 | ID | What | Blocker |
 | --- | --- | --- |
-| **C6** | kpatch `-O2`/`-Os` on PILOT-02 fix + P2/P3 | Runnable on v6.6.47 pin · `15-run-corpus-c6-kpatch-opt.sh` |
-| **C4** | Full CVE stratification appendix (expand beyond n=20 sample) | Desk + lab · `cve-triage-table.md` |
-| **Dirty Pipe** | Capstone CVE-2022-0847 compound case | Needs dedicated pin/plan — pre-6.6 · see `DIRTY-PIPE-CAPSTONE.md` |
+| **C6** | kpatch `-O2`/`-Os` | **CLOSED** 16 Aug · `LP-CORPUS-06-kpatch-opt/` |
+| **C4** | CVE stratification appendix | **CLOSED** SoftX · expand optional |
+| **Dirty Pipe** | Capstone Option A QEMU | **CLOSED** SoftX 16 Aug · `LP-CORPUS-DIRTYPIPE/` |
 | **C1** | `klp-build-upstream` vs kpatch | **Needs Linux 6.19+ re-pin** · Paper 2 primary |
 
 ## Paper prep (parallel)

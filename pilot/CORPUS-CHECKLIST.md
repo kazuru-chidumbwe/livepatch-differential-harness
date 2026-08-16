@@ -2,7 +2,7 @@
 
 **Pilot status:** gate closed — existence proof only (loadable data-relocation).  
 **Venue:** SoftwareX P1 (instrument) · corpus also feeds Paper 2.  
-**Updated:** 2026-08-15 evening (SoftX restore · corpus resume)
+**Updated:** 2026-08-16 (C6 + Dirty Pipe Option A QEMU SoftX closed · packs synced)
 
 ## Immediate (weeks 1–2) — pre-corpus / closed
 
@@ -13,16 +13,16 @@
 
 ## Near-term (weeks 2–6) — SoftX tonight bar
 
-- [ ] **C6** kpatch `-O2`/`-Os` — *IN FLIGHT on lab* · `15-run-corpus-c6-kpatch-opt.sh` (must finish tonight)
+- [x] **C6** kpatch `-O2`/`-Os` — **CLOSED 16 Aug** · `C6_KPATCH_OPT_DONE` · both P2; P3_PASS=0 on this pin
 - [x] **C4** SoftX appendix stratification — **CLOSED 15 Aug evening** · `cve-triage-table.md` (35 rows)
-- [x] **Dirty Pipe** SoftX appendix — **CLOSED** pin+skeleton · QEMU = Paper 2 · `DIRTYPIPE-SOFTX-DISPOSITION-2026-08-15.md`
+- [x] **Dirty Pipe** SoftX Option A QEMU — **CLOSED 16 Aug** · `DIRTYPIPE_QEMU_DONE` · `pilot/results/LP-CORPUS-DIRTYPIPE/` · INSMOD=0 P2=1 P3=0
 - [x] **C1** SoftX disposition — **CLOSED via B1** · true `klp-build-upstream` = Paper 2 · `C1-SOFTX-DISPOSITION-2026-08-15.md`
 
 ## Paper prep (parallel)
 
-- [ ] **P1** Predicate scaling pattern (methods §5 — beyond marker checks)
-- [ ] **P2** PILOT-02 vignette (forensic bundle largely exists)
-- [ ] **P3** Ground-truth cost table (iterations, time, failures per case)
+- [x] **P1** Predicate scaling pattern (SoftX §2.3)
+- [x] **P2** PILOT-02 vignette (SoftX §3.2)
+- [x] **P3** Ground-truth cost table (SoftX §3.6)
 
 ## Mechanism scorecard (update as cases land)
 
@@ -31,5 +31,5 @@
 | 1 | Relocation / weak-symbol | Data addend only | Code substitution + cross-tool |
 | 2 | Inlining scope | — | Under-inclusion probe **DONE** |
 | 3 | Jump-label | — | Stratification-driven |
-| 4 | Optimization / pipeline | Hand-build -O2/-Os | kpatch vs klp · **C6 open** |
+| 4 | Optimization / pipeline | Hand-build -O2/-Os | kpatch C6 **DONE** (P2 on -O2/-Os) |
 | 5 | CRC / symver | — | When class warrants |

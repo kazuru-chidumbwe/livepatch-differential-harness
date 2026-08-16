@@ -7,10 +7,13 @@ __pycache__/
 # Run output
 logs/
 *.log
+# SoftX corpus forensic packs (keep transcripts / build logs)
+!pilot/results/**/*.log
 
 # Built modules and VM artifacts
 build/
 *.ko
+!pilot/results/**/*.ko
 *.qcow2
 *.img
 
