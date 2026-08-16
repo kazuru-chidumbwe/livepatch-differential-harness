@@ -1,7 +1,7 @@
 {
   "title": "LivepatchDiff (livepatch-differential-harness)",
   "upload_type": "software",
-  "description": "Differential test harness for Linux livepatch build pipelines. Case study on Linux v6.6.47: ELF relocation triage, structural PLT32 bind checks (C3), loadable mutants, and per-case runtime predicates. Modules build from source against a pinned kernel; Docker stages separate module build from predicate replay. Cite SemVer tag v0.1.1.",
+  "description": "Differential test harness for Linux livepatch build pipelines. package case study on Linux v6.6.47: ELF relocation triage, structural PLT32 bind checks (C3), loadable mutants, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe Option A on v5.16.10. Cite SemVer tag v0.1.2. Run only inside QEMU guests.",
   "creators": [
     {
       "name": "Kazuru, Seke",
@@ -16,21 +16,22 @@
     "ELF relocation",
     "mutation testing",
     "kpatch",
-    "QEMU"
+    "QEMU",
+    "package"
   ],
   "license": "MIT",
   "access_right": "open",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.1",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.2",
       "relation": "isSupplementTo",
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.1",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.2",
       "relation": "isIdenticalTo",
       "resource_type": "software"
     }
   ],
-  "notes": "package case-study capsule (LivepatchDiff · Linux v6.6.47). Manuscript Code metadata C2 remains the GitHub tree URL (not Zenodo). When the package article receives a DOI, add it as related_identifiers isDocumentedBy."
+  "notes": "package case-study capsule (LivepatchDiff · Linux v6.6.47). Manuscript Code metadata C2 remains the GitHub tree URL (not Zenodo). Optional Zenodo DOI may be cited alongside GitHub when minted. When the package article receives a DOI, add it as related_identifiers isDocumentedBy."
 }

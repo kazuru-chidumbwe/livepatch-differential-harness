@@ -1,3 +1,8 @@
+## [0.1.2] — 2026-08-16
+
+- corpus closeout packs (C6 + Dirty Pipe Option A QEMU).
+- `RELEASE_MANIFEST.yaml` + `pilot/results/EVALUATION-MATRIX.md` (RQ / counts / overhead).
+- Cite pin `v0.1.2`; Zenodo metadata notes package (GitHub remains C2).
 # Changelog
 
 All notable changes to this project are documented in this file.
