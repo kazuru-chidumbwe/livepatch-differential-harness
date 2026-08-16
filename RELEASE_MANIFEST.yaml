@@ -1,0 +1,69 @@
+# LivepatchDiff release manifest (SoftwareX case-study pin)
+# Full SHA-256 digests. Cite software_version + git_commit together.
+
+software_version: "0.1.2"
+git_commit: "18cec6c29494337646f6cc4c35b26d55a48c5bcd"
+git_tag: "v0.1.2"
+prior_cite_tag: "v0.1.1"
+venue: SoftwareX
+license: MIT
+repository: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness"
+
+kernel_primary:
+  version: "6.6.47"
+  commit: "4c1a2d4cd9a5b6c55739a80c5b9efbca322adad7"
+kernel_dirtypipe:
+  version: "5.16.10"
+  commit: "528cecfa5af09631f0589efe9eacbd543c8c9db1"
+
+toolchain:
+  qemu_version: "8.2.2"
+  gcc_primary: "13 (Ubuntu 24.04)"
+  gcc_dirtypipe: "12"
+  binutils: "2.42"
+  kpatch_build: "0.9.11"
+  host_arch: "x86-64"
+  docker: required
+  qemu_accel: "TCG or KVM (lab used TCG-class QEMU guest)"
+
+safety: >
+  All module loading and mutation experiments must run inside the disposable
+  QEMU guest. Do not run against a production host kernel.
+
+artifacts:
+  - path: pilot/results/LP-CORPUS-03-survivable-sym/structural-bind.txt
+    sha256: "D4E7DA3CF17A16E519CEF371BF8FEDFA167BE4055EA1043BC3E69EC95B7CF9DE"
+  - path: pilot/results/LP-CORPUS-03-survivable-sym/predicate-transcript.txt
+    sha256: "B96351AFAA6AE2062ACEDDD50A217706BE2A13F14D2C4B8FE6E2A213C2685344"
+  - path: pilot/results/LP-CORPUS-05-under-inclusion/predicate-transcript.txt
+    sha256: "AFD27682F50EFB24D9D15C2A50277673E9DDE11F6F52528C183A215E6132BE41"
+  - path: pilot/results/LP-CORPUS-06-kpatch-opt/kpatch-output-O2.ko
+    sha256: "12C809378E53611EB67B5F739AE8FA0F5CACFE40736910D1DEBB660B5218F513"
+  - path: pilot/results/LP-CORPUS-06-kpatch-opt/kpatch-output-Os.ko
+    sha256: "17742E3C04CD158D97CDEB0EA70272F06B725EC90D9F990DDB2124D1F9398D7F"
+  - path: pilot/results/LP-CORPUS-06-kpatch-opt/predicate-transcript.txt
+    sha256: "F28FDD63283CB6E1EC936AF07932CCBD40E701B8EE7A2DDD6999A4232D375CC5"
+  - path: pilot/results/LP-CORPUS-DIRTYPIPE/bzImage
+    sha256: "CF5C1899E0CD0A04D16C65A5BDF24BB05E1590635E31F83C24461EFDC2390119"
+  - path: pilot/results/LP-CORPUS-DIRTYPIPE/livepatch-dirtypipe.ko
+    sha256: "491C36A7D53992015A0E38F115C5A82B4EFF91BE501DEAFAD221CDC010491968"
+  - path: pilot/results/LP-CORPUS-DIRTYPIPE/predicate-transcript.txt
+    sha256: "0EA64D10654CCB96F3B549F6A6B0F9599959A7C5C85B62B26A0CA1D3B057DE97"
+  - path: pilot/results/cve-triage-table.md
+    sha256: "8657CC2B42DD5FF87534CBCFC0A372F148FEDA60FE33FB4702BE472628DD953D"
+  - path: pilot/results/EVALUATION-MATRIX.md
+    sha256: "FD0B79E2959433E271777D84F0EEC0BD515C1B3D707E00088386BF5B2B4BBC1A"
+  - path: RELEASE_MANIFEST.yaml
+    sha256: "SELF"
+
+evaluation_summary:
+  good_artifacts: 6
+  targeted_mutants_generated: 4
+  mutants_loadable: 4
+  loader_invisible_detected: 4
+  benign_pipeline_pairs: 1
+  opt_level_rebuilds_p2_pass: 2
+  p3_pass_in_c6_dirtypipe: 0
+  note: >
+    Counts describe the SoftX pilot corpus only. Not prevalence estimates.
+    Detection rate among loader-invisible mutants in this corpus: 4/4.
