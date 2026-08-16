@@ -1,0 +1,8 @@
+QEMU 10.0.11 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+P2_PASS=1
+P3_PASS=0
+QEMU 10.0.11 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+P2_PASS=1
+P3_PASS=0

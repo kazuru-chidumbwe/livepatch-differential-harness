@@ -1,31 +1,36 @@
-# Dirty Pipe package disposition — tonight (15/16 Aug 2026)
+# Dirty Pipe package disposition — closed 16 Aug 2026
 
 **CVE:** CVE-2022-0847  
-**package bar:** appendix-complete without live QEMU predicates if build overruns.
+**Venue:** package P1 (this paper)  
+**Lock:** Full **Option A QEMU** is package — not Paper 2.  
+**Status:** **CLOSED** · lab pack + local sync 16 Aug
 
-## package close (tonight)
+---
 
-| Claim package may make | Evidence |
+## package bar (Option A)
+
+| package requirement | Status | Evidence |
+| --- | --- | --- |
+| Capstone class in triage | **DONE** | `cve-triage-table.md` CAPSTONE row |
+| Vulnerable pin locked | **DONE** | `v5.16.10` @ `528cecfa5af09631f0589efe9eacbd543c8c9db1` |
+| Lab tree | **DONE** | `/opt/atlas/livepatch-corpus/linux-dirtypipe` |
+| Case + handbuild | **DONE** | `pilot/cases/` · `pilot/handbuild/LP-CORPUS-DIRTYPIPE/` |
+| Separate pin (not v6.6.47) | **DONE** | Wrong experiment on package primary pin |
+| **bzImage** boots with livepatch | **DONE** | `DIRTYPIPE_BZ_DONE` · SHA-256 in `pin.txt` |
+| **Handbuild** loadable | **DONE** | `INSMOD_RC=0` · `livepatch-dirtypipe.ko` |
+| **QEMU predicates** | **DONE** | `P2_PASS=1` · `P3_PASS=0` · `DIRTYPIPE_QEMU_DONE` |
+| Forensic pack synced | **DONE** | `pilot/results/LP-CORPUS-DIRTYPIPE/` |
+
+| package must **not** claim | Why |
 | --- | --- |
-| Capstone class in triage | `cve-triage-table.md` CAPSTONE row |
-| Vulnerable pin locked | `v5.16.10` @ `528cecfa5af09631f0589efe9eacbd543c8c9db1` |
-| Lab tree present | `/opt/atlas/livepatch-corpus/linux-dirtypipe` |
-| Case + handbuild skeleton | `pilot/cases/LP-CORPUS-DIRTYPIPE/` · `pilot/handbuild/LP-CORPUS-DIRTYPIPE/` |
-| Why not on package case-study pin | Fixed before `v6.6.47` — wrong experiment |
+| Production / industry prevalence | Rates = Paper 2 |
+| Compound-case throughput rates | One Option A path ≠ corpus rate |
+| Dirty Pipe fix on v6.6.47 | Wrong pin |
 
-| Claim package must **not** make | Why |
-| --- | --- |
-| Live QEMU P2/P3 on Dirty Pipe | Requires finished `bzImage` + handbuild + serial logs |
-| Production-ready compound-case throughput | Capstone is one Option A path, not a corpus rate |
+---
 
-## Lab note (tonight serialization)
+## Paper 2 (not Dirty Pipe QEMU)
 
-Dirty Pipe `bzImage` was **paused** (`SIGSTOP`) so C6 (package hard gate: kpatch `-O2`/`-Os`) could monopolize the 4-core Lab Test Server. Resume with `/tmp/lab-resume-dirtypipe.sh` after `C6_KPATCH_OPT_DONE`.
-
-## Paper 2 reopen
-
-1. Resume / finish `bzImage` (`DIRTYPIPE_BZ_DONE` in `pin.txt`).  
-2. Handbuild fix from `v5.16.11` symbols.  
-3. QEMU predicates + forensic pack under `pilot/results/LP-CORPUS-DIRTYPIPE/`.
-
-Checklist **Dirty Pipe** package appendix = **CLOSED** on pin+skeleton+disposition. Full Option A acceptance remains open for Paper 2 / morning continuation.
+1. True `klp-build-upstream` C1 on linux-c1-619.  
+2. INCLUDE shortlist / stratified rates.  
+3. Prevalence / production measurement.

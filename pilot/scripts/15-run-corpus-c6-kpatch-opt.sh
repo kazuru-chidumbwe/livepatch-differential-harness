@@ -78,4 +78,4 @@ for opt in O2 Os; do
   fi
 done
 
-echo C6_KPATCH_OPT_DONE | tee -a /tmp/lp-c6-run.log
+echo C6_KPATCH_OPT_DONE | tee "$OUT/C6_KPATCH_OPT_DONE" | tee -a /tmp/lp-c6-run.log

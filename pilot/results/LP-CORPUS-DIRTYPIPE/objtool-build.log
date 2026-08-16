@@ -1,0 +1,4 @@
+  DESCEND objtool
+gcc-12   -o /opt/atlas/livepatch-corpus/linux-dirtypipe/tools/objtool/fixdep /opt/atlas/livepatch-corpus/linux-dirtypipe/tools/objtool/fixdep-in.o
+rm -f /opt/atlas/livepatch-corpus/linux-dirtypipe/tools/objtool/libsubcmd.a && ar rcs /opt/atlas/livepatch-corpus/linux-dirtypipe/tools/objtool/libsubcmd.a /opt/atlas/livepatch-corpus/linux-dirtypipe/tools/objtool/libsubcmd-in.o
+gcc-12 /opt/atlas/livepatch-corpus/linux-dirtypipe/tools/objtool/objtool-in.o -lelf  /opt/atlas/livepatch-corpus/linux-dirtypipe/tools/objtool/libsubcmd.a   -o /opt/atlas/livepatch-corpus/linux-dirtypipe/tools/objtool/objtool

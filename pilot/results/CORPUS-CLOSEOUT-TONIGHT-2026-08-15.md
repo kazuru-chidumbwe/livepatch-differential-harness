@@ -1,35 +1,38 @@
-# Corpus package closeout — tonight 15 Aug 2026
+# Corpus package closeout — 15/16 Aug 2026 (closed)
 
-**Sponsor:** close C1 / C4 / C6 / Dirty Pipe tonight.  
-**Venue:** package P1 (instrument) · Paper 2 retains true C1 / full enum / finished capstone QEMU if not tonight.
+**Sponsor:** close C1 / C4 / C6 / Dirty Pipe for package.  
+**Venue:** package P1.  
+**Dirty Pipe:** Option A QEMU = package · **CLOSED** 16 Aug (lab + local sync).
 
-| Gate | corpus closeout | Evidence |
+| Gate | package | Evidence |
 | --- | --- | --- |
 | Pre-corpus B1/C2/C3/C5 | **CLOSED** | Existing `LP-CORPUS-*` packs |
-| **C4** stratification | **CLOSED** | `cve-triage-table.md` — 35 rows · INCLUDE shortlist locked |
-| **C1** true `klp-build-upstream` | **CLOSED for package via B1** | `C1-DISPOSITION-DISPOSITION-2026-08-15.md` · 6.19 tree fetch for Paper 2 |
-| **C6** kpatch `-O2`/`-Os` | **IN FLIGHT → must finish tonight** | Lab `/tmp/lp-c6-run.log` · `LP-CORPUS-06-kpatch-opt/` · Dirty Pipe paused for CPU |
-| **Dirty Pipe** | **package CLOSED** (pin+skeleton) · bzImage paused | `DIRTYPIPE-PACKAGE-DISPOSITION-2026-08-15.md` · resume `/tmp/lab-resume-dirtypipe.sh` after C6 |
+| **C4** stratification | **CLOSED** | `cve-triage-table.md` — 35 rows |
+| **C1** true `klp-build-upstream` | **CLOSED for package via B1** | Paper 2 keeps true C1 |
+| **C6** kpatch `-O2`/`-Os` | **CLOSED** | `LP-CORPUS-06-kpatch-opt/` · `C6_KPATCH_OPT_DONE` |
+| **Dirty Pipe** Option A QEMU | **CLOSED** | `LP-CORPUS-DIRTYPIPE/` · `DIRTYPIPE_QEMU_DONE` |
 
-## Dirty Pipe pin (Option A)
+## Dirty Pipe pin (Option A — package)
 
 ```
 KERNEL_TAG=v5.16.10
 KERNEL_COMMIT=528cecfa5af09631f0589efe9eacbd543c8c9db1
 WORK_ROOT=/opt/atlas/livepatch-corpus
-FIX_TAG=v5.16.11
+BZIMAGE_SHA256=CF5C1899E0CD0A04D16C65A5BDF24BB05E1590635E31F83C24461EFDC2390119
 ```
 
-package must not claim Dirty Pipe QEMU predicates until `LP-CORPUS-DIRTYPIPE/` has serial logs. Capstone **class** + pin lock + skeleton = package appendix-complete; live predicates = Paper 2 / morning continuation if build overruns.
+Predicates: `INSMOD_RC=0` · `P2_PASS=1` · `P3_PASS=0`.
 
-## C6 acceptance (when log shows done)
+## package acceptance
 
-- [ ] `KPATCH_BUILD_RC=0` for O2 and Os  
-- [ ] Predicate transcripts with INSMOD/P2/P3  
-- [ ] Checklist C6 checked  
+- [x] `DIRTYPIPE_BZ_DONE`  
+- [x] Handbuild loadable · `INSMOD_RC=0`  
+- [x] QEMU transcripts · `DIRTYPIPE_QEMU_DONE`  
+- [x] Forensic pack under `pilot/results/LP-CORPUS-DIRTYPIPE/` (synced local 16 Aug)  
+- [x] C6 pack under `pilot/results/LP-CORPUS-06-kpatch-opt/` (synced local 16 Aug)
 
-## Paper 2 reopen (explicit)
+## Paper 2 reopen
 
-1. Finish Dirty Pipe bzImage + handbuild + QEMU pack.  
-2. Finish C1 on linux-c1-619 (`klp-build` vs kpatch).  
-3. Execute INCLUDE shortlist micro-cases.
+1. Finish C1 on linux-c1-619 (`klp-build` vs kpatch).  
+2. Execute INCLUDE shortlist / stratified rates.  
+3. Prevalence / production measurement.

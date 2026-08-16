@@ -1,0 +1,1 @@
+-rw-rw-r-- 1 test test 13092640 Aug 16 02:33 /opt/atlas/livepatch-corpus/linux-dirtypipe/arch/x86/boot/bzImage

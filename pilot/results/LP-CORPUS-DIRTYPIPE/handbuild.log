@@ -1,0 +1,7 @@
+WARNING: Symbol version dump "Module.symvers" is missing.
+         Modules may not have dependencies or modversions.
+         You may get many unresolved symbol warnings.
+WARNING: modpost: "klp_enable_patch" [/opt/atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-DIRTYPIPE/livepatch-dirtypipe.ko] undefined!
+WARNING: modpost: "seq_printf" [/opt/atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-DIRTYPIPE/livepatch-dirtypipe.ko] undefined!
+WARNING: modpost: "__sanitizer_cov_trace_pc" [/opt/atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-DIRTYPIPE/livepatch-dirtypipe.ko] undefined!
+WARNING: modpost: "__fentry__" [/opt/atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-DIRTYPIPE/livepatch-dirtypipe.ko] undefined!
