@@ -4,7 +4,7 @@ Annotated tags mark reproducible anchors. **`master` / `main` may advance** afte
 
 | Tag | Commit | Purpose |
 | --- | --- | --- |
-| [`v0.1.3`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.3) | see `git rev-parse v0.1.3^{}` | package cite pin · hardened P3 · predicate schema · C6 pack refresh |
+| [`v0.1.3`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.3) | `8668d99` (retag may advance tip) | package cite pin · hardened P3 · predicate schema · C6 pack refresh |
 | [`v0.1.2`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.2) | `3950fce` | package closeout (pre-hardening C6 P3 packs) |
 | [`v0.1.1`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.1) | `aaa34e3` (tag also includes `b7adce7` TAGS pin) | C3 structural refresh · Zenodo capsule |
 | [`v0.1.0`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.0) | `b1c6bb7` | First SemVer release (package / CITATION.cff) |

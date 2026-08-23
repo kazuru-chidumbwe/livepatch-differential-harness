@@ -11,8 +11,11 @@
 ### Changed
 
 - C5/C6 and Stage B generators source `klp-predicates.sh`; C5 no longer uses naive sysfs glob.
-- Refreshed C6 (and C5 where rerun) predicate packs under `pilot/results/`.
+- Refreshed C6 hardened P3 packs (`-O2`/`-Os`): `P2_PASS=1`, `P3_PASS=0` with
+  `P3_ENABLED_ZERO=0` (not glob failure); both modules and serials under
+  `pilot/results/LP-CORPUS-06-kpatch-opt/`.
 - package cite pin → `v0.1.3`.
+- `RELEASE_MANIFEST.yaml` digests and QEMU version notes aligned to cite tip.
 
 ## [0.1.2] — 2026-08-16
 
