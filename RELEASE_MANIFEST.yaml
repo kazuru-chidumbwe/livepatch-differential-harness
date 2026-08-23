@@ -42,7 +42,7 @@ artifacts:
   - path: pilot/results/LP-CORPUS-06-kpatch-opt/kpatch-output-Os.ko
     sha256: "17742E3C04CD158D97CDEB0EA70272F06B725EC90D9F990DDB2124D1F9398D7F"
   - path: pilot/results/LP-CORPUS-06-kpatch-opt/predicate-transcript.txt
-    sha256: "A7764FA00DCA4CDF82940173EFFC5F254F26109E3EB6FF2A54435ECB44C482E7"
+    sha256: "EDC1F0CCE814D79B637D72E148F1E0B89AE85C09C362657F2F49457A8E946426"
   - path: pilot/results/LP-CORPUS-DIRTYPIPE/bzImage
     sha256: "CF5C1899E0CD0A04D16C65A5BDF24BB05E1590635E31F83C24461EFDC2390119"
   - path: pilot/results/LP-CORPUS-DIRTYPIPE/livepatch-dirtypipe.ko
@@ -52,7 +52,7 @@ artifacts:
   - path: pilot/results/cve-triage-table.md
     sha256: "106474FABC08DE108758ADC2CBF0437B339D32AE1D0E6B01D9EAA6CA7D729F6F"
   - path: pilot/results/EVALUATION-MATRIX.md
-    sha256: "A2BA440539379513F0ED285CA88BE879C363A98573E388BF5F134C5DDD6D50F7"
+    sha256: "5BA1F355F7E4E8929B584976860FA46AF8A4210E3C5EFAE080493787A73823FB"
   - path: RELEASE_MANIFEST.yaml
     sha256: "SELF"
 
@@ -63,8 +63,10 @@ evaluation_summary:
   loader_invisible_detected: 4
   benign_pipeline_pairs: 1
   opt_level_rebuilds_p2_pass: 2
-  p3_pass_in_c6_dirtypipe: 0
+  c6_p3_pass: 2
+  dirtypipe_p3_pass: 0
   note: >
     Counts describe the package pilot corpus only. Not prevalence estimates.
     Detection rate among loader-invisible mutants in this corpus: 4/4.
     C6 v0.1.4: P2_PASS=1 and P3_PASS=1 (contract) at -O2/-Os; P3_ENABLED_ZERO may stay 0 (diagnostic).
+    Dirty Pipe remains pre-hardening P3_PASS=0 (separate pin).
