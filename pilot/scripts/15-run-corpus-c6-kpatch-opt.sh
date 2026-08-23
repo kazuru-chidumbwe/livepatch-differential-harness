@@ -9,6 +9,10 @@ CASE_ENV="$ROOT/pilot/cases/LP-PILOT-02-version/case.env"
 source "$CASE_ENV"
 # shellcheck source=/dev/null
 source "$ROOT/pilot/env/pins.env"
+# shellcheck source=/dev/null
+source "$ROOT/pilot/scripts/lib/klp-predicates.sh"
+# shellcheck source=/dev/null
+source "$ROOT/pilot/scripts/lib/check-init-no-klp-glob.sh"
 export WORK_ROOT="${WORK_ROOT:-$HOME/livepatch-pilot}"
 LINUX="$WORK_ROOT/linux"
 VMLINUX="$LINUX/vmlinux"
@@ -33,20 +37,20 @@ mount -t sysfs sysfs /sys
 insmod /${modbase}.ko
 echo INSMOD_RC=\$?
 sleep 1
+$(emit_klp_post_load_status)
 if grep -q '$MARKER' $PROC_FILE 2>/dev/null; then echo P2_PASS=1; else echo P2_PASS=0; fi
-echo 0 > /sys/kernel/livepatch/*/enabled 2>/dev/null || true
-sleep 1
-if grep -q '$MARKER' $PROC_FILE 2>/dev/null; then echo P3_PASS=0; else echo P3_PASS=1; fi
+$(emit_p3_hardened_revert "$MARKER" "$PROC_FILE" 30)
 poweroff -f
 INIT
   chmod +x "$init/init"
+  check_init_no_klp_glob "$init/init"
   ( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) >"$Q/initrd-c6-$tag.cpio.gz"
   local serial="$OUT/predicate-$tag-serial.log"
   : >"$serial"
-  timeout 90 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-c6-$tag.cpio.gz" \
+  timeout 120 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-c6-$tag.cpio.gz" \
     -append "console=ttyS0 panic=1 nokaslr init=/init" -m 512 -nographic -no-reboot \
     -serial file:"$serial" 2>/dev/null || true
-  grep -E 'INSMOD|P2_PASS|P3_PASS' "$serial" || true
+  grep -E 'INSMOD|KLP_|P2_PASS|P3_' "$serial" || true
 }
 
 # kpatch-build writes livepatch-*.ko into CWD (or -o DIR), not /tmp/kpatch-out.

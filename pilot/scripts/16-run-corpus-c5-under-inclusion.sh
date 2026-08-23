@@ -7,6 +7,10 @@ CASE_ENV="$ROOT/pilot/cases/LP-CORPUS-05-inline/case.env"
 source "$CASE_ENV"
 # shellcheck source=/dev/null
 source "$ROOT/pilot/env/pins.env"
+# shellcheck source=/dev/null
+source "$ROOT/pilot/scripts/lib/klp-predicates.sh"
+# shellcheck source=/dev/null
+source "$ROOT/pilot/scripts/lib/check-init-no-klp-glob.sh"
 export WORK_ROOT="${WORK_ROOT:-$HOME/livepatch-pilot}"
 
 HB="$ROOT/pilot/handbuild/$HANDUILD_SUBDIR"
@@ -93,17 +97,18 @@ if grep -q '$MARKER_HOT' $PROC_FILE 2>/dev/null && grep -q '$MARKER_COLD_ORIG' $
 else
   echo UNDER_INCLUSION_DETECTED=0
 fi
-echo 0 > /sys/kernel/livepatch/*/enabled 2>/dev/null || true
+$(emit_p3_hardened_revert "$MARKER_HOT" "$PROC_FILE" 30)
 poweroff -f
 INIT
   chmod +x "$init/init"
+  check_init_no_klp_glob "$init/init"
   ( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) >"$Q/initrd-c5.cpio.gz"
   local serial="$RES/predicate-serial.log"
   : >"$serial"
   timeout 120 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-c5.cpio.gz" \
     -append "console=ttyS0 panic=1 nokaslr init=/init" -m 512 -nographic -no-reboot \
     -serial file:"$serial" 2>/dev/null || true
-  grep -E 'PRE|POST|HOT=|COLD=|INSMOD|P2_|UNDER_' "$serial" | tee "$RES/predicate-transcript.txt"
+  grep -E 'PRE|POST|HOT=|COLD=|INSMOD|P2_|UNDER_|P3_|KLP_' "$serial" | tee "$RES/predicate-transcript.txt"
 }
 
 # --- main ---

@@ -7,6 +7,10 @@ CASE_ENV="$ROOT/pilot/cases/LP-PILOT-02-version/case.env"
 source "$CASE_ENV"
 # shellcheck source=/dev/null
 source "$ROOT/pilot/env/pins.env"
+# shellcheck source=/dev/null
+source "$ROOT/pilot/scripts/lib/klp-predicates.sh"
+# shellcheck source=/dev/null
+source "$ROOT/pilot/scripts/lib/check-init-no-klp-glob.sh"
 export WORK_ROOT="${WORK_ROOT:-$HOME/livepatch-pilot}"
 
 HB="$ROOT/pilot/handbuild/$HANDUILD_SUBDIR"
@@ -53,22 +57,22 @@ cat $PROC_FILE
 insmod /${MODULE_BASENAME}.ko
 echo "INSMOD_RC=\$?"
 sleep 1
+$(emit_klp_post_load_status)
 echo "=== POST_PATCH ==="
 cat $PROC_FILE
 if grep -q '$MARKER' $PROC_FILE 2>/dev/null; then echo P2_PASS=1; else echo P2_PASS=0; fi
-echo 0 > /sys/kernel/livepatch/${SYSFS_NAME}/enabled 2>/dev/null || true
-sleep 1
 echo "=== POST_REVERT ==="
+$(emit_p3_hardened_revert "$MARKER" "$PROC_FILE" 30)
 cat $PROC_FILE
-if grep -q '$MARKER' $PROC_FILE 2>/dev/null; then echo P3_PASS=0; else echo P3_PASS=1; fi
 echo "=== DONE ==="
 poweroff -f
 INIT
 chmod +x "$INIT/init"
+check_init_no_klp_glob "$INIT/init"
 ( cd "$INIT" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) > "$Q/initrd-lp02.cpio.gz"
 SERIAL_GOOD="$RES/qemu-serial-good.log"
 : >"$SERIAL_GOOD"
-timeout 90 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-lp02.cpio.gz" \
+timeout 120 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-lp02.cpio.gz" \
   -append "console=ttyS0 panic=1 nokaslr init=/init" -m 1024 -nographic -no-reboot \
   -serial file:"$SERIAL_GOOD" 2>/dev/null || true
 cp "$SERIAL_GOOD" "$RES/validation.log"
@@ -112,7 +116,7 @@ timeout 60 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-lp02-perturb.cpio
 } | tee "$RES/perturbation-loadable.txt"
 
 echo "--- LP-PILOT-02 summary ---"
-grep -E 'PRE_PATCH|POST_PATCH|POST_REVERT|P2_PASS|P3_PASS|INSMOD|DONE' "$SERIAL_GOOD" | tee "$RES/validation-summary.txt"
+grep -E 'PRE_PATCH|POST_PATCH|POST_REVERT|P2_PASS|P3_|KLP_|INSMOD|DONE' "$SERIAL_GOOD" | tee "$RES/validation-summary.txt"
 
 pass_good=0
 pass_perturb=0

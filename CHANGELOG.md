@@ -1,6 +1,22 @@
+## [Unreleased]
+
+## [0.1.3] — 2026-08-23
+
+### Added
+
+- `docs/PREDICATE-SCHEMA.md` — compact YAML sketch for per-case P2/P3 contracts.
+- `pilot/scripts/lib/klp-predicates.sh` — hardened P3 revert helpers (`P3_*`, `KLP_*`).
+- `pilot/scripts/lib/check-init-no-klp-glob.sh` — host guard against `livepatch/*/enabled` glob redirects.
+
+### Changed
+
+- C5/C6 and Stage B generators source `klp-predicates.sh`; C5 no longer uses naive sysfs glob.
+- Refreshed C6 (and C5 where rerun) predicate packs under `pilot/results/`.
+- package cite pin → `v0.1.3`.
+
 ## [0.1.2] — 2026-08-16
 
-- corpus closeout packs (C6 + Dirty Pipe Option A QEMU).
+- package corpus closeout packs (C6 + Dirty Pipe Option A QEMU).
 - `RELEASE_MANIFEST.yaml` + `pilot/results/EVALUATION-MATRIX.md` (RQ / counts / overhead).
 - Cite pin `v0.1.2`; Zenodo metadata notes package (GitHub remains C2).
 # Changelog
@@ -36,5 +52,7 @@ v6.6.47 freeze. Prefer **SemVer** (`vX.Y.Z`) for package C1 / CITATION.cff; see
 - package dated pin `softwarex-lp1-20260725c` (`386226e`) remains the case-study freeze.
 - `CHANGELOG.md` and SemVer tag policy in `docs/TAGS.md`.
 
+[0.1.3]: https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.3
+[0.1.2]: https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.2
 [0.1.1]: https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.1
 [0.1.0]: https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.0

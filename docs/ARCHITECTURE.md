@@ -34,7 +34,7 @@ Classify     — pass / diverge / inconclusive + evidence packs
 | Loadable mutants | `perturb-*.py` |
 | Relocation triage dumps | `readelf` / scripts under `pilot/scripts/` |
 | **Structural PLT32 bind oracle** | `verify-plt32-binding.py` (C3 ground truth) |
-| QEMU serial + `P2`/`P3`/`INSMOD_RC` lines | per-case `*-run-*.sh` |
+| QEMU serial + `P2`/`P3`/`INSMOD_RC` (+ hardened P3 fields) | per-case `*-run-*.sh` via `pilot/scripts/lib/klp-predicates.sh` |
 | Evidence packs | `pilot/results/<case>/` |
 
 ## What stays manual (honest package scope)
@@ -53,6 +53,19 @@ Classify     — pass / diverge / inconclusive + evidence packs
 | **Operational** | `INSMOD_RC`, dmesg silence | Separates loader-accepted faults from load failures |
 
 For C3, structural bind is **required** ground truth. Runtime glyphs under `nokaslr` are illustrative side-effects only.
+
+## Hardened P3 revert (optional operator API)
+
+Naive P3 (`echo 0 > enabled; sleep 1; grep marker`) conflates transition stalls with marker-contract failure. Run scripts that exercise revert now embed `pilot/scripts/lib/klp-predicates.sh`:
+
+1. Disable via iteration over `/sys/kernel/livepatch/*/enabled` (never shell-glob redirect to `livepatch/*/enabled`).
+2. Poll `…/transition` until `0` (default 30 s); set `P3_TIMEOUT=1` on exhaustion; optional `force` nudge after 5 s (pilot-only).
+3. Verify `enabled=0` → `P3_ENABLED_ZERO`.
+4. Optionally sample `/proc/1/patch_state`.
+5. Evaluate baseline observable → `P3_BASELINE_OBSERVED`.
+6. Composite `P3_PASS=1` only if transition complete ∧ enabled zero ∧ baseline observed.
+
+Post-load status lines: `KLP_ENABLED`, `KLP_TRANSITION`. Predicate contract sketch: `docs/PREDICATE-SCHEMA.md`. See `pilot/scripts/lib/README.md`.
 
 ## Adapting to a new patch (minimal workflow)
 

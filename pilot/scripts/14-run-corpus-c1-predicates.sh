@@ -10,6 +10,10 @@ BZ="$ROOT/pilot/build/bzImage"
 KLP="$OUT/klp-handbuild-reference.ko"
 KP="$OUT/kpatch-output.ko"
 MARKER='LP-PILOT-02 patched-by-harness'
+# shellcheck source=/dev/null
+source "$ROOT/pilot/scripts/lib/klp-predicates.sh"
+# shellcheck source=/dev/null
+source "$ROOT/pilot/scripts/lib/check-init-no-klp-glob.sh"
 
 run_pred() {
   local ko="$1" tag="$2"
@@ -30,22 +34,20 @@ echo "=== C1_${tag} ==="
 insmod /${modbase}.ko
 echo "INSMOD_RC=\$?"
 sleep 1
+$(emit_klp_post_load_status)
 dmesg | tail -25
 echo "---PROC---"
 cat $PROC_FILE || echo PROC_FAIL
 if grep -q '$MARKER' $PROC_FILE 2>/dev/null; then echo P2_PASS=1; else echo P2_PASS=0; fi
-for f in /sys/kernel/livepatch/*/enabled; do
-  [ -f "\$f" ] && echo 0 > "\$f" && break
-done
-sleep 1
-if grep -q '$MARKER' $PROC_FILE 2>/dev/null; then echo P3_PASS=0; else echo P3_PASS=1; fi
+$(emit_p3_hardened_revert "$MARKER" "$PROC_FILE" 30)
 poweroff -f
 INIT
   chmod +x "$init/init"
+  check_init_no_klp_glob "$init/init"
   ( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) > "$ROOT/pilot/build/qemu/initrd-c1-$tag.cpio.gz"
   local serial="$OUT/predicate-$tag-serial.log"
   : >"$serial"
-  timeout 90 qemu-system-x86_64 -kernel "$BZ" -initrd "$ROOT/pilot/build/qemu/initrd-c1-$tag.cpio.gz" \
+  timeout 120 qemu-system-x86_64 -kernel "$BZ" -initrd "$ROOT/pilot/build/qemu/initrd-c1-$tag.cpio.gz" \
     -append "console=ttyS0 panic=1 nokaslr init=/init" -m 512 -nographic -no-reboot \
     -serial file:"$serial" 2>/dev/null || true
 }
@@ -65,10 +67,10 @@ run_pred "$KP" kpatch
   echo "# B1 pipeline baseline predicate transcript (hand-build klp vs kpatch-build)"
   echo
   echo "## klp hand-build"
-  grep -E 'C1_|INSMOD|P2_PASS|P3_PASS|livepatch|#PF|PROC|---' "$OUT/predicate-klp-serial.log" || tail -35 "$OUT/predicate-klp-serial.log"
+  grep -E 'C1_|INSMOD|KLP_|P2_PASS|P3_|livepatch|#PF|PROC|---' "$OUT/predicate-klp-serial.log" || tail -35 "$OUT/predicate-klp-serial.log"
   echo
   echo "## kpatch-build"
-  grep -E 'C1_|INSMOD|P2_PASS|P3_PASS|livepatch|#PF|PROC|---' "$OUT/predicate-kpatch-serial.log" || tail -35 "$OUT/predicate-kpatch-serial.log"
+  grep -E 'C1_|INSMOD|KLP_|P2_PASS|P3_|livepatch|#PF|PROC|---' "$OUT/predicate-kpatch-serial.log" || tail -35 "$OUT/predicate-kpatch-serial.log"
 } | tee "$OUT/predicate-transcript.txt"
 
 echo C1_PREDICATES_DONE
