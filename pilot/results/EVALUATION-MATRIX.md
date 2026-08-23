@@ -36,7 +36,8 @@
 | Loader-invisible mutants detected by ≥1 contract | 4 / 4 |
 | Benign pipeline pair (B1) with matching P2/P3 | 1 |
 | Opt-level rebuilds with P2_PASS=1 | 2 / 2 |
-| C6 / Dirty Pipe runs with P3_PASS=1 | 0 (hardened P3: transition+baseline OK; `enabled` sysfs stayed non-zero on C6/DIRTYPIPE) |
+| C6 runs with P3_PASS=1 | 0 (hardened P3: `P3_ENABLED_ZERO=0` despite `P3_TRANSITION_COMPLETE=1` and baseline restored) |
+| Dirty Pipe run with P3_PASS=1 | 0 (pre-hardening revert init; separate from C6 hardened packs) |
 
 **Do not** report these as production rates.
 
