@@ -4,7 +4,7 @@ Annotated tags mark reproducible anchors. **`master` / `main` may advance** afte
 
 | Tag | Commit | Purpose |
 | --- | --- | --- |
-| [`v0.1.4`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4) | TBD_AT_TAG | package cite pin · P3_PASS = contract (transition∧baseline) · C6 P3_PASS=1 |
+| [`v0.1.4`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4) | `a01a19d` | package cite pin · P3_PASS = contract (transition∧baseline) · C6 P3_PASS=1 |
 | [`v0.1.3`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.3) | `029518e` | Prior cite pin · hardened P3 · predicate schema · C6 pack refresh |
 | [`v0.1.2`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.2) | `3950fce` | package closeout (pre-hardening C6 P3 packs) |
 | [`v0.1.1`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.1) | `aaa34e3` (tag also includes `b7adce7` TAGS pin) | C3 structural refresh · Zenodo capsule |
