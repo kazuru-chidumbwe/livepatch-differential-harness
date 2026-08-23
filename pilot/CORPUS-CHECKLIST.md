@@ -16,7 +16,7 @@
 - [x] **C6** kpatch `-O2`/`-Os` — **CLOSED** · `C6_KPATCH_OPT_DONE` · both P2; `P3_PASS=1` (v0.1.4 contract); `P3_ENABLED_ZERO` diagnostic
 - [x] **C4** package appendix stratification — **CLOSED 15 Aug evening** · `cve-triage-table.md` (35 rows)
 - [x] **Dirty Pipe** package Option A QEMU — **CLOSED 16 Aug** · `DIRTYPIPE_QEMU_DONE` · `pilot/results/LP-CORPUS-DIRTYPIPE/` · INSMOD=0 P2=1 P3=0
-- [x] **C1** package disposition — **CLOSED via B1** · true `klp-build-upstream` = Paper 2 · `C1-package-DISPOSITION-2026-08-15.md`
+- [x] **C1** package disposition — **CLOSED via B1** · true `klp-build-upstream` = Paper 2 · `C1-DISPOSITION-DISPOSITION-2026-08-15.md`
 
 ## Paper prep (parallel)
 
