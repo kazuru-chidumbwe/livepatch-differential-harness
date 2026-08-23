@@ -62,7 +62,7 @@ On slow defconfig boots (lab), set `QEMU_TIMEOUT_SEC=180` (default in `13-run-â€
 | Kernel | v6.6.47 @ `4c1a2d4` |
 | gcc | 13.x |
 | kpatch-build | 0.9.11 |
-| QEMU | 8.2.x |
+| QEMU | 8.2.x (Docker); Lab Test Server package packs also run on QEMU 10.x |
 
 ## Artifact evaluation badge
 

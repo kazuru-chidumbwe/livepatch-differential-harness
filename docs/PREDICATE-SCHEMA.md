@@ -26,7 +26,7 @@ runtime:
   qemu:
     accel: TCG
     append: "console=ttyS0 panic=1 nokaslr init=/init"
-    timeout_sec: 90
+    timeout_sec: 120
   p2:
     proc_file: /proc/version
     marker: LIVEPATCH-CORPUS03-MARKER
