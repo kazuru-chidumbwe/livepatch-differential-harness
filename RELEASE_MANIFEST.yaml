@@ -67,3 +67,5 @@ evaluation_summary:
   note: >
     Counts describe the package pilot corpus only. Not prevalence estimates.
     Detection rate among loader-invisible mutants in this corpus: 4/4.
+    C6 hardened P3: P2_PASS=1 at -O2/-Os; P3_PASS=0 because P3_ENABLED_ZERO=0
+    after unpatch transition despite P3_BASELINE_OBSERVED=1.
