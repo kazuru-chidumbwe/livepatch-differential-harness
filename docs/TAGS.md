@@ -14,7 +14,7 @@ Annotated tags mark reproducible anchors. **`master` / `main` may advance** afte
 ## Quick checkout
 
 ```bash
-git checkout v0.1.3
+git checkout v0.1.4
 ```
 
 ## Tag policy

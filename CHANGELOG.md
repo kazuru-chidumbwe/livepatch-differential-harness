@@ -1,5 +1,13 @@
 ## [Unreleased]
 
+## [0.1.4] — 2026-08-23
+
+### Changed
+
+- package-facing `P3_PASS` = `P3_CONTRACT_PASS` = transition complete ∧ baseline
+  observed. `P3_ENABLED_ZERO` remains diagnostic (sysfs may lag functional revert).
+- Refreshed C6 predicate packs under the new composite; cite pin → `v0.1.4`.
+
 ## [0.1.3] — 2026-08-23
 
 ### Added
@@ -55,6 +63,7 @@ v6.6.47 freeze. Prefer **SemVer** (`vX.Y.Z`) for package C1 / CITATION.cff; see
 - package dated pin `softwarex-lp1-20260725c` (`386226e`) remains the case-study freeze.
 - `CHANGELOG.md` and SemVer tag policy in `docs/TAGS.md`.
 
+[0.1.4]: https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4
 [0.1.3]: https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.3
 [0.1.2]: https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.2
 [0.1.1]: https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.1

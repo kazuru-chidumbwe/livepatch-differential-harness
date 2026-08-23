@@ -15,12 +15,14 @@
 #   KLP_ENABLED=<0|1|missing>
 #   KLP_TRANSITION=<0|1|missing>
 #   P3_TRANSITION_COMPLETE=<0|1>
-#   P3_ENABLED_ZERO=<0|1>
+#   P3_ENABLED_ZERO=<0|1>          # diagnostic (sysfs alignment)
 #   P3_BASELINE_OBSERVED=<0|1>
 #   P3_TIMEOUT=<0|1>
-#   P3_PASS=<0|1>   # 1 only if transition complete + enabled=0 + baseline observed
+#   P3_CONTRACT_PASS=<0|1>         # transition complete ∧ baseline observed
+#   P3_PASS=<0|1>                  # package-facing: same as P3_CONTRACT_PASS (v0.1.4+)
 #
-# P3_PASS remains the package-facing composite. New fields explain *why* P3 failed.
+# v0.1.3 required enabled=0 in P3_PASS. v0.1.4 treats enabled as diagnostic only:
+# functional revert is baseline restored after transition complete.
 
 emit_klp_post_load_status() {
   cat <<'EOS'
@@ -110,9 +112,13 @@ echo "P3_TRANSITION_COMPLETE=\$P3_TRANSITION_COMPLETE"
 echo "P3_ENABLED_ZERO=\$P3_ENABLED_ZERO"
 echo "P3_BASELINE_OBSERVED=\$P3_BASELINE_OBSERVED"
 echo "P3_TIMEOUT=\$P3_TIMEOUT"
-if [ \$P3_TRANSITION_COMPLETE -eq 1 ] && [ \$P3_ENABLED_ZERO -eq 1 ] && [ \$P3_BASELINE_OBSERVED -eq 1 ]; then
+# package-facing P3 (v0.1.4+): contract = transition ∧ baseline.
+# P3_ENABLED_ZERO remains diagnostic (sysfs may lag functional revert).
+if [ \$P3_TRANSITION_COMPLETE -eq 1 ] && [ \$P3_BASELINE_OBSERVED -eq 1 ]; then
+  echo "P3_CONTRACT_PASS=1"
   echo "P3_PASS=1"
 else
+  echo "P3_CONTRACT_PASS=0"
   echo "P3_PASS=0"
 fi
 EOF

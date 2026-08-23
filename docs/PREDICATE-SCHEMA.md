@@ -1,4 +1,4 @@
-# Predicate contract schema (package v0.1.3)
+# Predicate contract schema (package v0.1.4)
 
 Machine-readable sketch for per-case P2/P3 contracts. Operators still author semantics; this schema records what each run script encodes before QEMU replay counts as meaningful.
 
@@ -50,7 +50,7 @@ runtime:
 | `structural.expect[]` | Ground truth for loader-invisible binding faults (C3). Tuple `(r_offset, type, symbol)` is the published oracle. |
 | `runtime.p2` | Semantic patch contract after load (`P2_PASS`). |
 | `runtime.p3` | Revert contract after sysfs disable + transition wait. package `v0.1.3` composite `P3_PASS` requires transition complete ∧ enabled zero ∧ baseline observed. |
-| `P3_CONTRACT_PASS` (proposed) | contract-facing revert: transition complete ∧ baseline observed; `P3_ENABLED_ZERO` stays diagnostic when sysfs lags functional revert. |
+| `P3_CONTRACT_PASS` (proposed) | package-facing revert: transition complete ∧ baseline observed; `P3_ENABLED_ZERO` stays diagnostic when sysfs lags functional revert. |
 | `runtime.p3.fields` | Diagnostic sub-fields emitted by `pilot/scripts/lib/klp-predicates.sh`. |
 
 Guest init generators must disable livepatch via directory iteration (`for _d in /sys/kernel/livepatch/*`), never `echo … > /sys/kernel/livepatch/*/enabled`. Host scripts call `check-init-no-klp-glob.sh` before packing initrd.

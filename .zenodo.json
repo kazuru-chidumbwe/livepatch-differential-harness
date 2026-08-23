@@ -1,7 +1,7 @@
 {
   "title": "LivepatchDiff: Checking That Livepatch Builds Still Do What They Claim — A Case Study on Linux v6.6.47",
   "upload_type": "software",
-  "description": "Differential test harness for Linux livepatch build pipelines. package case study on Linux v6.6.47: ELF relocation triage, structural PLT32 bind checks (C3), loadable mutants, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe Option A on v5.16.10. Cite SemVer tag v0.1.3. Run only inside QEMU guests.",
+  "description": "Differential test harness for Linux livepatch build pipelines. package case study on Linux v6.6.47: ELF relocation triage, structural PLT32 bind checks (C3), loadable mutants, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe Option A on v5.16.10. Cite SemVer tag v0.1.4. Run only inside QEMU guests.",
   "creators": [
     {
       "name": "Kazuru, Seke",
@@ -23,12 +23,12 @@
   "access_right": "open",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.3",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.4",
       "relation": "isSupplementTo",
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.3",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4",
       "relation": "isIdenticalTo",
       "resource_type": "software"
     }
