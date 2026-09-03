@@ -14,7 +14,7 @@ H=/home/boma/Project-Atlas/repos/livepatch-differential-harness
   echo "DIRTYPIPE_PREGATED_DONE=$(date -u +%FT%TZ)"
 } >>"$LOG" 2>&1
 echo "EXIT=$?"
-grep -E 'DIRTYPIPE_|_|FATAL|Error 2' "$LOG" | tail -40
+grep -E 'DIRTYPIPE_|V020_|FATAL|Error 2' "$LOG" | tail -40
 echo '--- dirtypipe transcript ---'
 cat "$H/pilot/results/LP-CORPUS-DIRTYPIPE/predicate-transcript.txt"
 echo '--- pregated marker ---'
