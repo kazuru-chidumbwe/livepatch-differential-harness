@@ -50,11 +50,11 @@ Classify        pass / diverge / inconclusive + evidence packs
 
 | Layer | Example | Role |
 | --- | --- | --- |
-| **Structural** | `STRUCTURAL_BIND_PASS` for C3 | Proves wrong relocation binding; layout-independent |
-| **Semantic / behavioral** | `P2` marker grep | Proves patch contract; must not rely on coincidental corrupt glyphs |
-| **Operational** | `INSMOD_RC`, dmesg silence | Separates loader-accepted faults from load failures |
+| Structural | `STRUCTURAL_BIND_PASS` for C3 | Proves wrong relocation binding; layout-independent |
+| Semantic / behavioral | `P2` marker grep | Proves patch contract; must not rely on coincidental corrupt glyphs |
+| Operational | `INSMOD_RC`, dmesg silence | Separates loader-accepted faults from load failures |
 
-For C3, structural bind is **required** ground truth. Runtime glyphs under `nokaslr` are illustrative side-effects only.
+For C3, structural bind is required ground truth. Runtime glyphs under `nokaslr` are illustrative side-effects only.
 
 ## Hardened P3 revert (optional operator API)
 
@@ -82,12 +82,12 @@ Post-load status lines: `KLP_ENABLED`, `KLP_TRANSITION`. Predicate contract sket
 
 | Stage | Script | Produces |
 | --- | --- | --- |
-| **A — build modules from source** | `pilot/docker/run-build-modules.sh` | handbuild `.ko` against mounted/pinned kernel headers tree |
-| **B — predicate replay** | `pilot/docker/run-all.sh` | QEMU transcripts (rebuilds handbuild cases as each script runs) |
-| **Optional — kernel image** | `pilot/scripts/03-build-kernel.sh` | `pilot/build/bzImage` (long; not required if pin artifact present) |
+| A, build modules from source | `pilot/docker/run-build-modules.sh` | handbuild `.ko` against mounted/pinned kernel headers tree |
+| B, predicate replay | `pilot/docker/run-all.sh` | QEMU transcripts (rebuilds handbuild cases as each script runs) |
+| Optional, kernel image | `pilot/scripts/03-build-kernel.sh` | `pilot/build/bzImage` (long; not required if pin artifact present) |
 
 See [`pilot/docker/README.md`](../pilot/docker/README.md).
 
-## package claim boundary
+## Package claim boundary
 
-This release is a **documented case study on v6.6.47**, not a stratified production prevalence study. Sparse positive mutant detections show the instrument works; they are not industry rates.
+This release is a documented case study on v6.6.47, not a stratified production prevalence study. Sparse positive mutant detections show the instrument works. They are not industry rates.
