@@ -1,11 +1,10 @@
-# LivepatchDiff release manifest ( cite pin v0.2.0)
+# LivepatchDiff release manifest (cite pin v0.2.0)
 # Full SHA-256 digests. Cite software_version + git_commit together.
 
 software_version: "0.2.0"
 git_commit: "4f0edf78da42050c61e77d6f35169b5457e2934e"
 git_tag: "v0.2.0"
 prior_cite_tag: "v0.1.4"
-venue: 
 license: MIT
 repository: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness"
 
@@ -20,7 +19,7 @@ kernel_second_pin:
   commit: "e4d90d63d385228b1e0bcf31cc15539bbbc28f7f"
 
 toolchain:
-  qemu_version: "10.0.11 (boma-test  packs); Docker pin documents 8.2.x"
+  qemu_version: "10.0.11 (boma-test cite-pin packs); Docker pin documents 8.2.x"
   gcc_primary: "13 (Ubuntu 24.04)"
   gcc_dirtypipe: "13 (Ubuntu 24.04 · Dirty Pipe rebuild)"
   binutils: "2.42"
@@ -46,7 +45,7 @@ artifacts:
     sha256: "17742E3C04CD158D97CDEB0EA70272F06B725EC90D9F990DDB2124D1F9398D7F"
   - path: pilot/results/LP-CORPUS-06-kpatch-opt/predicate-transcript.txt
     sha256: "EDC1F0CCE814D79B637D72E148F1E0B89AE85C09C362657F2F49457A8E946426"
-  - path: pilot/results/LP-CORPUS-DIRTYPIPE/DIRTYPIPE__DONE.txt
+  - path: pilot/results/LP-CORPUS-DIRTYPIPE/DIRTYPIPE_PREGATED_DONE.txt
     sha256: "SEE_FILE"
   - path: pilot/results/LP-CORPUS-DIRTYPIPE/predicate-serial-pregated.log
     sha256: "SEE_FILE"
@@ -76,7 +75,7 @@ evaluation_summary:
   second_pin_p3_pass: 1
   pre_population_n: 24
   note: >
-     v0.2.0 full-pipeline on boma-test (FULL_PIPELINE_DONE=2026-09-03T20:25:47Z):
+    cite-pin v0.2.0 full-pipeline on boma-test (FULL_PIPELINE_DONE=2026-09-03T20:25:47Z):
     six INCLUDE CVE contract packs P3_PASS=1; Dirty Pipe PRE-gated P3; v6.1.119 second-pin
     smoke P3_PASS=1; PRE(A) population N=24 (23 SOUND / 1 OUT_OF_SCOPE); klp-build present
     on v6.19 with equivalence matrix deferred. Not industrial / vendor-fleet rates.

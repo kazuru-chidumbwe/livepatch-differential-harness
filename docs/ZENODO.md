@@ -4,8 +4,7 @@
 
 **Cite pin:** `v0.1.4` (hardened P3 + `PREDICATE-SCHEMA.md` + refreshed C6/C5 packs)  
 **Prior tag:** `v0.1.2` (package closeout)  
-**Venue:** package  
-**GitHub tree (package C2):** https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.4  
+**GitHub tree (GitHub C2):** https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.4  
 
 **Version DOI:** _pending mint_ (optional; GitHub C2 is sufficient for package)  
 **Concept DOI:** _pending mint_

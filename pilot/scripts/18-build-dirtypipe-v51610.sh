@@ -42,5 +42,5 @@ export WORK_ROOT="${WORK_ROOT:-$HOME/livepatch-pilot}"
   export DIRTYPIPE_BZ="$DP/arch/x86/boot/bzImage"
   export WORK_ROOT="$WORK_ROOT"
   cd "$ROOT"
-  bash "$ROOT/pilot/scripts/17-run-eisej-v020.sh"
+  bash "$ROOT/pilot/scripts/17-run-v020.sh"
 } >>"$LOG" 2>&1

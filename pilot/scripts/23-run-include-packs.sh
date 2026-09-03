@@ -33,7 +33,7 @@ run_pre_gated_qemu() {
   cp -f "$ko" "$outdir/$(basename "$ko")"
   local modbase init p3_block serial
   modbase=$(basename "$ko" .ko)
-  init="$Q/initrd-eisej-$tag"
+  init="$Q/initrd-livepatch-$tag"
   rm -rf "$init"
   mkdir -p "$init"/{bin,proc,sys,dev}
   cp /bin/busybox "$init/bin/"
@@ -58,10 +58,10 @@ poweroff -f
 INIT
   chmod +x "$init/init"
   check_init_no_klp_glob "$init/init"
-  ( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) >"$Q/initrd-eisej-$tag.cpio.gz"
+  ( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) >"$Q/initrd-livepatch-$tag.cpio.gz"
   serial="$outdir/predicate-serial.log"
   : >"$serial"
-  timeout 180 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-eisej-$tag.cpio.gz" \
+  timeout 180 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-livepatch-$tag.cpio.gz" \
     -append "console=ttyS0 panic=1 nokaslr init=/init" -m 512 -nographic -no-reboot \
     -serial file:"$serial" 2>/dev/null || true
   grep -E 'INSMOD|KLP_|P2_PASS|P3_|PRE_' "$serial" | tee -a "$outdir/predicate-transcript.txt" || true

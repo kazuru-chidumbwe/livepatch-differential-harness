@@ -10,7 +10,7 @@
 | `P3_ENABLED_ZERO` | Diagnostic: all livepatch dirs report `enabled=0` after wait (may lag functional revert) |
 | `P3_BASELINE_OBSERVED` | Marker absent from the stated `/proc` contract file |
 | `P3_TIMEOUT` | Transition wait exhausted |
-| `P3_CONTRACT_PASS` | package-facing revert (v0.1.4+): transition complete ∧ baseline observed |
+| `P3_CONTRACT_PASS` | operator-facing revert (v0.1.4+): transition complete ∧ baseline observed |
 | `P3_PASS` | Same as `P3_CONTRACT_PASS` (v0.1.4+; v0.1.3 also required `enabled=0`) |
 
 Usage from a run script:

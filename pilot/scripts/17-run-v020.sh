@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#  v0.2.0 lab packs: PRE unit tests, PRE-gated Dirty Pipe (if pin tree exists),
+# cite-pin v0.2.0 lab packs: PRE unit tests, PRE-gated Dirty Pipe (if pin tree exists),
 # and two INCLUDE CVE contract micro-cases on v6.6.47.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -16,10 +16,10 @@ Q="$ROOT/pilot/build/qemu"
 JOBS="${BUILD_JOBS:-$(nproc)}"
 mkdir -p "$Q"
 
-echo "_V020_HOST=$(hostname)"
-echo "_V020_ROOT=$ROOT"
-echo "_V020_LINUX=$LINUX"
-echo "_V020_BZ=$BZ"
+echo "V020_HOST=$(hostname)"
+echo "V020_ROOT=$ROOT"
+echo "V020_LINUX=$LINUX"
+echo "V020_BZ=$BZ"
 
 python3 "$ROOT/pilot/scripts/test_pre_revert_scan.py"
 
@@ -37,7 +37,7 @@ run_pre_gated_qemu() {
 
   local modbase
   modbase=$(basename "$ko" .ko)
-  local init="$Q/initrd-eisej-$tag"
+  local init="$Q/initrd-livepatch-$tag"
   rm -rf "$init"
   mkdir -p "$init"/{bin,proc,sys,dev}
   cp /bin/busybox "$init/bin/"
@@ -63,10 +63,10 @@ poweroff -f
 INIT
   chmod +x "$init/init"
   check_init_no_klp_glob "$init/init"
-  ( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) >"$Q/initrd-eisej-$tag.cpio.gz"
+  ( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) >"$Q/initrd-livepatch-$tag.cpio.gz"
   local serial="$outdir/predicate-serial.log"
   : >"$serial"
-  timeout 180 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-eisej-$tag.cpio.gz" \
+  timeout 180 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-livepatch-$tag.cpio.gz" \
     -append "console=ttyS0 panic=1 nokaslr init=/init" -m 512 -nographic -no-reboot \
     -serial file:"$serial" 2>/dev/null || true
   grep -E 'INSMOD|KLP_|P2_PASS|P3_|PRE_' "$serial" | tee -a "$outdir/predicate-transcript.txt" || true
@@ -126,4 +126,4 @@ else
   echo "DIRTYPIPE_SKIP=missing v5.16.10 tree or bzImage at $DP_LINUX" | tee "$DP_OUT/DIRTYPIPE_SKIP.txt"
 fi
 
-echo "_V020_DONE=1"
+echo "V020_DONE=1"

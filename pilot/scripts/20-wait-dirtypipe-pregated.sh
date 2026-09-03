@@ -4,8 +4,8 @@ log=/opt/atlas/livepatch-corpus/dirtypipe-build.log
 i=0
 while [ "$i" -lt 240 ]; do
   i=$((i + 1))
-  if grep -q DIRTYPIPE__DONE "$log" 2>/dev/null; then
-    echo _COMPLETE
+  if grep -q DIRTYPIPE_PREGATED_DONE "$log" 2>/dev/null; then
+    echo V020_COMPLETE
     grep DIRTYPIPE_ "$log" || true
     tail -60 "$log"
     exit 0

@@ -19,7 +19,7 @@
 #   P3_BASELINE_OBSERVED=<0|1>
 #   P3_TIMEOUT=<0|1>
 #   P3_CONTRACT_PASS=<0|1>         # transition complete âˆ§ baseline observed
-#   P3_PASS=<0|1>                  # package-facing: same as P3_CONTRACT_PASS (v0.1.4+)
+#   P3_PASS=<0|1>                  # operator-facing: same as P3_CONTRACT_PASS (v0.1.4+)
 #
 # v0.1.3 required enabled=0 in P3_PASS. v0.1.4 treats enabled as diagnostic only:
 # functional revert is baseline restored after transition complete.
@@ -125,7 +125,7 @@ echo "P3_TRANSITION_COMPLETE=\$P3_TRANSITION_COMPLETE"
 echo "P3_ENABLED_ZERO=\$P3_ENABLED_ZERO"
 echo "P3_BASELINE_OBSERVED=\$P3_BASELINE_OBSERVED"
 echo "P3_TIMEOUT=\$P3_TIMEOUT"
-# package-facing P3 (v0.1.4+): contract = transition âˆ§ baseline.
+# operator-facing P3 (v0.1.4+): contract = transition âˆ§ baseline.
 # P3_ENABLED_ZERO remains diagnostic (sysfs may lag functional revert).
 if [ \$P3_TRANSITION_COMPLETE -eq 1 ] && [ \$P3_BASELINE_OBSERVED -eq 1 ]; then
   echo "P3_CONTRACT_PASS=1"

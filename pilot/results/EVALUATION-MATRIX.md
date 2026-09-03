@@ -1,12 +1,12 @@
-# Evaluation matrix (pilot corpus) —  v0.2.0 track
+# Evaluation matrix (pilot corpus) — v0.2.0 track
 
 **Pin:** Linux v6.6.47 (`4c1a2d4cd9a5b6c55739a80c5b9efbca322adad7`) unless noted.  
 **Scope:** controlled instrument evaluation — not prevalence.  
 **Cite pin:** `v0.2.0` (PRE-gated P3; full-pipeline full on `boma-test`).  
-**Venue:**  P1 · package Plan B  
+**Scope:** instrument evaluation packs (not a prevalence study).
 **Lab close:** `FULL_PIPELINE_DONE=2026-09-03T20:25:47Z` on `boma-test`.  
 
-**Research questions ()**
+**Research questions**
 
 | RQ | Question | Bounded answer |
 | --- | --- | --- |
@@ -28,7 +28,7 @@
 | B1 hand / kpatch | M4 benign | pipeline pair | 0 / 0 | SOUND* | n/a | 1 / 1 | 1 / 1 | benign OK |
 | C6 `-O2` | M4 opt | kpatch rebuild | 0 | SOUND* | n/a | 1 | 1 | contract P3 |
 | C6 `-Os` | M4 opt | kpatch rebuild | 0 | SOUND* | n/a | 1 | 1 | contract P3 |
-| Dirty Pipe (`v5.16.10`) | pin smoke | marker livepatch | 0 | SOUND | n/a | 1 | 1 | `DIRTYPIPE__DONE` |
+| Dirty Pipe (`v5.16.10`) | pin smoke | marker livepatch | 0 | SOUND | n/a | 1 | 1 | `DIRTYPIPE_PREGATED_DONE` |
 | Second pin (`v6.1.119`) | pin smoke | marker livepatch | 0 | SOUND | n/a | 1 | 1 | `SECOND_PIN_SMOKE_SECOND_PIN_DONE` |
 | CVE-2023-52577 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | full-pipeline.1 |
 | CVE-2023-52578 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | full-pipeline.1 |
@@ -56,7 +56,7 @@
 | PRE(A) population scan | **N=24** (23 SOUND, 1 OUT_OF_SCOPE) |
 | `klp-build-upstream` tool | **present** on v6.19; equiv matrix deferred |
 
-See `LAB-RUNBOOK--V020-2026-09-03.md`. full-pipeline scripts: `23`–`27`.
+See `LAB-RUNBOOK-V020-2026-09-03.md`. full-pipeline scripts: `23`–`27`.
 
 **Do not** report these as production rates.
 

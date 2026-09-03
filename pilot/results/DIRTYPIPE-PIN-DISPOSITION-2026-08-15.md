@@ -1,7 +1,7 @@
 # Dirty Pipe package disposition — closed 16 Aug 2026
 
 **CVE:** CVE-2022-0847  
-**Venue:** package P1 (this paper)  
+**Scope:** instrument / case-study packs.
 **Lock:** Full **Option A QEMU** is package — not Paper 2.  
 **Status:** **CLOSED** · lab pack + local sync 16 Aug
 

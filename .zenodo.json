@@ -1,7 +1,7 @@
 {
   "title": "LivepatchDiff: Checking That Livepatch Builds Still Do What They Claim",
   "upload_type": "software",
-  "description": "Differential test harness for Linux livepatch build pipelines.  cite pin v0.2.0: ELF relocation triage, structural PLT32 bind checks, loadable mutants, PRE(A) gating, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe PRE-gated P3 on v5.16.10, INCLUDE CVE contract packs. Cite SemVer tag v0.2.0. Run only inside QEMU guests.",
+  "description": "Differential test harness for Linux livepatch build pipelines. Cite pin v0.2.0: ELF relocation triage, structural PLT32 bind checks, loadable mutants, PRE(A) gating, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe PRE-gated P3 on v5.16.10, INCLUDE CVE contract packs. Cite SemVer tag v0.2.0. Run only inside QEMU guests.",
   "creators": [
     {
       "name": "Kazuru, Seke",
@@ -17,7 +17,7 @@
     "mutation testing",
     "kpatch",
     "QEMU",
-    ""
+    "cite-pin"
   ],
   "license": "MIT",
   "access_right": "open",
@@ -33,5 +33,5 @@
       "resource_type": "software"
     }
   ],
-  "notes": " research-article capsule (LivepatchDiff). package Plan B parked. Manuscript Code metadata C2 remains the GitHub tree URL (not Zenodo)."
+  "notes": "research-article capsule (LivepatchDiff). prior package pin parked. Manuscript Code metadata C2 remains the GitHub tree URL (not Zenodo)."
 }

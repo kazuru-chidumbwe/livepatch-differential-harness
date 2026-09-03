@@ -8,14 +8,13 @@
 - `pilot/scripts/test_pre_revert_scan.py` — unit tests (mocked symbols).
 - `emit_pre_skip_p3` in `pilot/scripts/lib/klp-predicates.sh` — skip runtime P3 when PRE fails.
 - CVE contract packs: `pilot/handbuild/LP-CVE-2023-52577/`, `LP-CVE-2024-36904/` plus case READMEs.
--  lab scripts: `17-run-eisej-v020.sh`, `19-resume-dirtypipe-build.sh`, `21-run-dirtypipe-pregated.sh`, `22-rerun-eisej-dirtypipe.sh`.
-- Lab runbook: `pilot/results/LAB-RUNBOOK--V020-2026-09-03.md`.
-- Dirty Pipe close marker `pilot/results/LP-CORPUS-DIRTYPIPE/DIRTYPIPE__DONE.txt` (`2026-09-03T19:55:28Z`).
+- lab scripts: `17-run-v020.sh`, `19-resume-dirtypipe-build.sh`, `21-run-dirtypipe-pregated.sh`, `22-rerun-dirtypipe-pregated.sh`.
+- Lab runbook: `pilot/results/LAB-RUNBOOK-V020-2026-09-03.md`.
+- Dirty Pipe close marker `pilot/results/LP-CORPUS-DIRTYPIPE/DIRTYPIPE_PREGATED_DONE.txt` (`2026-09-03T19:55:28Z`).
 
 ### Changed
 
-- Predicate schema documents Stage A PRE gating ( / package Plan B cite pin).
-- Venue primary for manuscript retarget: **** (package Plan B).
+- Predicate schema documents Stage A PRE gating (prior package pin cite pin).
 - Dirty Pipe handbuild `Makefile` pins `M=` via `MAKEFILE_LIST` so a parent kernel `cd` / exported `CURDIR` cannot rebuild the v5.16.10 tree as a module.
 
 ### Lab evidence (`v0.2.0` cite pin · full-pipeline)
@@ -30,7 +29,7 @@
 
 ### Changed
 
-- package-facing `P3_PASS` = `P3_CONTRACT_PASS` = transition complete ∧ baseline
+- operator-facing `P3_PASS` = `P3_CONTRACT_PASS` = transition complete ∧ baseline
   observed. `P3_ENABLED_ZERO` remains diagnostic (sysfs may lag functional revert).
 - Refreshed C6 predicate packs under the new composite; cite pin → `v0.1.4`.
 
@@ -63,7 +62,7 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-Case-study pins (`softwarex-lp1-*`) remain valid reproducibility anchors for the
+Case-study pins (`pin-lp1-*`) remain valid reproducibility anchors for the
 v6.6.47 freeze. Prefer **SemVer** (`vX.Y.Z`) for package C1 / CITATION.cff; see
 [`docs/TAGS.md`](docs/TAGS.md). Zenodo: [`docs/ZENODO.md`](docs/ZENODO.md).
 
@@ -86,7 +85,7 @@ v6.6.47 freeze. Prefer **SemVer** (`vX.Y.Z`) for package C1 / CITATION.cff; see
 ### Added
 
 - First SemVer release for package / package citation (`CITATION.cff` version `0.1.0`).
-- package dated pin `softwarex-lp1-20260725c` (`386226e`) remains the case-study freeze.
+- package dated pin `pin-lp1-20260725c` (`386226e`) remains the case-study freeze.
 - `CHANGELOG.md` and SemVer tag policy in `docs/TAGS.md`.
 
 [0.1.4]: https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4

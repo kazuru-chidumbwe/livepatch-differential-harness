@@ -51,6 +51,6 @@ PY
   export DIRTYPIPE_BZ="$DP/arch/x86/boot/bzImage"
   unset CURDIR || true
   cd "$ROOT"
-  bash "$ROOT/pilot/scripts/17-run-eisej-v020.sh"
-  echo "DIRTYPIPE__DONE=$(date -u +%FT%TZ)"
+  bash "$ROOT/pilot/scripts/17-run-v020.sh"
+  echo "DIRTYPIPE_PREGATED_DONE=$(date -u +%FT%TZ)"
 } >>"$LOG" 2>&1

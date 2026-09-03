@@ -33,7 +33,7 @@ triggers=$(awk -F= '/^PRE_TRIGGER_SYMBOLS=/{print $2}' "$OUT/pre-revert-scan.txt
 echo "PRE_CLASS=$pre_class" | tee -a "$OUT/predicate-transcript.txt"
 cp -f "$KO" "$OUT/livepatch-dirtypipe.ko"
 modbase=$(basename "$KO" .ko)
-init="$Q/initrd-eisej-dirtypipe"
+init="$Q/initrd-livepatch-dirtypipe"
 rm -rf "$init"
 mkdir -p "$init"/{bin,proc,sys,dev}
 cp /bin/busybox "$init/bin/"
@@ -58,11 +58,11 @@ poweroff -f
 INIT
 chmod +x "$init/init"
 check_init_no_klp_glob "$init/init"
-( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) >"$Q/initrd-eisej-dirtypipe.cpio.gz"
+( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) >"$Q/initrd-livepatch-dirtypipe.cpio.gz"
 serial="$OUT/predicate-serial-pregated.log"
 : >"$serial"
 # Prefer -display none -serial stdio: -nographic plus -serial file: leaves an empty log on this QEMU.
-timeout 180 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-eisej-dirtypipe.cpio.gz" \
+timeout 180 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-livepatch-dirtypipe.cpio.gz" \
   -append "console=ttyS0 panic=1 nokaslr init=/init" -m 512 -machine pc -no-reboot \
   -display none -serial stdio \
   >"$serial" 2>&1 || true

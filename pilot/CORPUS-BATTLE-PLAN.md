@@ -1,6 +1,6 @@
 # Corpus battle plan (2026-07-10 · refreshed 15 Aug 2026 package)
 
-**Venue:** package P1 (instrument case study) · corpus also feeds Paper 2 Access  
+**Scope:** instrument / case-study packs.
 **Pilot claim (locked):** loadable data-relocation addend error passes `insmod`, caught by predicates.
 
 **Next delivery = raw data**, not scope negotiation.

@@ -1,7 +1,7 @@
 # Corpus package closeout — 15/16 Aug 2026 (closed)
 
 **Sponsor:** close C1 / C4 / C6 / Dirty Pipe for package.  
-**Venue:** package P1.  
+**Scope:** instrument / case-study packs.
 **Dirty Pipe:** Option A QEMU = package · **CLOSED** 16 Aug (lab + local sync).
 
 | Gate | package | Evidence |

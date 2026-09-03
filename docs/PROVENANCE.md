@@ -51,7 +51,7 @@ Each run record embeds:
 
 | Field | Value |
 | --- | --- |
-| package tag | `softwarex-lp1-20260725b` |
+| package tag | `pin-lp1-20260725b` |
 | Gate | `pilot/docker/run-all.sh` (illustrative corpus) |
 | Blog | Linked from package / programme posts after accept — **not** drafted in this repo |
 
