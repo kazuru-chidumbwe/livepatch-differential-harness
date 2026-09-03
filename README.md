@@ -27,10 +27,12 @@ Before push: `bash scripts/pre-push-hygiene.sh`
 
 Use qualified names in papers and manifests. Prefer `klp-build-upstream` or `scripts/livepatch/klp-build` over a bare `klp-build` token when the source tree matters.
 
+Upstream in-tree `scripts/livepatch/klp-build` (Linux 6.19+ objtool path) is grey literature authored by Josh Poimboeuf. Acked-by / Tested-by lines from others (for example Mladek, Lawrence) are not co-authorship. Primary pointers: LWN/LKML series coverage at https://lwn.net/Articles/988575/ and https://lwn.net/Articles/1020723/, plus the in-tree script under torvalds/linux `scripts/livepatch/klp-build`. This harness treats that pipeline as a deferred equivalence target. Published packs compare hand vs `kpatch-build` only. See also [`docs/KLP-BUILD-ATTRIBUTION.md`](docs/KLP-BUILD-ATTRIBUTION.md).
+
 | ID | Tool | Role |
 | --- | --- | --- |
 | `kpatch-build` | dynup/kpatch `kpatch-build` | Legacy binary-diff pipeline (maintenance mode) |
-| `klp-build-upstream` | `scripts/livepatch/klp-build` in Linux 6.19+ | In-tree objtool successor |
+| `klp-build-upstream` | `scripts/livepatch/klp-build` in Linux 6.19+ (Poimboeuf) | In-tree objtool successor; presence probed, equivalence deferred |
 | `SUSE-klp-build` | [SUSE/klp-build](https://github.com/SUSE/klp-build) + `klp-ccp` | Vendor orchestration; qualitative unless IBS-reproduced |
 | `kernel-livepatch-packaging` | SUSE `kernel-livepatch` scripts | Excluded. RPM/patch aggregation wrapper, not a builder |
 

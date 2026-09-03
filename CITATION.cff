@@ -14,7 +14,7 @@ abstract: >-
   relocation triage, structural PLT32 bind checks, loadable mutants, PRE(A)
   revert-soundness gating, and per-case runtime predicates including hardened P3.
   Cite pin on Linux v6.6.47 plus Dirty Pipe PRE-gated packs on v5.16.10,
-  second-pin smoke and B2 depth on v6.1.119, six INCLUDE CVE contract packs, and PRE(A)
+  second-pin smoke and depth on v6.1.119, six INCLUDE CVE contract packs, and PRE(A)
   population scan.
 keywords:
   - livepatch
