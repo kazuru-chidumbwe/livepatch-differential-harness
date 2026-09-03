@@ -4,7 +4,7 @@ Annotated tags mark reproducible anchors. **`master` / `main` may advance** afte
 
 | Tag | Commit | Purpose |
 | --- | --- | --- |
-| [`v0.2.1`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.1) | *(tip)* | **cite pin** · second-pin depth · v6.1.119 depth (2 INCLUDE + C3) |
+| [`v0.2.1`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.1) | `df88113` | **cite pin** · second-pin depth · v6.1.119 depth (2 INCLUDE + C3) |
 | [`v0.2.0`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.0) | `f7d612f` | **cite pin** · full-pipeline · PRE + Dirty Pipe + 6 INCLUDE + v6.1.119 + PRE N=24 |
 | [`v0.1.4`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4) | `a385a52` | package cite pin · P3_PASS = contract · C6 P3_PASS=1 |
 | [`v0.1.3`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.3) | `029518e` | Prior cite pin · hardened P3 · predicate schema · C6 pack refresh |
