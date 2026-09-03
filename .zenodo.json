@@ -33,5 +33,5 @@
       "resource_type": "software"
     }
   ],
-  "notes": "research-article capsule (LivepatchDiff). prior package pin parked. Manuscript Code metadata C2 remains the GitHub tree URL (not Zenodo)."
+  "notes": "research-article capsule (LivepatchDiff). Prior SemVer pins remain available. GitHub tree URL is the primary software cite; Zenodo is the archival replication package."
 }

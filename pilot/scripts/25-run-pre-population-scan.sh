@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# full-pipeline.3 — PRE(A)-only population scan over public/local livepatch .ko corpus.
+# PRE population — PRE(A)-only population scan over public/local livepatch .ko corpus.
 # No runtime P2/P3; no field-rate claim.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -159,4 +159,4 @@ Path("pilot/results/LP-PRE-POPULATION/population.json").write_text(
 print("WROTE population.json")
 PY
 
-echo "PRE_POPULATION_PRE_POPULATION_DONE=$(date -u +%FT%TZ)" | tee "$OUT/PRE_POPULATION_DONE.txt" | tee -a "$LOG"
+echo "PRE_POPULATION_DONE=$(date -u +%FT%TZ)" | tee "$OUT/PRE_POPULATION_DONE.txt" | tee -a "$LOG"

@@ -1,4 +1,4 @@
-# Stage A prove Stage A prove
+# Stage A Stage A prove
 
 - UTC: 2026-08-15T08:32:24Z
 - WORK_ROOT=/opt/atlas/livepatch-pilot

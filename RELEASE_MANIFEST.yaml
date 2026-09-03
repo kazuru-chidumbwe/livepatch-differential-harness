@@ -78,7 +78,7 @@ evaluation_summary:
   second_pin_b2_include_p3_pass: 2
   second_pin_b2_c3_detected: 1
   note: >
-    cite-pin v0.2.0 full-pipeline on boma-test (FULL_PIPELINE_DONE=2026-09-03T20:25:47Z):
+    cite-pin v0.2.0 full pipeline on boma-test (FULL_PIPELINE_DONE=2026-09-03T20:25:47Z):
     six INCLUDE CVE contract packs P3_PASS=1; Dirty Pipe PRE-gated P3; v6.1.119 second-pin
     smoke P3_PASS=1; PRE(A) population N=24 (23 SOUND / 1 OUT_OF_SCOPE); klp-build present
     on v6.19 with equivalence matrix deferred. Not industrial / vendor-fleet rates.

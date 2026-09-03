@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# full-pipeline.4 — probe klp-build-upstream on Linux v6.19+ (tool presence + optional dry build).
+# klp-build probe — probe klp-build-upstream on Linux v6.19+ (tool presence + optional dry build).
 # Full hand-vs-klp-build equivalence matrix remains Paper 2 if this cannot finish tonight.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -32,11 +32,11 @@ mkdir -p "$OUT" /opt/atlas/livepatch-corpus
     fi
     # Record that tool exists on v6.19; full Stage A compare vs kpatch deferred if heavy
     echo "KLP_BUILD_EQUIV_MATRIX=DEFERRED_PAPER2_OR_FOLLOWUP" | tee "$OUT/status.txt"
-    echo "KLP_BUILD_PROBE_TOOL_PRESENT=1" | tee "$OUT/KLP_BUILD_PROBE_DONE.txt"
+    echo "KLP_BUILD_TOOL_PRESENT=1" | tee "$OUT/KLP_BUILD_PROBE_DONE.txt"
   else
     echo "KLP_BUILD_PRESENT=0"
     ls scripts/livepatch 2>/dev/null || echo "NO_scripts_livepatch"
-    echo "KLP_BUILD_PROBE_TOOL_PRESENT=0" | tee "$OUT/KLP_BUILD_PROBE_DONE.txt"
+    echo "KLP_BUILD_TOOL_PRESENT=0" | tee "$OUT/KLP_BUILD_PROBE_DONE.txt"
   fi
   echo "KLP_BUILD_PROBE_END=$(date -u +%FT%TZ)"
 } >>"$LOG" 2>&1

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# second-pin depth — second-pin depth on existing v6.1.119 bzImage:
+# Second-pin depth on existing v6.1.119 bzImage:
 #   • C3 structural + good/perturb QEMU (mutant class replay)
 #   • two INCLUDE PRE-gated contract packs (52577, 36904)
 # Does not rebuild the kernel tree.
@@ -176,7 +176,7 @@ INIT
   sha256sum "$BZ" | awk '{print "BZIMAGE_SHA256="$1}'
   echo "DEPTH_INCLUDE=CVE-2023-52577,CVE-2024-36904"
   echo "DEPTH_MUTANT=C3-seqputs-to-putc"
-  echo "SECOND_PIN_DEPTH_SECOND_PIN_DEPTH_DONE=$(date -u +%FT%TZ)"
-} | tee "$OUT/SECOND-PIN-SUMMARY.txt" | tee "$BASE/SECOND_PIN_DEPTH_DONE.txt"
+  echo "SECOND_PIN_DEPTH_DONE=$(date -u +%FT%TZ)"
+} | tee "$OUT/DEPTH-SUMMARY.txt" | tee "$BASE/SECOND_PIN_DEPTH_COMPLETE.txt"
 
-echo "SECOND_PIN_DEPTH_DONE=1"
+echo "SECOND_PIN_DEPTH_COMPLETE=1"

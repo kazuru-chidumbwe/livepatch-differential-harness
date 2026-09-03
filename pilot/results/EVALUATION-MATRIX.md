@@ -7,7 +7,7 @@
 - **`v0.2.0`** — six INCLUDE packs (v6.6.47), Dirty Pipe PRE-gated (v5.16.10), v6.1.119 smoke, PRE population N=24  
 - **`v0.2.1`** — v6.1.119 B2 depth (2 INCLUDE + C3)  
 **Cross-toolchain done in published packs:** hand vs `kpatch-build` only; `klp-build` matrix deferred.  
-**Lab close:** `FULL_PIPELINE_DONE=2026-09-03T20:25:47Z`; `SECOND_PIN_DEPTH_SECOND_PIN_DEPTH_DONE=2026-09-03T21:03:05Z` on `boma-test`.  
+**Lab close:** `FULL_PIPELINE_DONE=2026-09-03T20:25:47Z`; `SECOND_PIN_DEPTH_DONE=2026-09-03T21:03:05Z` on `boma-test`.  
 
 **Research questions**
 
@@ -32,16 +32,16 @@
 | C6 `-O2` | M4 opt | kpatch rebuild | 0 | SOUND* | n/a | 1 | 1 | contract P3 |
 | C6 `-Os` | M4 opt | kpatch rebuild | 0 | SOUND* | n/a | 1 | 1 | contract P3 |
 | Dirty Pipe (`v5.16.10`) | pin smoke | marker livepatch | 0 | SOUND | n/a | 1 | 1 | `DIRTYPIPE_PREGATED_DONE` |
-| Second pin (`v6.1.119`) | pin smoke | marker livepatch | 0 | SOUND | n/a | 1 | 1 | `SECOND_PIN_SMOKE_SECOND_PIN_DONE` |
+| Second pin (`v6.1.119`) | pin smoke | marker livepatch | 0 | SOUND | n/a | 1 | 1 | `SECOND_PIN_SMOKE_DONE` |
 | B2 INCLUDE 52577/36904 (`v6.1.119`) | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | `SECOND_PIN_DEPTH` |
 | B2 C3 good (`v6.1.119`) | — | none | 0 | SOUND* | n/a | 1 | — | baseline |
 | B2 C3 perturb (`v6.1.119`) | M1 PLT32 | `seq_puts`→`seq_putc` | 0 | SOUND* | 1 | 0 | — | detected |
-| CVE-2023-52577 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | full-pipeline.1 |
-| CVE-2023-52578 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | full-pipeline.1 |
-| CVE-2024-36904 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | full-pipeline.1 |
-| CVE-2024-27395 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | full-pipeline.1 |
-| CVE-2024-22705 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | full-pipeline.1 |
-| CVE-2024-35864 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | full-pipeline.1 |
+| CVE-2023-52577 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | INCLUDE packs |
+| CVE-2023-52578 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | INCLUDE packs |
+| CVE-2024-36904 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | INCLUDE packs |
+| CVE-2024-27395 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | INCLUDE packs |
+| CVE-2024-22705 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | INCLUDE packs |
+| CVE-2024-35864 | INCLUDE | hand-build contract | 0 | SOUND | n/a | 1 | 1 | INCLUDE packs |
 
 \*PRE column: expected `SOUND` for handbuilt samples without shadow/callbacks; confirm with `pre-revert-scan.py` on cite-pin rebuild.
 
@@ -62,7 +62,7 @@
 | PRE(A) population scan | **N=24** (23 SOUND, 1 OUT_OF_SCOPE) |
 | `klp-build-upstream` tool | **present** on v6.19; equiv matrix deferred |
 
-See `LAB-RUNBOOK-V020-2026-09-03.md`. full-pipeline scripts: `23`–`27`.
+See `LAB-RUNBOOK-V020-2026-09-03.md`. full pipeline scripts: `23`–`27`.
 
 **Do not** report these as production rates.
 

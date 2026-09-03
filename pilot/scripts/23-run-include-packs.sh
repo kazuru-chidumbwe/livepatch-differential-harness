@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# full-pipeline.1 — all six INCLUDE CVE contract packs on primary pin (v6.6.47).
+# INCLUDE packs — all six INCLUDE CVE contract packs on primary pin (v6.6.47).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
@@ -90,7 +90,7 @@ build_one LP-CVE-2024-22705 CVE-2024-22705 cve-2024-22705
 build_one LP-CVE-2024-35864 CVE-2024-35864 cve-2024-35864
 
 {
-  echo "INCLUDE_PACKS_INCLUDE_DONE=$(date -u +%FT%TZ)"
+  echo "INCLUDE_PACKS_DONE=$(date -u +%FT%TZ)"
   echo "INCLUDE_N=6"
 } | tee "$ROOT/pilot/results/INCLUDE-PACKS-DONE.txt"
-echo "INCLUDE_PACKS_DONE=1"
+echo "INCLUDE_PACKS_COMPLETE=1"

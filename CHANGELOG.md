@@ -11,7 +11,7 @@
 
 - Host `boma-test`: CVE-2023-52577 and CVE-2024-36904 PRE-gated P2/P3 pass on v6.1.119.
 - C3 on v6.1.119: `STRUCTURAL_BIND_PASS=1`; good P2=1; perturb INSMOD=0 and P2=0.
-- Close: `SECOND_PIN_DEPTH_SECOND_PIN_DEPTH_DONE=2026-09-03T21:03:05Z`.
+- Close: `SECOND_PIN_DEPTH_DONE=2026-09-03T21:03:05Z`.
 
 ## [0.2.0] — 2026-09-03
 
@@ -27,10 +27,10 @@
 
 ### Changed
 
-- Predicate schema documents Stage A PRE gating (prior package pin cite pin).
+- Predicate schema documents Stage A PRE gating (prior cite pin).
 - Dirty Pipe handbuild `Makefile` pins `M=` via `MAKEFILE_LIST` so a parent kernel `cd` / exported `CURDIR` cannot rebuild the v5.16.10 tree as a module.
 
-### Lab evidence (`v0.2.0` cite pin · full-pipeline)
+### Lab evidence (`v0.2.0` cite pin · full pipeline)
 
 - Host `boma-test`: six INCLUDE CVE packs, Dirty Pipe, v6.1.119 second pin — PRE-gated P2/P3 pass.
 - PRE population N=24 (23 SOUND, 1 OUT_OF_SCOPE).
@@ -85,7 +85,7 @@ v6.6.47 freeze. Prefer **SemVer** (`vX.Y.Z`) for package C1 / CITATION.cff; see
 
 - Structural bind evidence for C3 (`STRUCTURAL_BIND_PASS`) refresh under
   `pilot/results/LP-CORPUS-03-survivable-sym/`.
-- Stage A prove Stage A from-source prove note (`pilot/results/STAGE-A-FROM-SOURCE-PROVE.md`).
+- Stage A Stage A from-source prove note (`pilot/results/STAGE-A-FROM-SOURCE-PROVE.md`).
 - `.zenodo.json` + `docs/ZENODO.md` for package reproducible capsule (GitHub C2 · Zenodo after mint).
 
 ### Changed

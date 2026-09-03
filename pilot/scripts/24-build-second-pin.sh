@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# full-pipeline.2 — second LTS pin (v6.1.119): bzImage + one PRE-gated contract smoke.
+# second-pin smoke — second LTS pin (v6.1.119): bzImage + one PRE-gated contract smoke.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
@@ -142,5 +142,5 @@ INIT
     sha256sum "$BZ" | awk '{print "BZIMAGE_SHA256="$1}'
     echo "SMOKE_CASE=LP-CVE-2023-52577-contract"
   } | tee "$OUT/pin.txt"
-  echo "SECOND_PIN_SMOKE_SECOND_PIN_DONE=$(date -u +%FT%TZ)" | tee "$OUT/SECOND_PIN_SMOKE_DONE.txt"
+  echo "SECOND_PIN_SMOKE_DONE=$(date -u +%FT%TZ)" | tee "$OUT/SECOND_PIN_SMOKE_DONE.txt"
 } >>"$LOG" 2>&1

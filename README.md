@@ -8,7 +8,7 @@ Test harness for Linux livepatch **build pipelines** (instrument name: **Livepat
 
 This public tree does **not** name target journals or publishers; cite SemVer tags only.
 
-**Pin attribution:** mutant / B1 / C6 -> 0.1.4. full-pipeline INCLUDE x6, Dirty Pipe PRE-gated, v6.1.119 smoke, PRE N=24 -> 0.2.0. second-pin depth second-pin depth (2 INCLUDE + C3 on v6.1.119) -> 0.2.1. Cross-toolchain completed in published packs: hand vs kpatch-build only; klp-build (6.19+) equivalence matrix deferred.
+**Pin attribution:** mutant / B1 / C6 → `v0.1.4`. INCLUDE×6, Dirty Pipe PRE-gated, v6.1.119 smoke, PRE N=24 → `v0.2.0`. Second-pin depth (2 INCLUDE + C3 on v6.1.119) → `v0.2.1`. Cross-toolchain completed in published packs: hand vs `kpatch-build` only; `klp-build` (6.19+) equivalence matrix deferred.
 
 **Before push:** `bash scripts/pre-push-hygiene.sh`
 
