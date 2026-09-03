@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using these metadata."
-title: "LivepatchDiff: Checking That Livepatch Builds Still Do What They Claim — A Case Study on Linux v6.6.47"
+title: "LivepatchDiff: Checking That Livepatch Builds Still Do What They Claim"
 type: software
 authors:
   - family-names: Kazuru
@@ -8,20 +8,19 @@ authors:
     orcid: "https://orcid.org/0009-0002-4099-1059"
     email: kazuruuni@gmail.com
 repository-code: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness"
-url: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.4"
+url: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.2.0"
 abstract: >-
-  Differential test harness for Linux livepatch build pipelines (package
-  case study on Linux v6.6.47). Combines ELF relocation triage, structural
-  PLT32 bind checks, loadable mutants, and per-case runtime predicates.
-  Modules build from source against a pinned kernel; Docker stages separate
-  module build from predicate replay.
+  Differential test harness for Linux livepatch build pipelines. Combines ELF
+  relocation triage, structural PLT32 bind checks, loadable mutants, PRE(A)
+  revert-soundness gating, and per-case runtime predicates including hardened P3.
+   cite pin on Linux v6.6.47 plus Dirty Pipe PRE-gated packs on v5.16.10.
 keywords:
   - livepatch
   - Linux
   - differential testing
   - kpatch
   - ELF relocation
-  - package
+  - 
 license: MIT
-version: "0.1.4"
-date-released: "2026-08-23"
+version: "0.2.0"
+date-released: "2026-09-03"

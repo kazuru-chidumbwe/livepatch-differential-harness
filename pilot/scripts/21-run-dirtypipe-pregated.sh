@@ -61,9 +61,11 @@ check_init_no_klp_glob "$init/init"
 ( cd "$init" && find . -print0 | cpio --null -o --format=newc | gzip -9 ) >"$Q/initrd-eisej-dirtypipe.cpio.gz"
 serial="$OUT/predicate-serial-pregated.log"
 : >"$serial"
+# Prefer -display none -serial stdio: -nographic plus -serial file: leaves an empty log on this QEMU.
 timeout 180 qemu-system-x86_64 -kernel "$BZ" -initrd "$Q/initrd-eisej-dirtypipe.cpio.gz" \
-  -append "console=ttyS0 panic=1 nokaslr init=/init" -m 512 -nographic -no-reboot \
-  -serial file:"$serial" 2>/dev/null || true
+  -append "console=ttyS0 panic=1 nokaslr init=/init" -m 512 -machine pc -no-reboot \
+  -display none -serial stdio \
+  >"$serial" 2>&1 || true
 grep -E 'INSMOD|KLP_|P2_PASS|P3_|PRE_' "$serial" | tee -a "$OUT/predicate-transcript.txt" || true
 {
   echo "HOST=$(hostname)"

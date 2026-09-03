@@ -1,7 +1,7 @@
 {
-  "title": "LivepatchDiff: Checking That Livepatch Builds Still Do What They Claim — A Case Study on Linux v6.6.47",
+  "title": "LivepatchDiff: Checking That Livepatch Builds Still Do What They Claim",
   "upload_type": "software",
-  "description": "Differential test harness for Linux livepatch build pipelines. package case study on Linux v6.6.47: ELF relocation triage, structural PLT32 bind checks (C3), loadable mutants, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe Option A on v5.16.10. Cite SemVer tag v0.1.4. Run only inside QEMU guests.",
+  "description": "Differential test harness for Linux livepatch build pipelines.  cite pin v0.2.0: ELF relocation triage, structural PLT32 bind checks, loadable mutants, PRE(A) gating, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe PRE-gated P3 on v5.16.10, INCLUDE CVE contract packs. Cite SemVer tag v0.2.0. Run only inside QEMU guests.",
   "creators": [
     {
       "name": "Kazuru, Seke",
@@ -17,21 +17,21 @@
     "mutation testing",
     "kpatch",
     "QEMU",
-    "package"
+    ""
   ],
   "license": "MIT",
   "access_right": "open",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.4",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.2.0",
       "relation": "isSupplementTo",
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.0",
       "relation": "isIdenticalTo",
       "resource_type": "software"
     }
   ],
-  "notes": "package case-study capsule (LivepatchDiff · Linux v6.6.47). Manuscript Code metadata C2 remains the GitHub tree URL (not Zenodo). Optional Zenodo DOI may be cited alongside GitHub when minted. When the package article receives a DOI, add it as related_identifiers isDocumentedBy."
+  "notes": " research-article capsule (LivepatchDiff). package Plan B parked. Manuscript Code metadata C2 remains the GitHub tree URL (not Zenodo)."
 }

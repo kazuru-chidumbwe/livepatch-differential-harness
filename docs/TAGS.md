@@ -4,24 +4,23 @@ Annotated tags mark reproducible anchors. **`master` / `main` may advance** afte
 
 | Tag | Commit | Purpose |
 | --- | --- | --- |
-| [`v0.1.4`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4) | `a385a52` | package cite pin · P3_PASS = contract (transition∧baseline) · C6 P3_PASS=1 |
+| [`v0.2.0`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.0) | *(tip at tag)* | ** cite pin** · PRE + Dirty Pipe PRE-gated P3 · INCLUDE CVE packs |
+| [`v0.1.4`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4) | `a385a52` | package cite pin · P3_PASS = contract · C6 P3_PASS=1 |
 | [`v0.1.3`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.3) | `029518e` | Prior cite pin · hardened P3 · predicate schema · C6 pack refresh |
 | [`v0.1.2`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.2) | `3950fce` | package closeout (pre-hardening C6 P3 packs) |
-| [`v0.1.1`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.1) | `aaa34e3` (tag also includes `b7adce7` TAGS pin) | C3 structural refresh · Zenodo capsule |
-| [`v0.1.0`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.0) | `b1c6bb7` | First SemVer release (package / CITATION.cff) |
-| [`softwarex-lp1-20260725c`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/softwarex-lp1-20260725c) | `386226e` | package case-study pin (canonical dated freeze) |
-| [`softwarex-lp1-20260725b`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/softwarex-lp1-20260725b) | `86ba7a0` | Historical; superseded by `…c` |
+| [`v0.1.1`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.1) | `aaa34e3` | C3 structural refresh · Zenodo capsule |
+| [`v0.1.0`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.0) | `b1c6bb7` | First SemVer release |
+| [`softwarex-lp1-20260725c`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/softwarex-lp1-20260725c) | `386226e` | package dated freeze |
 
 ## Quick checkout
 
 ```bash
-git checkout v0.1.4
+git checkout v0.2.0
 ```
 
 ## Tag policy
 
-- **SemVer / package C1 / CITATION.cff** → `v0.1.4` (see [`CHANGELOG.md`](../CHANGELOG.md)).
-- Historical package dated pin → `softwarex-lp1-20260725c`.
+- **SemVer /  C1 / CITATION.cff** → `v0.2.0` (see [`CHANGELOG.md`](../CHANGELOG.md)).
+- Prior package pin → `v0.1.4`.
 - Never cite floating `master` for published results.
-- New SemVer tags when the release boundary changes — not on every doc commit.
 - Zenodo C3: [`ZENODO.md`](ZENODO.md).
