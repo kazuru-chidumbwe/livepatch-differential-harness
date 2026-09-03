@@ -11,7 +11,7 @@ Annotated tags mark reproducible anchors. **`master` / `main` may advance** afte
 | [`v0.1.2`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.2) | `9800eee` | package closeout (pre-hardening C6 P3 packs) |
 | [`v0.1.1`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.1) | `01db96a` | C3 structural refresh · Zenodo capsule |
 | [`v0.1.0`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.0) | `b97e6d9` | First SemVer release |
-| [`pin-lp1-20260725c`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/pin-lp1-20260725c) | `4828d62` | dated freeze |
+| [`pin-lp1-20260725c`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/pin-lp1-20260725c) | `416ef82` | dated freeze |
 
 ## Quick checkout
 
