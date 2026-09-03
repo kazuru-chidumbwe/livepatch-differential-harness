@@ -1,0 +1,6 @@
+HOST=boma-test
+KERNEL_TAG=v5.16.10
+BZIMAGE=/opt/atlas/livepatch-corpus/linux-dirtypipe/arch/x86/boot/bzImage
+BZIMAGE_SHA256=dccbb329c49374f41fd5960711d80b4c039f2e1c37ed4e6bc5a9869feaef338b
+PRE_CLASS=SOUND
+PRE_GATED=1

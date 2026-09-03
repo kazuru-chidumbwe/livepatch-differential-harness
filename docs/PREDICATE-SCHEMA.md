@@ -1,6 +1,17 @@
-# Predicate contract schema (package v0.1.4)
+# Predicate contract schema (package v0.2.0)
 
-Machine-readable sketch for per-case P2/P3 contracts. Operators still author semantics; this schema records what each run script encodes before QEMU replay counts as meaningful.
+Machine-readable sketch for per-case PRE(A), P2/P3 contracts. Operators still author semantics; this schema records what each run script encodes before QEMU replay counts as meaningful.
+
+## Stage A — PRE(A) revert-soundness (static)
+
+Run `pilot/scripts/pre-revert-scan.py` on each built `.ko` before runtime P3.
+
+| PRE_CLASS | Meaning | Runtime P3 |
+| --- | --- | --- |
+| `SOUND` | No shadow, callbacks, replace, or klp_states refs | Eligible |
+| `OUT_OF_SCOPE` | PRE violated — emit `PRE_TRIGGER_SYMBOLS` | **Skipped** (`PRE_SKIP_P3=1`) |
+| `SOUND_FAIL` | PRE holds; runtime P3/contract fails | QEMU lane |
+| `TRANSITION_FAIL` | sysfs stall / timeout (separate from P3_PASS) | Diagnostic |
 
 ## Minimal YAML example
 

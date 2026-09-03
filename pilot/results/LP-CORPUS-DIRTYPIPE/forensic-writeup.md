@@ -7,13 +7,17 @@
 **Closed:** 16 Aug 2026 lab · synced to local harness same day  
 **CAPSTONE note:** CVE-2022-0847 pipe-flag fix symbols remain the class target; this pack validates pin boot + livepatch P2/P3.
 
-## Predicates
+## Predicates (package Option A, 16 Aug 2026)
 
 ```
 INSMOD_RC=0
 P2_PASS=1
 P3_PASS=0
 ```
+
+##  PRE-gated re-run (3 Sep 2026)
+
+Closed `DIRTYPIPE__DONE=2026-09-03T19:55:28Z` on `boma-test` (`17-run-eisej-v020.sh`). Rebuilt bzImage SHA-256 `dccbb329c49374f41fd5960711d80b4c039f2e1c37ed4e6bc5a9869feaef338b`. Transcript: `PRE_CLASS=SOUND`, `INSMOD_RC=0`, `P2_PASS=1`, `P3_PASS=1`. See `DIRTYPIPE__DONE.txt` and `pin-pregated.txt`. Not byte-identical to the package `CF5C1899…` image.
 
 ## Artifacts
 

@@ -1,4 +1,4 @@
-# LivepatchDiff — in-guest KLP status + hardened P3 revert helpers
+﻿# LivepatchDiff â€” in-guest KLP status + hardened P3 revert helpers
 #
 # Source from host run scripts when generating QEMU init:
 #   # shellcheck source=/dev/null
@@ -18,12 +18,25 @@
 #   P3_ENABLED_ZERO=<0|1>          # diagnostic (sysfs alignment)
 #   P3_BASELINE_OBSERVED=<0|1>
 #   P3_TIMEOUT=<0|1>
-#   P3_CONTRACT_PASS=<0|1>         # transition complete ∧ baseline observed
+#   P3_CONTRACT_PASS=<0|1>         # transition complete âˆ§ baseline observed
 #   P3_PASS=<0|1>                  # package-facing: same as P3_CONTRACT_PASS (v0.1.4+)
 #
 # v0.1.3 required enabled=0 in P3_PASS. v0.1.4 treats enabled as diagnostic only:
 # functional revert is baseline restored after transition complete.
 
+
+emit_pre_skip_p3() {
+  local pre_class="$1"
+  shift
+  local triggers="${*:-}"
+  cat <<EOF
+# --- PRE(A) gate: runtime P3 skipped ---
+echo "PRE_CLASS=${pre_class}"
+echo "PRE_RUNTIME_P3_ELIGIBLE=0"
+echo "PRE_SKIP_P3=1"
+[ -n "${triggers}" ] && echo "PRE_TRIGGER_SYMBOLS=${triggers}"
+EOF
+}
 emit_klp_post_load_status() {
   cat <<'EOS'
 # --- KLP post-load status ---
@@ -50,7 +63,7 @@ emit_p3_hardened_revert() {
   local proc_file="$2"
   local timeout="${3:-30}"
   cat <<EOF
-# --- hardened P3 revert (disable → wait transition → verify enabled → baseline) ---
+# --- hardened P3 revert (disable â†’ wait transition â†’ verify enabled â†’ baseline) ---
 P3_TRANSITION_COMPLETE=0
 P3_ENABLED_ZERO=0
 P3_BASELINE_OBSERVED=0
@@ -112,7 +125,7 @@ echo "P3_TRANSITION_COMPLETE=\$P3_TRANSITION_COMPLETE"
 echo "P3_ENABLED_ZERO=\$P3_ENABLED_ZERO"
 echo "P3_BASELINE_OBSERVED=\$P3_BASELINE_OBSERVED"
 echo "P3_TIMEOUT=\$P3_TIMEOUT"
-# package-facing P3 (v0.1.4+): contract = transition ∧ baseline.
+# package-facing P3 (v0.1.4+): contract = transition âˆ§ baseline.
 # P3_ENABLED_ZERO remains diagnostic (sysfs may lag functional revert).
 if [ \$P3_TRANSITION_COMPLETE -eq 1 ] && [ \$P3_BASELINE_OBSERVED -eq 1 ]; then
   echo "P3_CONTRACT_PASS=1"

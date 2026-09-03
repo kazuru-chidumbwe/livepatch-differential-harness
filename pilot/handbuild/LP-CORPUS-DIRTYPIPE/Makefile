@@ -1,9 +1,12 @@
 obj-m += livepatch-dirtypipe.o
 
-KDIR ?= /lib/modules/$(shell uname -r)/build
+KDIR ?= $(WORK_ROOT)/linux
+# Do not use $(PWD)/$(CURDIR): a parent kernel `make` can export CURDIR, and
+# script 19 `cd`s into the v5.16.10 tree before calling 17-run-eisej-v020.sh.
+THIS_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 
 all:
-	$(MAKE) -C $(KDIR) M=$(PWD) modules
+	$(MAKE) -C $(KDIR) M=$(THIS_DIR) modules
 
 clean:
-	$(MAKE) -C $(KDIR) M=$(PWD) clean
+	$(MAKE) -C $(KDIR) M=$(THIS_DIR) clean

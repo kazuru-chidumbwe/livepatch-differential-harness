@@ -7,11 +7,13 @@ User inputs (per case)
     ↓
 Build plane  — hand-build klp_patch (+ optional kpatch-build baseline)
     ↓
+Stage A plane — PRE(A) revert-soundness static scan (pre-revert-scan.py)
+    ↓
 Mutate plane — loadable ELF relocation edits (optional)
     ↓
 Static plane — relocation triage + structural bind checks
     ↓
-Runtime plane — QEMU predicates (P2 / P3 / dual-path)
+Runtime plane — QEMU predicates (P2 / P3 / dual-path) — P3 only when PRE=SOUND
     ↓
 Classify     — pass / diverge / inconclusive + evidence packs
 ```

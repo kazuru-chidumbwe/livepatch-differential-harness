@@ -1,5 +1,28 @@
 ## [Unreleased]
 
+## [0.2.0] — 2026-09-03
+
+### Added
+
+- `pilot/scripts/pre-revert-scan.py` — PRE(A) static revert-soundness scan (`SOUND` / `OUT_OF_SCOPE`).
+- `pilot/scripts/test_pre_revert_scan.py` — unit tests (mocked symbols).
+- `emit_pre_skip_p3` in `pilot/scripts/lib/klp-predicates.sh` — skip runtime P3 when PRE fails.
+- CVE contract packs: `pilot/handbuild/LP-CVE-2023-52577/`, `LP-CVE-2024-36904/` plus case READMEs.
+-  lab scripts: `17-run-eisej-v020.sh`, `19-resume-dirtypipe-build.sh`, `21-run-dirtypipe-pregated.sh`, `22-rerun-eisej-dirtypipe.sh`.
+- Lab runbook: `pilot/results/LAB-RUNBOOK--V020-2026-09-03.md`.
+- Dirty Pipe close marker `pilot/results/LP-CORPUS-DIRTYPIPE/DIRTYPIPE__DONE.txt` (`2026-09-03T19:55:28Z`).
+
+### Changed
+
+- Predicate schema documents Stage A PRE gating ( / package Plan B cite pin).
+- Venue primary for manuscript retarget: **** (package Plan B).
+- Dirty Pipe handbuild `Makefile` pins `M=` via `MAKEFILE_LIST` so a parent kernel `cd` / exported `CURDIR` cannot rebuild the v5.16.10 tree as a module.
+
+### Lab evidence (untagged until `v0.2.0`)
+
+- Host `boma-test`: INCLUDE CVE packs and Dirty Pipe PRE-gated QEMU — `PRE_CLASS=SOUND`, `INSMOD_RC=0`, `P2_PASS=1`, `P3_PASS=1`.
+- Dirty Pipe bzImage SHA-256 `dccbb329c49374f41fd5960711d80b4c039f2e1c37ed4e6bc5a9869feaef338b` (not package `CF5C1899…`).
+
 ## [0.1.4] — 2026-08-23
 
 ### Changed

@@ -2,9 +2,9 @@
 
 Differential test harness for Linux livepatch **build pipelines** (instrument name: **LivepatchDiff**). Identical source patches are built with multiple tools under a pinned kernel commit; outputs are compared for **trace-equivalence** using hand-built `klp_patch` reference modules, ELF normalization, and per-case predicate suites.
 
-**Public pin:** https://github.com/kazuru-chidumbwe/livepatch-differential-harness · SemVer **`v0.1.4`** (see `CITATION.cff`, [`docs/TAGS.md`](docs/TAGS.md), [`CHANGELOG.md`](CHANGELOG.md), [`docs/ZENODO.md`](docs/ZENODO.md), [`RELEASE_MANIFEST.yaml`](RELEASE_MANIFEST.yaml))  
-**Status:** package **case study on v6.6.47** — instrument + illustrative corpus; not a stratified prevalence study. Historical package pin `softwarex-lp1-20260725c` remains a freeze anchor. Prior SemVer `v0.1.1` kept as history.  
-**Operator API:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · Docker stages: [`pilot/docker/README.md`](pilot/docker/README.md) · Evaluation: [`pilot/results/EVALUATION-MATRIX.md`](pilot/results/EVALUATION-MATRIX.md)
+**Public pin:** https://github.com/kazuru-chidumbwe/livepatch-differential-harness · published SemVer **`v0.1.4`** ·  PRE-gated packs on disk targeting **`v0.2.0`** (not tagged yet). See `CITATION.cff`, [`docs/TAGS.md`](docs/TAGS.md), [`CHANGELOG.md`](CHANGELOG.md), [`docs/ZENODO.md`](docs/ZENODO.md), [`RELEASE_MANIFEST.yaml`](RELEASE_MANIFEST.yaml).  
+**Status:**  research-article evaluation on Linux v6.6.47 plus a Dirty Pipe v5.16.10 pin — instrument + illustrative corpus; not a stratified prevalence study. Historical package pin `softwarex-lp1-20260725c` remains a freeze anchor.  
+**Operator API:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · Docker stages: [`pilot/docker/README.md`](pilot/docker/README.md) · Evaluation: [`pilot/results/EVALUATION-MATRIX.md`](pilot/results/EVALUATION-MATRIX.md) ·  lab: [`pilot/results/LAB-RUNBOOK--V020-2026-09-03.md`](pilot/results/LAB-RUNBOOK--V020-2026-09-03.md)
 
 **Before push:** `bash scripts/pre-push-hygiene.sh`
 
