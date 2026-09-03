@@ -1,7 +1,7 @@
 {
   "title": "LivepatchDiff: Checking That Livepatch Builds Still Do What They Claim",
   "upload_type": "software",
-  "description": "Differential test harness for Linux livepatch build pipelines. Cite pin v0.2.0: ELF relocation triage, structural PLT32 bind checks, loadable mutants, PRE(A) gating, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe PRE-gated P3 on v5.16.10, INCLUDE CVE contract packs. Cite SemVer tag v0.2.0. Run only inside QEMU guests.",
+  "description": "Differential test harness for Linux livepatch build pipelines. Cite pin v0.2.1: ELF relocation triage, structural PLT32 bind checks, loadable mutants, PRE(A) gating, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe PRE-gated P3 on v5.16.10, INCLUDE CVE contract packs. Cite SemVer tag v0.2.1. Run only inside QEMU guests.",
   "creators": [
     {
       "name": "Kazuru, Seke",
@@ -23,12 +23,12 @@
   "access_right": "open",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.2.0",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.2.1",
       "relation": "isSupplementTo",
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.0",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.1",
       "relation": "isIdenticalTo",
       "resource_type": "software"
     }

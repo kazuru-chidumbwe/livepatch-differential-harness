@@ -1,0 +1,8 @@
+=== GOOD (semantic P2 must PASS) ===
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+P2_PASS=1
+=== PERTURB (INSMOD=0 + semantic P2 must FAIL) ===
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+P2_PASS=0

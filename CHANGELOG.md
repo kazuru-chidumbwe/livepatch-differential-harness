@@ -1,5 +1,18 @@
 ## [Unreleased]
 
+## [0.2.1] — 2026-09-03
+
+### Added
+
+- `pilot/scripts/28-run-second-pin-depth.sh` — second-pin depth on existing v6.1.119 bzImage.
+- `pilot/results/LP-SECOND-PIN-v6.1.119/SECOND-PIN-DEPTH/` — two INCLUDE packs + C3 mutant class on v6.1.119.
+
+### Lab evidence (`v0.2.1` · second-pin depth)
+
+- Host `boma-test`: CVE-2023-52577 and CVE-2024-36904 PRE-gated P2/P3 pass on v6.1.119.
+- C3 on v6.1.119: `STRUCTURAL_BIND_PASS=1`; good P2=1; perturb INSMOD=0 and P2=0.
+- Close: `SECOND_PIN_DEPTH_SECOND_PIN_DEPTH_DONE=2026-09-03T21:03:05Z`.
+
 ## [0.2.0] — 2026-09-03
 
 ### Added

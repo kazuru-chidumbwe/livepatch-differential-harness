@@ -1,0 +1,10 @@
+# DEPTH C3 on v6.1.119
+## Structural binding oracle
+# structural PLT32 redirect check
+good=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-03-seqputs/livepatch-corpus03.ko
+pert=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CORPUS-03-seqputs/livepatch-corpus03.seqputs-to-putc.ko
+redirect=seq_puts->seq_putc
+sites=0x11
+offset=0x11 good=seq_puts pert=seq_putc
+STRUCTURAL_BIND_PASS=1
+note: runtime observables (including coincidental glyphs) are illustrative only; this check is the C3 ground-truth oracle.
