@@ -15,6 +15,9 @@ kernel_primary:
 kernel_dirtypipe:
   version: "5.16.10"
   commit: "528cecfa5af09631f0589efe9eacbd543c8c9db1"
+kernel_second_pin:
+  version: "6.1.119"
+  commit: "e4d90d63d385228b1e0bcf31cc15539bbbc28f7f"
 
 toolchain:
   qemu_version: "10.0.11 (boma-test  packs); Docker pin documents 8.2.x"
@@ -47,6 +50,12 @@ artifacts:
     sha256: "SEE_FILE"
   - path: pilot/results/LP-CORPUS-DIRTYPIPE/predicate-serial-pregated.log
     sha256: "SEE_FILE"
+  - path: pilot/results/LP-SECOND-PIN-v6.1.119/SECOND_PIN_SMOKE_DONE.txt
+    sha256: "SEE_FILE"
+  - path: pilot/results/LP-PRE-POPULATION/population-summary.txt
+    sha256: "SEE_FILE"
+  - path: pilot/results/LP-KLP-BUILD-UPSTREAM/status.txt
+    sha256: "SEE_FILE"
   - path: pilot/results/cve-triage-table.md
     sha256: "106474FABC08DE108758ADC2CBF0437B339D32AE1D0E6B01D9EAA6CA7D729F6F"
   - path: pilot/results/EVALUATION-MATRIX.md
@@ -63,8 +72,11 @@ evaluation_summary:
   opt_level_rebuilds_p2_pass: 2
   c6_p3_pass: 2
   dirtypipe_p3_pass: 1
-  include_cve_p3_pass: 2
+  include_cve_p3_pass: 6
+  second_pin_p3_pass: 1
+  pre_population_n: 24
   note: >
-    package pilot corpus counts unchanged.  v0.2.0 adds PRE-gated Dirty Pipe
-    P3_PASS=1 on rebuilt v5.16.10 bzImage dccbb329… (not package CF5C1899…) and
-    two INCLUDE CVE contract packs (P3_PASS=1 each) on host boma-test 2026-09-03.
+     v0.2.0 full-pipeline on boma-test (FULL_PIPELINE_DONE=2026-09-03T20:25:47Z):
+    six INCLUDE CVE contract packs P3_PASS=1; Dirty Pipe PRE-gated P3; v6.1.119 second-pin
+    smoke P3_PASS=1; PRE(A) population N=24 (23 SOUND / 1 OUT_OF_SCOPE); klp-build present
+    on v6.19 with equivalence matrix deferred. Not industrial / vendor-fleet rates.

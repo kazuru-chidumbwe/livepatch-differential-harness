@@ -18,10 +18,13 @@
 - Venue primary for manuscript retarget: **** (package Plan B).
 - Dirty Pipe handbuild `Makefile` pins `M=` via `MAKEFILE_LIST` so a parent kernel `cd` / exported `CURDIR` cannot rebuild the v5.16.10 tree as a module.
 
-### Lab evidence (untagged until `v0.2.0`)
+### Lab evidence (`v0.2.0` cite pin · full-pipeline)
 
-- Host `boma-test`: INCLUDE CVE packs and Dirty Pipe PRE-gated QEMU — `PRE_CLASS=SOUND`, `INSMOD_RC=0`, `P2_PASS=1`, `P3_PASS=1`.
-- Dirty Pipe bzImage SHA-256 `dccbb329c49374f41fd5960711d80b4c039f2e1c37ed4e6bc5a9869feaef338b` (not package `CF5C1899…`).
+- Host `boma-test`: six INCLUDE CVE packs, Dirty Pipe, v6.1.119 second pin — PRE-gated P2/P3 pass.
+- PRE population N=24 (23 SOUND, 1 OUT_OF_SCOPE).
+- `klp-build` present on cloned v6.19; equivalence matrix deferred.
+- Dirty Pipe bzImage SHA-256 `dccbb329…`; second-pin bzImage `2fa03847…`.
+- Close: `FULL_PIPELINE_DONE=2026-09-03T20:25:47Z`.
 
 ## [0.1.4] — 2026-08-23
 

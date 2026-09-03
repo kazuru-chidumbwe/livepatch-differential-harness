@@ -1,0 +1,19 @@
+Usage: klp-build [OPTIONS] PATCH_FILE(s)
+Generate a livepatch module.
+
+Options:
+   -f, --show-first-changed	Show address of first changed instruction
+   -j, --jobs=<jobs>		Build jobs to run simultaneously [default: 16]
+   -o, --output=<file.ko>	Output file [default: livepatch-<patch-name>.ko]
+       --no-replace		Disable livepatch atomic replace
+   -v, --verbose		Pass V=1 to kernel/module builds
+
+Advanced Options:
+   -d, --debug			Show symbol/reloc cloning decisions
+   -S, --short-circuit=STEP	Start at build step (requires prior --keep-tmp)
+				   1|orig	Build original kernel (default)
+				   2|patched	Build patched kernel
+				   3|diff	Diff objects
+				   4|kmod	Build patch module
+   -T, --keep-tmp		Preserve tmp dir on exit
+

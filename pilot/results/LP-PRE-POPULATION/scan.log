@@ -1,0 +1,84 @@
+PRE_POPULATION_START=2026-09-03T20:19:15Z
+COLLECT ac13fcc770045a98-livepatch-dirtypipe.ko <- pilot/handbuild/LP-CORPUS-DIRTYPIPE/livepatch-dirtypipe.ko
+COLLECT 16974de971c83f16-livepatch-cmdline.ko <- pilot/handbuild/LP-PILOT-01/livepatch-cmdline.ko
+COLLECT 18a526206a9e4eb5-livepatch-cve-2023-52577.ko <- pilot/handbuild/LP-CVE-2023-52577/livepatch-cve-2023-52577.ko
+COLLECT 64b03bcdeef1a28a-livepatch-cve-2024-27395.ko <- pilot/handbuild/LP-CVE-2024-27395/livepatch-cve-2024-27395.ko
+COLLECT db8d6205c5c8da78-livepatch-cve-2024-35864.ko <- pilot/handbuild/LP-CVE-2024-35864/livepatch-cve-2024-35864.ko
+COLLECT 443b9f9ef37faded-livepatch-inline.ko <- pilot/handbuild/LP-CORPUS-05-underincl/livepatch-inline.ko
+COLLECT d1443a0336848e9a-livepatch-cve-2024-36904.ko <- pilot/handbuild/LP-CVE-2024-36904/livepatch-cve-2024-36904.ko
+COLLECT f1d573bbb0ce0196-livepatch-cve-2023-52578.ko <- pilot/handbuild/LP-CVE-2023-52578/livepatch-cve-2023-52578.ko
+COLLECT b23d1f6f485e337a-livepatch-cve-2024-22705.ko <- pilot/handbuild/LP-CVE-2024-22705/livepatch-cve-2024-22705.ko
+COLLECT 15ba349cb6719346-livepatch-corpus03.ko <- pilot/handbuild/LP-CORPUS-03-seqputs/livepatch-corpus03.ko
+COLLECT fd86e6d832c19d64-livepatch-version.ko <- pilot/handbuild/LP-PILOT-02/livepatch-version.ko
+COLLECT 58dce5ed35372c2e-kpatch-output.ko <- pilot/results/LP-CORPUS-01-pipeline/kpatch-output.ko
+COLLECT 2b865f99241cd788-livepatch-underincl.ko <- pilot/results/LP-CORPUS-05-under-inclusion/livepatch-underincl.ko
+COLLECT 884b8db19842a538-livepatch-version.ko <- pilot/build/qemu/initrd-bv-O2/livepatch-version.ko
+COLLECT 2fd9549287bb34c3-livepatch-version.ko <- pilot/build/qemu/initrd-c2-perturb/livepatch-version.ko
+COLLECT a537446a6cdd24a3-livepatch-version.ko <- pilot/build/qemu/initrd-lp02-kcov/livepatch-version.ko
+COLLECT d4c226db07489aa5-livepatch-version.ko <- pilot/build/qemu/initrd-c2-good/livepatch-version.ko
+COLLECT 33f606b88361044b-livepatch-cmdline-bad.ko <- pilot/build/qemu/bad-initrd/livepatch-cmdline-bad.ko
+COLLECT 7bca181491ff52a0-livepatch-cmdline.ko <- pilot/build/qemu/initrd-tree/livepatch-cmdline.ko
+COLLECT e27e62f38be87173-livepatch-corpus03.ko <- pilot/build/qemu/initrd-c3-perturb/livepatch-corpus03.ko
+COLLECT 089964957ebb719d-livepatch-corpus03.ko <- pilot/build/qemu/initrd-c3-good/livepatch-corpus03.ko
+COLLECT 7496388f6d318b88-livepatch-version.ko <- pilot/build/qemu/initrd-lp02-perturb/livepatch-version.ko
+COLLECT dbfaf09674485013-livepatch-cmdline-bad.ko <- pilot/build/qemu/perturb-initrd/livepatch-cmdline-bad.ko
+COLLECTED_LOCAL=23
+make: Entering directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/shadow'
+make -C /home/boma/livepatch-pilot/linux M=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/shadow modules
+make[1]: Entering directory '/home/boma/livepatch-pilot/linux'
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/shadow/livepatch-shadow-stub.o
+/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/shadow/livepatch-shadow-stub.c:7:14: error: conflicting types for ‘klp_shadow_alloc’; have ‘void *(void *, long unsigned int,  size_t,  gfp_t,  void (*)(void *, void *), void *)’ {aka ‘void *(void *, long unsigned int,  long unsigned int,  unsigned int,  void (*)(void *, void *), void *)’}
+    7 | extern void *klp_shadow_alloc(void *obj, unsigned long id, size_t size, gfp_t gfp,
+      |              ^~~~~~~~~~~~~~~~
+In file included from /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/shadow/livepatch-shadow-stub.c:3:
+./include/linux/livepatch.h:221:7: note: previous declaration of ‘klp_shadow_alloc’ with type ‘void *(void *, long unsigned int,  size_t,  gfp_t,  int (*)(void *, void *, void *), void *)’ {aka ‘void *(void *, long unsigned int,  long unsigned int,  unsigned int,  int (*)(void *, void *, void *), void *)’}
+  221 | void *klp_shadow_alloc(void *obj, unsigned long id,
+      |       ^~~~~~~~~~~~~~~~
+make[3]: *** [scripts/Makefile.build:243: /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/shadow/livepatch-shadow-stub.o] Error 1
+make[2]: *** [/home/boma/livepatch-pilot/linux/Makefile:1921: /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/shadow] Error 2
+make[1]: *** [Makefile:234: __sub-make] Error 2
+make[1]: Leaving directory '/home/boma/livepatch-pilot/linux'
+make: *** [Makefile:4: all] Error 2
+make: Leaving directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/shadow'
+SHADOW_STUB_BUILD_FAIL
+make: Entering directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/callback'
+make -C /home/boma/livepatch-pilot/linux M=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/callback modules
+make[1]: Entering directory '/home/boma/livepatch-pilot/linux'
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/callback/livepatch-callback-stub.o
+  MODPOST /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/callback/Module.symvers
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/callback/livepatch-callback-stub.mod.o
+  LD [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/callback/livepatch-callback-stub.ko
+make[1]: Leaving directory '/home/boma/livepatch-pilot/linux'
+make: Leaving directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/results/LP-PRE-POPULATION/stubs/callback'
+SELFTESTS_DIR=/home/boma/livepatch-pilot/linux/tools/testing/selftests/livepatch
+Cloning into '/tmp/kpatch-examples'...
+089964957ebb719d-livepatch-corpus03.ko	SOUND	
+15ba349cb6719346-livepatch-corpus03.ko	SOUND	
+16974de971c83f16-livepatch-cmdline.ko	SOUND	
+18a526206a9e4eb5-livepatch-cve-2023-52577.ko	SOUND	
+2b865f99241cd788-livepatch-underincl.ko	SOUND	
+2fd9549287bb34c3-livepatch-version.ko	SOUND	
+33f606b88361044b-livepatch-cmdline-bad.ko	SOUND	
+443b9f9ef37faded-livepatch-inline.ko	SOUND	
+58dce5ed35372c2e-kpatch-output.ko	SOUND	
+64b03bcdeef1a28a-livepatch-cve-2024-27395.ko	SOUND	
+7496388f6d318b88-livepatch-version.ko	SOUND	
+7bca181491ff52a0-livepatch-cmdline.ko	SOUND	
+884b8db19842a538-livepatch-version.ko	SOUND	
+a537446a6cdd24a3-livepatch-version.ko	SOUND	
+ac13fcc770045a98-livepatch-dirtypipe.ko	SOUND	
+b23d1f6f485e337a-livepatch-cve-2024-22705.ko	SOUND	
+d1443a0336848e9a-livepatch-cve-2024-36904.ko	SOUND	
+d4c226db07489aa5-livepatch-version.ko	SOUND	
+db8d6205c5c8da78-livepatch-cve-2024-35864.ko	SOUND	
+dbfaf09674485013-livepatch-cmdline-bad.ko	SOUND	
+e27e62f38be87173-livepatch-corpus03.ko	SOUND	
+f1d573bbb0ce0196-livepatch-cve-2023-52578.ko	SOUND	
+fd86e6d832c19d64-livepatch-version.ko	SOUND	
+livepatch-callback-stub.ko	OUT_OF_SCOPE	__klp_pre_unpatch_callback_stub,__pfx___klp_pre_unpatch_callback_stub
+---
+N=24
+PRE_CLASS_OUT_OF_SCOPE=1
+PRE_CLASS_SOUND=23
+WROTE population.json
+PRE_POPULATION_PRE_POPULATION_DONE=2026-09-03T20:19:25Z

@@ -1,4 +1,4 @@
-﻿# LivepatchDiff â€” in-guest KLP status + hardened P3 revert helpers
+# LivepatchDiff â€” in-guest KLP status + hardened P3 revert helpers
 #
 # Source from host run scripts when generating QEMU init:
 #   # shellcheck source=/dev/null

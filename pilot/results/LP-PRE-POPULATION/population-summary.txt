@@ -1,0 +1,29 @@
+089964957ebb719d-livepatch-corpus03.ko	SOUND	
+15ba349cb6719346-livepatch-corpus03.ko	SOUND	
+16974de971c83f16-livepatch-cmdline.ko	SOUND	
+18a526206a9e4eb5-livepatch-cve-2023-52577.ko	SOUND	
+2b865f99241cd788-livepatch-underincl.ko	SOUND	
+2fd9549287bb34c3-livepatch-version.ko	SOUND	
+33f606b88361044b-livepatch-cmdline-bad.ko	SOUND	
+443b9f9ef37faded-livepatch-inline.ko	SOUND	
+58dce5ed35372c2e-kpatch-output.ko	SOUND	
+64b03bcdeef1a28a-livepatch-cve-2024-27395.ko	SOUND	
+7496388f6d318b88-livepatch-version.ko	SOUND	
+7bca181491ff52a0-livepatch-cmdline.ko	SOUND	
+884b8db19842a538-livepatch-version.ko	SOUND	
+a537446a6cdd24a3-livepatch-version.ko	SOUND	
+ac13fcc770045a98-livepatch-dirtypipe.ko	SOUND	
+b23d1f6f485e337a-livepatch-cve-2024-22705.ko	SOUND	
+d1443a0336848e9a-livepatch-cve-2024-36904.ko	SOUND	
+d4c226db07489aa5-livepatch-version.ko	SOUND	
+db8d6205c5c8da78-livepatch-cve-2024-35864.ko	SOUND	
+dbfaf09674485013-livepatch-cmdline-bad.ko	SOUND	
+e27e62f38be87173-livepatch-corpus03.ko	SOUND	
+f1d573bbb0ce0196-livepatch-cve-2023-52578.ko	SOUND	
+fd86e6d832c19d64-livepatch-version.ko	SOUND	
+livepatch-callback-stub.ko	OUT_OF_SCOPE	__klp_pre_unpatch_callback_stub,__pfx___klp_pre_unpatch_callback_stub
+---
+N=24
+PRE_CLASS_OUT_OF_SCOPE=1
+PRE_CLASS_SOUND=23
+WROTE population.json

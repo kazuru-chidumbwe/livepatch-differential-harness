@@ -1,0 +1,226 @@
+{
+  "n": 24,
+  "counts": {
+    "SOUND": 23,
+    "OUT_OF_SCOPE": 1
+  },
+  "rows": [
+    {
+      "module": "089964957ebb719d-livepatch-corpus03.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "15ba349cb6719346-livepatch-corpus03.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "16974de971c83f16-livepatch-cmdline.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "18a526206a9e4eb5-livepatch-cve-2023-52577.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "2b865f99241cd788-livepatch-underincl.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "2fd9549287bb34c3-livepatch-version.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "33f606b88361044b-livepatch-cmdline-bad.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "443b9f9ef37faded-livepatch-inline.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "58dce5ed35372c2e-kpatch-output.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "64b03bcdeef1a28a-livepatch-cve-2024-27395.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "7496388f6d318b88-livepatch-version.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "7bca181491ff52a0-livepatch-cmdline.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "884b8db19842a538-livepatch-version.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "a537446a6cdd24a3-livepatch-version.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "ac13fcc770045a98-livepatch-dirtypipe.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "b23d1f6f485e337a-livepatch-cve-2024-22705.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "d1443a0336848e9a-livepatch-cve-2024-36904.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "d4c226db07489aa5-livepatch-version.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "db8d6205c5c8da78-livepatch-cve-2024-35864.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "dbfaf09674485013-livepatch-cmdline-bad.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "e27e62f38be87173-livepatch-corpus03.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "f1d573bbb0ce0196-livepatch-cve-2023-52578.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "fd86e6d832c19d64-livepatch-version.ko",
+      "PRE_CLASS": "SOUND",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "0",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "1"
+    },
+    {
+      "module": "livepatch-callback-stub.ko",
+      "PRE_CLASS": "OUT_OF_SCOPE",
+      "PRE_USES_SHADOW": "0",
+      "PRE_HAS_STATE_CALLBACKS": "1",
+      "PRE_IS_REPLACE": "0",
+      "PRE_USES_KLP_STATES": "0",
+      "PRE_RUNTIME_P3_ELIGIBLE": "0",
+      "PRE_TRIGGER_SYMBOLS": "__klp_pre_unpatch_callback_stub,__pfx___klp_pre_unpatch_callback_stub"
+    }
+  ]
+}

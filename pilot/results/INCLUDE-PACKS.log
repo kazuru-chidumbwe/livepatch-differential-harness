@@ -1,0 +1,176 @@
+INCLUDE_PACKS_START=2026-09-03T20:16:39Z
+wrote LP-CVE-2023-52578
+wrote LP-CVE-2024-27395
+wrote LP-CVE-2024-22705
+wrote LP-CVE-2024-35864
+make: Entering directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52577'
+make -C /home/boma/livepatch-pilot/linux M=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52577 modules
+make[1]: Entering directory '/home/boma/livepatch-pilot/linux'
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52577/livepatch-cve-2023-52577.o
+  MODPOST /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52577/Module.symvers
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52577/livepatch-cve-2023-52577.mod.o
+  LD [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52577/livepatch-cve-2023-52577.ko
+make[1]: Leaving directory '/home/boma/livepatch-pilot/linux'
+make: Leaving directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52577'
+PRE_CLASS=SOUND
+PRE_USES_SHADOW=0
+PRE_HAS_STATE_CALLBACKS=0
+PRE_IS_REPLACE=0
+PRE_USES_KLP_STATES=0
+PRE_RUNTIME_P3_ELIGIBLE=1
+PRE_CLASS=SOUND
+4535 blocks
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+KLP_ENABLED=1
+KLP_TRANSITION=0
+P2_PASS=1
+P3_TRANSITION_COMPLETE=1
+P3_ENABLED_ZERO=0
+P3_BASELINE_OBSERVED=1
+P3_TIMEOUT=0
+P3_CONTRACT_PASS=1
+P3_PASS=1
+make: Entering directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52578'
+make -C /home/boma/livepatch-pilot/linux M=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52578 modules
+make[1]: Entering directory '/home/boma/livepatch-pilot/linux'
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52578/livepatch-cve-2023-52578.o
+  MODPOST /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52578/Module.symvers
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52578/livepatch-cve-2023-52578.mod.o
+  LD [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52578/livepatch-cve-2023-52578.ko
+make[1]: Leaving directory '/home/boma/livepatch-pilot/linux'
+make: Leaving directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2023-52578'
+PRE_CLASS=SOUND
+PRE_USES_SHADOW=0
+PRE_HAS_STATE_CALLBACKS=0
+PRE_IS_REPLACE=0
+PRE_USES_KLP_STATES=0
+PRE_RUNTIME_P3_ELIGIBLE=1
+PRE_CLASS=SOUND
+4535 blocks
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+KLP_ENABLED=1
+KLP_TRANSITION=0
+P2_PASS=1
+P3_TRANSITION_COMPLETE=1
+P3_ENABLED_ZERO=0
+P3_BASELINE_OBSERVED=1
+P3_TIMEOUT=0
+P3_CONTRACT_PASS=1
+P3_PASS=1
+make: Entering directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-36904'
+make -C /home/boma/livepatch-pilot/linux M=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-36904 modules
+make[1]: Entering directory '/home/boma/livepatch-pilot/linux'
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-36904/livepatch-cve-2024-36904.o
+  MODPOST /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-36904/Module.symvers
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-36904/livepatch-cve-2024-36904.mod.o
+  LD [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-36904/livepatch-cve-2024-36904.ko
+make[1]: Leaving directory '/home/boma/livepatch-pilot/linux'
+make: Leaving directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-36904'
+PRE_CLASS=SOUND
+PRE_USES_SHADOW=0
+PRE_HAS_STATE_CALLBACKS=0
+PRE_IS_REPLACE=0
+PRE_USES_KLP_STATES=0
+PRE_RUNTIME_P3_ELIGIBLE=1
+PRE_CLASS=SOUND
+4535 blocks
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+KLP_ENABLED=1
+KLP_TRANSITION=0
+P2_PASS=1
+P3_TRANSITION_COMPLETE=1
+P3_ENABLED_ZERO=0
+P3_BASELINE_OBSERVED=1
+P3_TIMEOUT=0
+P3_CONTRACT_PASS=1
+P3_PASS=1
+make: Entering directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-27395'
+make -C /home/boma/livepatch-pilot/linux M=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-27395 modules
+make[1]: Entering directory '/home/boma/livepatch-pilot/linux'
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-27395/livepatch-cve-2024-27395.o
+  MODPOST /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-27395/Module.symvers
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-27395/livepatch-cve-2024-27395.mod.o
+  LD [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-27395/livepatch-cve-2024-27395.ko
+make[1]: Leaving directory '/home/boma/livepatch-pilot/linux'
+make: Leaving directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-27395'
+PRE_CLASS=SOUND
+PRE_USES_SHADOW=0
+PRE_HAS_STATE_CALLBACKS=0
+PRE_IS_REPLACE=0
+PRE_USES_KLP_STATES=0
+PRE_RUNTIME_P3_ELIGIBLE=1
+PRE_CLASS=SOUND
+4535 blocks
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+KLP_ENABLED=1
+KLP_TRANSITION=0
+P2_PASS=1
+P3_TRANSITION_COMPLETE=1
+P3_ENABLED_ZERO=0
+P3_BASELINE_OBSERVED=1
+P3_TIMEOUT=0
+P3_CONTRACT_PASS=1
+P3_PASS=1
+make: Entering directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-22705'
+make -C /home/boma/livepatch-pilot/linux M=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-22705 modules
+make[1]: Entering directory '/home/boma/livepatch-pilot/linux'
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-22705/livepatch-cve-2024-22705.o
+  MODPOST /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-22705/Module.symvers
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-22705/livepatch-cve-2024-22705.mod.o
+  LD [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-22705/livepatch-cve-2024-22705.ko
+make[1]: Leaving directory '/home/boma/livepatch-pilot/linux'
+make: Leaving directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-22705'
+PRE_CLASS=SOUND
+PRE_USES_SHADOW=0
+PRE_HAS_STATE_CALLBACKS=0
+PRE_IS_REPLACE=0
+PRE_USES_KLP_STATES=0
+PRE_RUNTIME_P3_ELIGIBLE=1
+PRE_CLASS=SOUND
+4535 blocks
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+KLP_ENABLED=1
+KLP_TRANSITION=0
+P2_PASS=1
+P3_TRANSITION_COMPLETE=1
+P3_ENABLED_ZERO=0
+P3_BASELINE_OBSERVED=1
+P3_TIMEOUT=0
+P3_CONTRACT_PASS=1
+P3_PASS=1
+make: Entering directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-35864'
+make -C /home/boma/livepatch-pilot/linux M=/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-35864 modules
+make[1]: Entering directory '/home/boma/livepatch-pilot/linux'
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-35864/livepatch-cve-2024-35864.o
+  MODPOST /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-35864/Module.symvers
+  CC [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-35864/livepatch-cve-2024-35864.mod.o
+  LD [M]  /home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-35864/livepatch-cve-2024-35864.ko
+make[1]: Leaving directory '/home/boma/livepatch-pilot/linux'
+make: Leaving directory '/home/boma/Project-Atlas/repos/livepatch-differential-harness/pilot/handbuild/LP-CVE-2024-35864'
+PRE_CLASS=SOUND
+PRE_USES_SHADOW=0
+PRE_HAS_STATE_CALLBACKS=0
+PRE_IS_REPLACE=0
+PRE_USES_KLP_STATES=0
+PRE_RUNTIME_P3_ELIGIBLE=1
+PRE_CLASS=SOUND
+4535 blocks
+QEMU 8.2.2 monitor - type 'help' for more information
+(qemu) INSMOD_RC=0
+KLP_ENABLED=1
+KLP_TRANSITION=0
+P2_PASS=1
+P3_TRANSITION_COMPLETE=1
+P3_ENABLED_ZERO=0
+P3_BASELINE_OBSERVED=1
+P3_TIMEOUT=0
+P3_CONTRACT_PASS=1
+P3_PASS=1
+INCLUDE_PACKS_INCLUDE_DONE=2026-09-03T20:19:15Z
+INCLUDE_N=6
+INCLUDE_PACKS_DONE=1

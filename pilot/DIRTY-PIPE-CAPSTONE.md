@@ -3,7 +3,7 @@
 **Status:** package Option A QEMU **CLOSED** 16 Aug (lab + harness sync)  
 **Class:** CAPSTONE  
 **Triage:** `pilot/results/cve-triage-table.md`  
-**Disposition:** `pilot/results/DIRTYPIPE-PACKAGE-DISPOSITION-2026-08-15.md`  
+**Disposition:** `pilot/results/DIRTYPIPE-package-DISPOSITION-2026-08-15.md`  
 **Pack:** `pilot/results/LP-CORPUS-DIRTYPIPE/`
 
 ## Pin
