@@ -2,7 +2,7 @@
 # Full SHA-256 digests. Cite software_version + git_commit together.
 
 software_version: "0.2.0"
-git_commit: "2d31649d8b5be26b34ae4496c57269f19848adbf"
+git_commit: "4f0edf78da42050c61e77d6f35169b5457e2934e"
 git_tag: "v0.2.0"
 prior_cite_tag: "v0.1.4"
 venue: 
