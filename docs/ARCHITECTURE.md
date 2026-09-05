@@ -54,7 +54,23 @@ Classify        pass / diverge / inconclusive + evidence packs
 | Semantic / behavioral | `P2` marker grep | Proves patch contract; must not rely on coincidental corrupt glyphs |
 | Operational | `INSMOD_RC`, dmesg silence | Separates loader-accepted faults from load failures |
 
-For C3, structural bind is required ground truth. Runtime glyphs under `nokaslr` are illustrative side-effects only.
+For C3, structural bind is required ground truth. Runtime glyphs under `nokaslr` are illustrative side-effects only. Full algorithm and FP policy: [`docs/STRUCTURAL-ORACLE.md`](STRUCTURAL-ORACLE.md). Contract YAML exemplars: [`docs/contracts/`](contracts/).
+
+## Observables captured in Stage B
+
+| Observable | Role |
+| --- | --- |
+| `/proc` (or dual-path) markers | P2 post-patch / P3 baseline restore |
+| `/sys/kernel/livepatch/*/enabled` | Load + revert diagnostics (`P3_ENABLED_ZERO`) |
+| `/sys/kernel/livepatch/*/transition` | Transition completion poll |
+| dmesg / serial | Supporting context; not C3 GT |
+| Structural bind lines | C3 GT (`STRUCTURAL_BIND_PASS`) |
+
+Non-determinism mitigations on published packs: QEMU TCG, `nokaslr`, fixed pins, disposable guests, directory iteration (never shell-glob) for sysfs disable.
+
+## QEMU acceleration
+
+Set `QEMU_ACCEL=tcg` (default for cite packs) or `QEMU_ACCEL=kvm` when `/dev/kvm` exists. `pilot/scripts/29-stanford-lab-suite.sh` refuses KVM if the device is absent. Host B (ephemeral shared lab) historically has no nested KVM.
 
 ## Hardened P3 revert (optional operator API)
 

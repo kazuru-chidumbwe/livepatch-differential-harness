@@ -1,5 +1,27 @@
 ## [Unreleased]
 
+## [0.2.2] — 2026-09-05
+
+### Added
+
+- `docs/STRUCTURAL-ORACLE.md` — PLT32 bind algorithm, FP policy, type coverage.
+- `docs/contracts/` — YAML exemplars (C3, INCLUDE S-52577, Dirty Pipe marker) + operator-effort notes.
+- `pilot/scripts/29-stanford-lab-suite.sh` — Host B structural recheck, timed TCG P2/P3, benign aggregation, KVM absence note.
+- `pilot/results/STANFORD-LAB-20260905T002910Z/` — wall-clock + SUMMARY (`STRUCTURAL_BIND_PASS=1`; three boots P2/P3 pass; KVM_ABSENT).
+- `pilot/results/BENIGN-SUITE.md` — aggregated B1 / C6 / PILOT-02 benign controls.
+
+### Changed
+
+- `docs/ARCHITECTURE.md` — observables table + `QEMU_ACCEL` note.
+- `docs/PREDICATE-SCHEMA.md` — points at contracts / structural oracle (package `v0.2.2`).
+- `verify-plt32-binding.py` docstring documents algorithm steps.
+
+### Lab evidence (`v0.2.2` · Stanford suite · Host B `10.4.0.32`)
+
+- TCG wall_sec: INCLUDE primary 26.698; Dirty Pipe 6.248; second-pin INCLUDE 6.573.
+- `KVM_ABSENT=1` (no nested virt on Host B).
+- Close: `STANFORD_LAB_DONE=20260905T002910Z`.
+
 ## [0.2.1] — 2026-09-03
 
 ### Added

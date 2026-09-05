@@ -1,0 +1,40 @@
+case_id: LP-CORPUS-DIRTYPIPE
+note: >
+  Pin-era smoke on Linux v5.16.10. Marker livepatch of version_proc_show
+  (DIRTYPIPE-HARNESS-MARK). Not a livepatch of pipe_write; not a field
+  reproduction of CVE-2022-0847. Optimistic-bias risk vs a real pipe fix
+  is acknowledged in the paper.
+kernel:
+  version: "5.16.10"
+module: pilot/handbuild/LP-CORPUS-DIRTYPIPE/livepatch-dirtypipe.ko
+pre:
+  expect: PASSES_PRE
+  scan: pilot/scripts/pre-revert-scan.py
+runtime:
+  qemu:
+    accel: TCG
+    append: "console=ttyS0 panic=1 nokaslr init=/init"
+    timeout_sec: 180
+  observables:
+    - kind: proc_marker
+      path: /proc/version
+      marker: DIRTYPIPE-HARNESS-MARK
+    - kind: sysfs
+      path: /sys/kernel/livepatch/*/enabled
+    - kind: sysfs
+      path: /sys/kernel/livepatch/*/transition
+  p2:
+    proc_file: /proc/version
+    marker: DIRTYPIPE-HARNESS-MARK
+    expect_pass: true
+  p3:
+    proc_file: /proc/version
+    marker: DIRTYPIPE-HARNESS-MARK
+    expect_pass: true
+    transition_timeout_sec: 30
+    fields:
+      - P3_TRANSITION_COMPLETE
+      - P3_ENABLED_ZERO
+      - P3_BASELINE_OBSERVED
+      - P3_CONTRACT_PASS
+      - P3_PASS

@@ -1,6 +1,6 @@
-# Predicate contract schema (package v0.2.0)
+# Predicate contract schema (package v0.2.2)
 
-Machine-readable sketch for per-case PRE(A), P2/P3 contracts. Operators still author semantics; this schema records what each run script encodes before QEMU replay counts as meaningful.
+Machine-readable sketch for per-case PRE(A), P2/P3 contracts. Operators still author semantics; this schema records what each run script encodes before QEMU replay counts as meaningful. Instantiated exemplars: [`docs/contracts/`](contracts/). Structural algorithm: [`docs/STRUCTURAL-ORACLE.md`](STRUCTURAL-ORACLE.md).
 
 ## Stage A — PRE(A) revert-soundness (static)
 

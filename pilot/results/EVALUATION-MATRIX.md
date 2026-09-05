@@ -12,7 +12,8 @@ Cite pin attribution (canonical per claim):
 | `v0.2.1` | v6.1.119 second-pin depth (2 INCLUDE + C3) |
 
 Cross-toolchain done in published packs: hand vs `kpatch-build` only. The `klp-build` matrix is deferred.  
-Lab close: `FULL_PIPELINE_DONE=2026-09-03T20:25:47Z`; `SECOND_PIN_DEPTH_DONE=2026-09-03T21:03:05Z` on `boma-test`.
+Lab close: `FULL_PIPELINE_DONE=2026-09-03T20:25:47Z`; `SECOND_PIN_DEPTH_DONE=2026-09-03T21:03:05Z` on `boma-test`.  
+Stanford suite: `STANFORD_LAB_DONE=20260905T002910Z` on Host B (`KVM_ABSENT=1`; TCG wall clocks in `pilot/results/STANFORD-LAB-20260905T002910Z/`).
 
 ## Research questions
 

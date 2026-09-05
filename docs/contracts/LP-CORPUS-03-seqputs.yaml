@@ -1,0 +1,47 @@
+case_id: LP-CORPUS-03-seqputs
+kernel:
+  version: "6.6.47"
+  commit: 4c1a2d4cd9a5b6c55739a80c5b9efbca322adad7
+module: pilot/handbuild/LP-CORPUS-03-seqputs/livepatch-corpus03.ko
+mutation:
+  class: M1
+  script: pilot/scripts/perturb-plt32-redirect.py
+  args:
+    from: seq_puts
+    to: seq_putc
+structural:
+  oracle: verify-plt32-binding.py
+  expect:
+    - r_offset: "0x29"
+      type: R_X86_64_PLT32
+      symbol: seq_putc
+runtime:
+  qemu:
+    accel: TCG
+    append: "console=ttyS0 panic=1 nokaslr init=/init"
+    timeout_sec: 180
+  observables:
+    - kind: proc_marker
+      path: /proc/version
+      marker: LP-PILOT-02 patched-by-harness
+    - kind: sysfs
+      path: /sys/kernel/livepatch/*/enabled
+    - kind: sysfs
+      path: /sys/kernel/livepatch/*/transition
+    - kind: dmesg
+      note: transition / livepatch messages; not sole GT for C3
+  p2:
+    proc_file: /proc/version
+    marker: LP-PILOT-02 patched-by-harness
+    expect_pass: true
+  p3:
+    proc_file: /proc/version
+    marker: LP-PILOT-02 patched-by-harness
+    expect_pass: true
+    transition_timeout_sec: 30
+    fields:
+      - P3_TRANSITION_COMPLETE
+      - P3_ENABLED_ZERO
+      - P3_BASELINE_OBSERVED
+      - P3_CONTRACT_PASS
+      - P3_PASS

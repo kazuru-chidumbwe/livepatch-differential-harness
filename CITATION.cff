@@ -8,20 +8,20 @@ authors:
     orcid: "https://orcid.org/0009-0002-4099-1059"
     email: kazuruuni@gmail.com
 repository-code: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness"
-url: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.2.1"
+url: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.2.2"
 abstract: >-
   Differential test harness for Linux livepatch build pipelines. Combines ELF
   relocation triage, structural PLT32 bind checks, loadable mutants, PRE(A)
   revert-soundness gating, and per-case runtime predicates including hardened P3.
   Cite pin on Linux v6.6.47 plus Dirty Pipe PRE-gated packs on v5.16.10,
-  second-pin smoke and depth on v6.1.119, six INCLUDE CVE contract packs, and PRE(A)
-  population scan.
+  second-pin smoke and depth on v6.1.119, six INCLUDE CVE contract packs, PRE(A)
+  population scan, and Stanford minor-rev structural/timing suite.
 keywords:
   - livepatch
   - Linux
   - differential testing
   - kpatch
   - ELF relocation
- license: MIT
-version: "0.2.1"
-date-released: "2026-09-03"
+license: MIT
+version: "0.2.2"
+date-released: "2026-09-05"

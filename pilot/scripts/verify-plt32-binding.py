@@ -4,6 +4,13 @@
 C3 verification must assert the wrong callee binding, not a contingent
 observable glyph (ASCII '!' is a layout coincidence on nokaslr pins).
 
+Algorithm (see docs/STRUCTURAL-ORACLE.md):
+  1. Parse readelf -rW for R_X86_64_PLT32 → (r_offset, symbol).
+  2. Collect GOOD offsets bound to SRC_SYM.
+  3. At each offset, require GOOD=SRC_SYM and PERT=DST_SYM.
+  Addends are not compared (32S addend faults use a different mutator).
+  Symbol strings are readelf names (local/weak/extern); no GOT re-resolve.
+
 Usage:
   verify-plt32-binding.py --check-redirect GOOD.ko PERT.ko SRC_SYM DST_SYM
 
