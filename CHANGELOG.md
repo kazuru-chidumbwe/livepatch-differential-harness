@@ -15,6 +15,7 @@
 - `docs/ARCHITECTURE.md` — observables table + `QEMU_ACCEL` note.
 - `docs/PREDICATE-SCHEMA.md` — points at contracts / structural oracle (package `v0.2.2`).
 - `verify-plt32-binding.py` docstring documents algorithm steps.
+- Zenodo version DOI **10.5281/zenodo.22313867** (concept **10.5281/zenodo.21958991**) wired in `docs/ZENODO.md` / `CITATION.cff` / `.zenodo.json`.
 
 ### Lab evidence (`v0.2.2` · Stanford suite · Host B `10.4.0.32`)
 

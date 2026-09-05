@@ -1,7 +1,7 @@
 {
   "title": "LivepatchDiff: Checking That Livepatch Builds Still Do What They Claim",
   "upload_type": "software",
-  "description": "Differential test harness for Linux livepatch build pipelines. Cite pin v0.2.1: ELF relocation triage, structural PLT32 bind checks, loadable mutants, PRE(A) gating, runtime predicates, C6 kpatch -O2/-Os, Dirty Pipe PRE-gated P3 on v5.16.10, INCLUDE CVE contract packs. Cite SemVer tag v0.2.1. Run only inside QEMU guests.",
+  "description": "Differential test harness for Linux livepatch build pipelines. Cite pin v0.2.2: ELF relocation triage, structural PLT32 bind checks (docs/STRUCTURAL-ORACLE.md), loadable mutants, PRE(A) gating, runtime predicates, contract YAML exemplars, Dirty Pipe PRE-gated P3, INCLUDE packs, second-pin depth, Stanford Host B TCG timing suite. Cite SemVer tag v0.2.2. DOI https://doi.org/10.5281/zenodo.22313867. Run only inside QEMU guests.",
   "creators": [
     {
       "name": "Kazuru, Seke",
@@ -23,15 +23,22 @@
   "access_right": "open",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.2.1",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.2.2",
       "relation": "isSupplementTo",
       "resource_type": "software"
     },
     {
-      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.1",
+      "identifier": "https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.2",
       "relation": "isIdenticalTo",
       "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.22313867",
+      "relation": "isIdenticalTo",
+      "resource_type": "software",
+      "scheme": "doi"
     }
   ],
-  "notes": "research-article capsule (LivepatchDiff). Prior SemVer pins remain available. GitHub tree URL is the primary software cite; Zenodo is the archival replication package."
+  "version": "0.2.2",
+  "notes": "research-article capsule (LivepatchDiff). Version DOI 10.5281/zenodo.22313867 · concept 10.5281/zenodo.21958991. GitHub tree URL is the primary software cite; Zenodo is the archival replication package."
 }

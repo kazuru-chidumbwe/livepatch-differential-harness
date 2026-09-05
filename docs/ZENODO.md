@@ -1,25 +1,26 @@
 # Zenodo archive — LivepatchDiff
 
-**Status:** package cite pin **`v0.1.4`** · mint when `ZENODO_TOKEN` is set (or Zenodo↔GitHub Sync on that Release).
+**Status:** cite pin **`v0.2.2`** minted (GitHub→Zenodo sync on Release publish).
 
-**Cite pin:** `v0.1.4` (hardened P3 + `PREDICATE-SCHEMA.md` + refreshed C6/C5 packs)  
-**Prior tag:** `v0.1.2` (package closeout)  
-**GitHub tree (GitHub C2):** https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.1.4  
+| Field | Value |
+| --- | --- |
+| **Version DOI** | https://doi.org/10.5281/zenodo.22313867 |
+| **Concept DOI** | https://doi.org/10.5281/zenodo.21958991 |
+| **Cite pin** | `v0.2.2` (suite commit `230ed5d`) |
+| **GitHub tree (C2)** | https://github.com/kazuru-chidumbwe/livepatch-differential-harness/tree/v0.2.2 |
+| **GitHub Release** | https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.2 |
+| **License** | MIT |
 
-**Version DOI:** _pending mint_ (optional; GitHub C2 is sufficient for package)  
-**Concept DOI:** _pending mint_
+Prior version DOIs remain on the concept record (v0.1.1 … v0.2.1).
 
 ## package Code metadata
 
 | Field | Value |
 | --- | --- |
-| C1 | `v0.1.4` |
-| C2 | GitHub tree URL above (**required**; not Zenodo) |
-| License | MIT |
-| Capsule | Optional Zenodo version DOI after publish |
+| C1 | `v0.2.2` |
+| C2 | GitHub tree URL above (**required**) |
+| Capsule | Version DOI above |
 
-## Mint
+## Mint notes
 
-Atlas helper: `CURRENT-WORK/Livepatch/packaging/zenodo-v0.1.2/mint_zenodo_v0.1.2.py --publish`
-
-Or enable the repo under Zenodo → GitHub → Sync Release `v0.1.4`.
+Published 2026-09-05 via Zenodo GitHub integration when Release `v0.2.2` was created. Atlas staging zip also at `CURRENT-WORK/Livepatch/packaging/zenodo-v0.2.2/`.
