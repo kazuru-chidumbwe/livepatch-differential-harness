@@ -1,10 +1,10 @@
-# LivepatchDiff release manifest (cite pin v0.2.1)
+# LivepatchDiff release manifest (cite pin v0.2.2)
 # Full SHA-256 digests. Cite software_version + git_commit together.
 
-software_version: "0.2.1"
-git_commit: "60961196e8b75e53c8d31fa2fcc509e9cd49dbdb"
-git_tag: "v0.2.1"
-prior_cite_tag: "v0.2.0"
+software_version: "0.2.2"
+git_commit: "230ed5da286d5ba08310f4f234e439a1fe7d8151"
+git_tag: "v0.2.2"
+prior_cite_tag: "v0.2.1"
 prior_package_tag: "v0.1.4"
 license: MIT
 repository: "https://github.com/kazuru-chidumbwe/livepatch-differential-harness"
@@ -20,65 +20,26 @@ kernel_second_pin:
   commit: "e4d90d63d385228b1e0bcf31cc15539bbbc28f7f"
 
 toolchain:
-  qemu_version: "10.0.11 (boma-test cite-pin packs); Docker pin documents 8.2.x"
+  qemu_version: "8.2.2 (Host B Stanford suite); Docker/boma-test pins may differ"
   gcc_primary: "13 (Ubuntu 24.04)"
   gcc_dirtypipe: "13 (Ubuntu 24.04 · Dirty Pipe rebuild)"
   binutils: "2.42"
   kpatch_build: "0.9.11"
   host_arch: "x86-64"
   docker: required
-  qemu_accel: "TCG or KVM (lab used TCG-class QEMU guest)"
+  qemu_accel: "TCG (Host B KVM absent; cite packs TCG-class)"
 
 safety: >
   All module loading and mutation experiments must run inside the disposable
   QEMU guest. Do not run against a production host kernel.
 
-artifacts:
-  - path: pilot/results/LP-CORPUS-03-survivable-sym/structural-bind.txt
-    sha256: "D4E7DA3CF17A16E519CEF371BF8FEDFA167BE4055EA1043BC3E69EC95B7CF9DE"
-  - path: pilot/results/LP-CORPUS-03-survivable-sym/predicate-transcript.txt
-    sha256: "B96351AFAA6AE2062ACEDDD50A217706BE2A13F14D2C4B8FE6E2A213C2685344"
-  - path: pilot/results/LP-CORPUS-05-under-inclusion/predicate-transcript.txt
-    sha256: "AFD27682F50EFB24D9D15C2A50277673E9DDE11F6F52528C183A215E6132BE41"
-  - path: pilot/results/LP-CORPUS-06-kpatch-opt/kpatch-output-O2.ko
-    sha256: "12C809378E53611EB67B5F739AE8FA0F5CACFE40736910D1DEBB660B5218F513"
-  - path: pilot/results/LP-CORPUS-06-kpatch-opt/kpatch-output-Os.ko
-    sha256: "17742E3C04CD158D97CDEB0EA70272F06B725EC90D9F990DDB2124D1F9398D7F"
-  - path: pilot/results/LP-CORPUS-06-kpatch-opt/predicate-transcript.txt
-    sha256: "EDC1F0CCE814D79B637D72E148F1E0B89AE85C09C362657F2F49457A8E946426"
-  - path: pilot/results/LP-CORPUS-DIRTYPIPE/DIRTYPIPE_PREGATED_DONE.txt
-    sha256: "SEE_FILE"
-  - path: pilot/results/LP-CORPUS-DIRTYPIPE/predicate-serial-pregated.log
-    sha256: "SEE_FILE"
-  - path: pilot/results/LP-SECOND-PIN-v6.1.119/SECOND_PIN_SMOKE_DONE.txt
-    sha256: "SEE_FILE"
-  - path: pilot/results/LP-PRE-POPULATION/population-summary.txt
-    sha256: "SEE_FILE"
-  - path: pilot/results/LP-KLP-BUILD-UPSTREAM/status.txt
-    sha256: "SEE_FILE"
-  - path: pilot/results/cve-triage-table.md
-    sha256: "106474FABC08DE108758ADC2CBF0437B339D32AE1D0E6B01D9EAA6CA7D729F6F"
-  - path: pilot/results/EVALUATION-MATRIX.md
-    sha256: "SEE_FILE"
-  - path: RELEASE_MANIFEST.yaml
-    sha256: "SELF"
-
-evaluation_summary:
-  good_artifacts: 6
-  targeted_mutants_generated: 4
-  mutants_loadable: 4
-  loader_invisible_detected: 4
-  benign_pipeline_pairs: 1
-  opt_level_rebuilds_p2_pass: 2
-  c6_p3_pass: 2
-  dirtypipe_p3_pass: 1
-  include_cve_p3_pass: 6
-  second_pin_p3_pass: 1
-  pre_population_n: 24
-  second_pin_b2_include_p3_pass: 2
-  second_pin_b2_c3_detected: 1
-  note: >
-    cite-pin v0.2.0 full pipeline on boma-test (FULL_PIPELINE_DONE=2026-09-03T20:25:47Z):
-    six INCLUDE CVE contract packs P3_PASS=1; Dirty Pipe PRE-gated P3; v6.1.119 second-pin
-    smoke P3_PASS=1; PRE(A) population N=24 (23 SOUND / 1 OUT_OF_SCOPE); klp-build present
-    on v6.19 with equivalence matrix deferred. Not industrial / vendor-fleet rates.
+stanford_lab:
+  host: "Host B 10.4.0.32"
+  stamp: "20260905T002910Z"
+  wall_clock:
+    include_52577_primary_sec: 26.698
+    dirtypipe_marker_sec: 6.248
+    include_52577_second_sec: 6.573
+  kvm: absent
+  structural_c3: STRUCTURAL_BIND_PASS=1
+  benign_rerun: BENIGN_VARIATION_PASS=1

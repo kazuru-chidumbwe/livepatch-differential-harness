@@ -4,7 +4,7 @@ Annotated tags mark reproducible anchors. Branch tips (`master` / `main`) may ad
 
 | Tag | Commit | Purpose |
 | --- | --- | --- |
-| [`v0.2.2`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.2) | (tag at release) | Stanford minor-rev: structural oracle docs, contract YAML, Host B timing suite |
+| [`v0.2.2`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.2) | `230ed5d` | Stanford minor-rev: structural oracle docs, contract YAML, Host B timing suite |
 | [`v0.2.1`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.1) | `6096119` | cite pin, second-pin depth, v6.1.119 (2 INCLUDE + C3) |
 | [`v0.2.0`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.2.0) | `318eaa7` | cite pin, full pipeline, PRE + Dirty Pipe + 6 INCLUDE + v6.1.119 + PRE N=24 |
 | [`v0.1.4`](https://github.com/kazuru-chidumbwe/livepatch-differential-harness/releases/tag/v0.1.4) | `602fd39` | package cite pin, P3_PASS = contract, C6 P3_PASS=1 |
